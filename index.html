@@ -64,18 +64,24 @@ sup{font:500 var(--s0)/0 var(--mono); color:var(--muted); margin-left:1px}
 sup a{color:inherit; text-decoration:none} sup a:hover,sup a:focus-visible{color:var(--ink)}
 sup a{display:inline-block}
 sup a:only-child{padding:10px 8px; margin:-10px -8px}      sup a:not(:only-child){padding:10px 3px; margin:-10px -3px} 
-header{padding:80px 0 0}
+header{padding:80px 0 24px}
 header .k{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 16px}
 header h1{margin:0 0 24px; max-width:var(--text)}
 button{font:400 var(--s1)/1 var(--mono); color:var(--muted); background:none; border:1px solid var(--hair); border-radius:999px; min-height:44px; padding:0 14px; cursor:pointer; white-space:nowrap}
 button:hover{color:var(--ink); border-color:var(--muted)}
-nav{position:sticky; top:0; z-index:5; background:var(--paper); border-bottom:1px solid var(--hair)}
-nav ol{list-style:none; margin:0 auto; padding:0 8px; display:flex; flex-wrap:wrap; justify-content:center; max-width:calc(var(--text) + 32px)}
-@media (max-width:720px){nav ol{justify-content:flex-start}}
-nav a{display:inline-flex; align-items:center; min-height:44px; padding:0 8px; font:400 var(--s1)/1 var(--mono); text-decoration:none; color:var(--muted); white-space:nowrap; position:relative}
+.top{display:grid; grid-template-columns:minmax(0,1fr) 200px; gap:0 48px}
+.top > div{min-width:0}
+nav ol{list-style:none; margin:0; padding:0 0 0 16px; border-left:1px solid var(--hair)}
+nav li{margin:0}
+nav a{display:flex; align-items:baseline; padding:5px 0; font:400 var(--s1)/1.4 var(--mono); color:var(--body); text-decoration:none; white-space:nowrap}
+nav a b{flex:none; width:3.2ch; font-weight:400; color:var(--muted)}
 nav a:hover,nav a[aria-current]{color:var(--ink)}
-nav a[aria-current]::after{content:""; position:absolute; left:8px; right:8px; bottom:8px; height:2px; background:var(--ink)}
-nav > span{position:absolute; left:0; bottom:-1px; height:2px; width:100%; background:var(--ink); transform-origin:0 50%; transform:scaleX(0); pointer-events:none}
+@media (max-width:720px){
+  .top{grid-template-columns:1fr; gap:32px}
+  nav ol{columns:2; column-gap:24px}
+  nav li{break-inside:avoid}
+    header > .wrap .k{flex-direction:column; align-items:flex-start}
+}
 
 dl{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:32px; margin:48px 0 72px}
 dl > div{border-top:1px solid var(--hair); padding:12px 0 16px; min-width:0}
@@ -200,7 +206,7 @@ button.fold{display:flex; align-items:center; width:100%; max-width:var(--text);
 button.fold:hover{color:var(--ink); border:0}
 button.fold b{color:var(--ink); font-weight:500; margin-right:.6em}
 button.fold > span{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-button.fold::after{content:""; flex:none; margin-left:12px; width:7px; height:7px;
+button.fold::after{content:""; flex:none; margin-left:auto; width:7px; height:7px;
   border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
   transform:rotate(45deg); transition:transform .25s}
 button.fold[aria-expanded="false"]::after{transform:rotate(-45deg)}
@@ -264,14 +270,16 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <h1>Peptide Atlas: <mark>messages</mark>, mechanisms and money</h1>
+<header><div class="wrap"><div class="top">
+ <div>
+    <h1>Peptide Atlas: messages, mechanisms and money</h1>
     <p class="k" style="justify-content:flex-start; gap:8px 32px"><span>Katherine Titterton, Macrofluidics</span><a href="https://macrofluidic.me">macrofluidic.me</a><span>2026-11-05</span></p>
-</div></header>
-<nav aria-label="Contents"><span aria-hidden="true"></span><ol><li><a href="#intro">intro</a></li><li><a href="#map">the cell</a></li><li><a href="#glp1">GLP-1</a></li><li><a href="#rodents">BPC-157, MOTS-c</a></li><li><a href="#doors">nose, skin</a></li><li><a href="#matrix">ranked</a></li><li><a href="#supply">supply</a></li><li><a href="#evidence">how to read</a></li><li><a href="#appendix">appendix</a></li><li><a href="#refs">refs</a></li></ol></nav>
+ </div>
+<nav aria-label="Contents"><ol><li><a href="#intro"><b>00</b>intro</a></li><li><a href="#map"><b>01</b>the cell</a></li><li><a href="#glp1"><b>02</b>GLP-1</a></li><li><a href="#rodents"><b>03</b>BPC-157, MOTS-c</a></li><li><a href="#doors"><b>04</b>nose, skin</a></li><li><a href="#matrix"><b>05</b>ranked</a></li><li><a href="#supply"><b>06</b>supply</a></li><li><a href="#evidence"><b>07</b>how to read</a></li><li><a href="#appendix"><b>A</b>appendix</a></li><li><a href="#refs"><b>R</b>refs</a></li></ol></nav>
+</div></div></header>
 
 <section class="ch" id="intro"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="intro"><b>00</b><span>Frontier biotech, first-class mail</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="intro"><b>00</b><span class="vh">Frontier biotech, first-class mail</span></button></div>
  <h2>Frontier biotech, first-class mail</h2>
  <p>For $54 to $74, a vial of copper peptide powder comes in the post, labelled &#8220;research use only&#8221;. Peptides are the frontier of biotech, and anyone can order one. They are short chains of amino acids, the messages the body already sends: insulin, GLP-1 and oxytocin are peptides. Most work like a key, fitting a receptor on a cell and switching it on at tiny (nanomolar) doses, then breaking down into plain amino acids. Their weakness is staying power. A bare peptide lasts minutes in blood and is lost in the gut, so semaglutide was given a fatty tail, and now it lasts a week. Does a vial in the post work in people, and how would you know? This page asks that of each peptide it follows.</p>
  <div class="read"><h3>Why a peptide can drug what a pill cannot</h3>
@@ -553,7 +561,7 @@ Q 153.0 179.6, 154.5 179.6
  </div></section>
 
 <section class="ch" id="map"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="map"><b>01</b><span>Peptides acting in the cell, a tour</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="map"><b>01</b><span class="vh">Peptides acting in the cell, a tour</span></button></div>
  <h2>Peptides acting in the cell, a tour</h2>
  <p>Every cell is a house with a lock on every door, and peptides are the keys the body cuts for itself. They knock at the door (GLP-1 at its receptor) or hold the furniture still (T&#946;4 on actin, elamipretide on cardiolipin). Some walk right in. MOTS-c talks to the kitchen and then the office (the mitochondrion, then the nucleus). Others catch a bus, the blood protein albumin, and stay in town for a week. Each visit starts a mechanism of action, its MoA: the chain from where a drug binds to the change a body shows. Semaglutide&#8217;s chain ends in dozens of randomised trials, BPC-157&#8217;s runs mostly through rats, and MOTS-c&#8217;s rests on one trial of a close copy, in 20 people. Every chain starts at an address on this cell.</p>
  <figure class="fig" id="fig6">
@@ -742,11 +750,11 @@ Q 153.0 179.6, 154.5 179.6
  </div></section>
 
 <section class="ch" id="glp1"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="glp1"><b>02</b><span>GLP-1: the class that worked in people, and the money that followed</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="glp1"><b>02</b><span class="vh">GLP-1: the class that worked in people, and the money that followed</span></button></div>
  <h2>GLP-1: the class that worked in people, and the money that followed</h2>
  <p>After a meal your gut texts &#8220;enough&#8221;. That text is GLP-1, a gut hormone: it tells the pancreas to release insulin only when blood sugar is high, slows the stomach and makes you feel full.<sup class="ref"><a href="#r19">19</a></sup> The text self-deletes in two minutes. Chemists shielded it from the enzyme that deletes it, gave it a fatty tail — and now it lasts a week. The first drug came from a Gila-monster venom peptide (1992);<sup class="ref"><a href="#r25">25</a></sup> semaglutide and tirzepatide followed, and in 2026 retatrutide reached 28% weight loss.<sup class="ref"><a href="#r24">24</a>,<a href="#r28">28</a></sup> In 2025 those drugs earned Novo DKK 206 bn and Lilly $36.5 bn. This chain was followed all the way to people, and every chapter after it is measured against it.</p>
  <figure class="fig" id="fig12">
- <div class="scroll"><svg viewBox="18 28 911 480" role="img" aria-label="Bead strings of native GLP-1, semaglutide and tirzepatide: the DPP-4 cut site, the Aib substitutions, and the lipidated lysine whose linker and fatty diacid park each drug on albumin" style="min-width:880px">
+ <div class="scroll"><svg viewBox="18 28 911 480" role="img" aria-label="Bead strings of native GLP-1, semaglutide and tirzepatide: the DPP-4 cut site, the Aib substitutions, and the lipidated lysine whose linker and fatty diacid park each drug on albumin">
   <g font-size="14" class="m">
       <text x="20" y="58" class="ink">native GLP-1</text>
    <text x="20" y="74" class="mu">t½ ≈ 2 min</text>
@@ -908,7 +916,7 @@ Q 153.0 179.6, 154.5 179.6
   <tr><th scope="row"><a href="#row-reta">retatrutide</a></th><td><span class="tier" data-t="4" role="img" aria-label="evidence 4 of 5"><i></i><i></i><i></i><i></i><i></i></span>4 of 5, phase 3 TRIUMPH topline 2026</td></tr>
  </table></div>
  <figure class="fig" id="fig3">
-  <div class="scroll"><svg style="min-width:820px" viewBox="24 0 774 322" role="img" aria-label="2025 sales per product with reported growth printed on each bar and each product's share of company sales: Novo Nordisk Ozempic 127.1 (+6%), Wegovy 79.1 (+36%), Rybelsus 22.1 (−5%) billion DKK, together 67% of DKK 309.1 bn; Eli Lilly Mounjaro 23.0 (+99%) and Zepbound 13.5 (+175%) billion USD, 56% of $65.2 bn">
+  <div class="scroll"><svg viewBox="24 0 774 322" role="img" aria-label="2025 sales per product with reported growth printed on each bar and each product's share of company sales: Novo Nordisk Ozempic 127.1 (+6%), Wegovy 79.1 (+36%), Rybelsus 22.1 (−5%) billion DKK, together 67% of DKK 309.1 bn; Eli Lilly Mounjaro 23.0 (+99%) and Zepbound 13.5 (+175%) billion USD, 56% of $65.2 bn">
    <g font-size="14">
     <text x="30" y="24" class="ink" font-size="14" font-weight="600"><tspan>Novo Nordisk</tspan><tspan fill="var(--c)" style="--c:var(--glp)" dx="8">semaglutide</tspan></text>
     <text x="566" y="24" class="mu" text-anchor="end">2025 sales, DKK bn, % change vs 2024</text>
@@ -1425,7 +1433,7 @@ L 186.2 78.6
  </div></section>
 
 <section class="ch" id="rodents"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="rodents"><b>03</b><span>BPC-157 and MOTS-c: clean mechanisms, almost no proof in people</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="rodents"><b>03</b><span class="vh">BPC-157 and MOTS-c: clean mechanisms, almost no proof in people</span></button></div>
  <h2>BPC-157 and MOTS-c: clean mechanisms, almost no proof in people</h2>
  <p>BPC-157 and MOTS-c have the best-drawn mechanisms on the page: a sequence, a receptor, a cell that changed. Rats and mice supplied nearly all of it. Against GLP-1&#8217;s record, BPC-157&#8217;s only randomised trial in people found no effect, and MOTS-c&#8217;s only human study tested a close copy.</p>
  <h3 id="bpc157">BPC-157: a stomach fragment tested almost only in rats</h3>
@@ -5008,7 +5016,7 @@ L 1145.4 188.0
  </div></section>
 
 <section class="ch" id="doors"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="doors"><b>04</b><span>Nose and skin: doors that need no needle</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="doors"><b>04</b><span class="vh">Nose and skin: doors that need no needle</span></button></div>
  <h2>Nose and skin: doors that need no needle</h2>
  <p>Semax goes up the nose; Matrixyl and copper peptide go on the skin. They barely reach the blood, and that is the point: each is read where it lands. Semax, a fragment of the stress hormone ACTH, raises the brain-growth factor BDNF in rats;<sup class="ref"><a href="#r57">57</a></sup> on the skin, Matrixyl and copper peptide target the fibroblasts that make collagen.</p>
  <figure class="fig" id="figroute">
@@ -5033,7 +5041,7 @@ L 1145.4 188.0
  <figcaption><span class="k">Figure 11</span> <b>Needles are the price of the message.</b> Oral semaglutide needs the enhancer SNAC;<sup class="ref"><a href="#r23">23</a></sup> BPC-157 enema data from the FDA review;<sup class="ref"><a href="#r13">13</a></sup> the HHS draft asks compounders of oral forms for human bioavailability data.<sup class="ref"><a href="#r14">14</a></sup> Percentages for subcutaneous and intranasal routes are typical values, not retrieved measurements.</figcaption>
  </figure>
  <figure class="fig" id="figdoors">
- <div class="scroll"><svg viewBox="18 0 858 286" role="img" aria-label="Bead strings of Semax and Matrixyl: each is a fragment of a human protein with a tail added for the route it takes, Pro-Gly-Pro on Semax and a C16 palmitoyl chain on pal-KTTKS" style="min-width:820px">
+ <div class="scroll"><svg viewBox="18 0 858 286" role="img" aria-label="Bead strings of Semax and Matrixyl: each is a fragment of a human protein with a tail added for the route it takes, Pro-Gly-Pro on Semax and a C16 palmitoyl chain on pal-KTTKS">
   <g font-size="14" class="m">
    <text x="20" y="26" class="mu">peptide</text>
    <text x="200" y="26" class="mu">human fragment, and what was added to it</text>
@@ -5235,7 +5243,7 @@ L 1145.4 188.0
  </div></section>
 
 <section class="ch" id="matrix"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="matrix"><b>05</b><span>Every peptide here, ranked by proof in people</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="matrix"><b>05</b><span class="vh">Every peptide here, ranked by proof in people</span></button></div>
  <h2>Every peptide here, ranked by proof in people</h2>
  <p>Darker green means more proof in people, and every dark row had an owner who paid for the trials. The new HHS list is all pale rows. Each scores 3 or below, and its 3s belong to a close copy (CB4211) and to eye drops of the parent protein (RGN-259) — not to the vials being sold.</p>
  <div class="linked">
@@ -5269,58 +5277,113 @@ L 1145.4 188.0
  </div></section>
 
 <section class="ch" id="supply"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="supply"><b>06</b><span>Where the vials come from, and who keeps the margin</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="supply"><b>06</b><span class="vh">Where the vials come from, and who keeps the margin</span></button></div>
  <h2>Where the vials come from, and who keeps the margin</h2>
  <p>Chemists build a peptide like a necklace, threading amino acids one at a time onto a plastic bead in a tank, then cut it loose, wash it and freeze-dry it. A 15-bead peptide is 15 turns of the loop. Biology has a second way: hand the gene to yeast and brew the chain. Vials sold online always come off the bead, and the pen in the pharmacy is brewed, then finished by chemistry. Either way the chain is done in days. The same kind of molecule leaves the factory in different envelopes: a branded pen, a pharmacist's vial, or a website's "research only" vial.</p>
  <figure class="fig" id="figtime">
-  <div class="scroll"><svg viewBox="28 0 834 300" role="img" aria-label="A log time axis from one hour to thirty years with markers: one coupling cycle in hours; a chain in days; a tested vial in weeks; a released GMP batch in months; a medicine in about ten years, with semaglutide's dates above">
-   <g font-size="14">
-        <line x1="60" y1="200" x2="830" y2="200" stroke="var(--ink)" stroke-width="1.5"/>
-    <g class="mu m" font-size="14" text-anchor="middle">
-     <text x="60" y="222">1 h</text><text x="200" y="222">10 h</text><text x="340" y="222">4 d</text><text x="480" y="222">6 wk</text><text x="620" y="222">14 mo</text><text x="760" y="222">11 y</text>
+  <div class="scroll"><svg viewBox="18 0 847 308" role="img" aria-label="A log time axis from one hour to thirty years with markers: one coupling cycle in hours; a chain in days; a tested vial in weeks; a released GMP batch in months; a medicine in about ten years, with semaglutide's dates above">
+    <g font-size="14">
+    <rect x="20" y="2" width="843" height="100" rx="2" fill="var(--wash)"/>
+    <text x="36" y="30" class="ink" font-weight="600">semaglutide, the decade</text>
+    <text x="36" y="56" class="ink"><tspan class="m" font-weight="500">2007–08</tspan> synthesised</text>
+    <text x="238.8" y="56" class="ink"><tspan class="m" font-weight="500">2010–12</tspan> first in human</text>
+    <text x="441.5" y="56" class="ink"><tspan class="m" font-weight="500">2014–16</tspan> SUSTAIN phase 3</text>
+    <text x="644.2" y="56" class="ink" font-weight="600"><tspan class="m" font-weight="500">2017-12-05</tspan> approved</text>
+    <text x="36" y="82" class="mu">early dates from secondary sources; approval from Drugs.com and Novo's announcement</text>
+    <line x1="32.5" y1="206" x2="856" y2="206" stroke="var(--ink)" stroke-width="1.5"/>
+    <path d="M32.5 206 V212 M190.5 206 V212 M348.5 206 V212 M506.5 206 V212 M664.5 206 V212 M822.5 206 V212" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="32.5" y="230" class="ink m" text-anchor="middle">1 h</text>
+    <text x="190.5" y="230" class="ink m" text-anchor="middle">10 h</text>
+    <text x="348.5" y="230" class="ink m" text-anchor="middle">100 h</text>
+    <text x="348.5" y="247" class="mu m" text-anchor="middle">4 d</text>
+    <text x="506.5" y="230" class="ink m" text-anchor="middle">1,000 h</text>
+    <text x="506.5" y="247" class="mu m" text-anchor="middle">6 wk</text>
+    <text x="664.5" y="230" class="ink m" text-anchor="middle">10,000 h</text>
+    <text x="664.5" y="247" class="mu m" text-anchor="middle">14 mo</text>
+    <text x="822.5" y="230" class="ink m" text-anchor="middle">100,000 h</text>
+    <text x="822.5" y="247" class="mu m" text-anchor="middle">11 y</text>
+    <text x="444.2" y="274" class="ink" text-anchor="middle">time, log scale → longer</text>
+    <circle cx="70.2" cy="206" r="7" fill="var(--ink)"/>
+    <circle cx="298.1" cy="206" r="7" fill="var(--ink)"/>
+    <circle cx="421.8" cy="206" r="7" fill="var(--muted)"/>
+    <circle cx="591.1" cy="206" r="7" fill="var(--muted)"/>
+    <circle cx="813.5" cy="206" r="7" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+    <g class="halo" text-anchor="middle">
+    <text x="70.2" y="146" class="ink">one coupling</text>
+    <text x="70.2" y="163" class="mu">1–3 h*</text>
+    <text x="298.1" y="146" class="ink">a 15–31-mer chain</text>
+    <text x="298.1" y="163" class="mu">1–4 days</text>
+    <text x="298.1" y="180" class="mu">of cycles*</text>
+    <text x="421.8" y="146" class="ink">a tested vial</text>
+    <text x="421.8" y="163" class="mu">purify, dry, test:</text>
+    <text x="421.8" y="180" class="mu">1–3 wk*</text>
+    <text x="591.1" y="146" class="ink">a released GMP batch</text>
+    <text x="591.1" y="163" class="mu">months, paperwork included*</text>
+    <text x="813.5" y="146" class="ink" font-weight="600">a medicine</text>
+    <text x="813.5" y="163" class="mu">about a decade</text>
     </g>
-    <text x="445" y="246" class="ink" text-anchor="middle">time, log scale → longer</text>
-        <g>
-     <circle cx="75" cy="200" r="7" fill="var(--ink)"/><circle cx="257" cy="200" r="7" fill="var(--ink)"/><circle cx="432" cy="200" r="7" fill="var(--muted)"/><circle cx="555" cy="200" r="7" fill="var(--muted)"/><circle cx="757" cy="200" r="7" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+    <text x="20" y="302" class="mu">*durations are typical values, not retrieved for this page; the one hard date is the approval.</text>
     </g>
-    <g class="halo">
-     <text x="75" y="170" class="ink" text-anchor="middle">one coupling</text><text x="75" y="186" class="mu" text-anchor="middle">1–3 h*</text>
-     <text x="257" y="140" class="ink" text-anchor="middle">a 15–31-mer chain</text><text x="257" y="156" class="mu" text-anchor="middle">1–4 days of cycles*</text>
-     <text x="432" y="170" class="ink" text-anchor="middle">a tested vial</text><text x="432" y="186" class="mu" text-anchor="middle">purify, dry, test: 1–3 wk*</text>
-     <text x="555" y="140" class="ink" text-anchor="middle">a released GMP batch</text><text x="555" y="156" class="mu" text-anchor="middle">months, paperwork included*</text>
-     <text x="757" y="170" fill="var(--ink)" text-anchor="middle" font-weight="600">a medicine</text><text x="757" y="186" class="mu" text-anchor="middle">about a decade</text>
-    </g>
-        <rect x="60" y="34" width="800" height="70" rx="10" class="box2"/>
-    <text x="80" y="54" fill="var(--ink)" font-weight="600">semaglutide, the decade</text>
-    <g class="m" font-size="14"><text x="80" y="76" class="ink">2007–08 synthesised</text><text x="260" y="76" class="ink">2010–12 first in human</text><text x="450" y="76" class="ink">2014–16 SUSTAIN phase 3</text><text x="660" y="76" fill="var(--ink)" font-weight="600">2017-12-05 approved</text></g>
-    <text x="80" y="94" class="mu" font-size="14">early dates from secondary sources; approval from Drugs.com and Novo's announcement</text>
-    <text x="30" y="280" class="mu" font-size="14">*durations are typical values, not retrieved for this page; the one hard date is the approval.</text>
-   </g>
   </svg></div>
   
   <div class="fkey"><span class="key"><i class="sw"></i>chemistry</span> <span class="key"><i class="sw" style="--c:var(--muted)"></i>quality and release</span> <span class="key"><i class="sw" data-s="ring" style="--c:var(--ink);background:var(--paper)"></i>clinical development</span></div>
  <figcaption><span class="k">Figure 15</span> <b>Making the molecule takes days; making it a medicine takes a decade.</b> That gap is the whole business: the grey market sells the days, pharma sells the decade.<sup class="ref"><a href="#r71">71</a></sup></figcaption>
  </figure>
  <figure class="fig" id="figloop">
-  <div class="scroll"><svg viewBox="28 0 825 300" role="img" aria-label="A wall labelled FDA approval with four doors: shortage compounding, which closed in 2025; 503A listed bulk substances and the 2026 enforcement-discretion list; research-use-only labelling; offshore vendors paid in crypto">
-   <g font-size="14">
-    <rect x="30" y="40" width="820" height="40" rx="6" fill="var(--wash)" stroke="var(--muted)"/><text x="440" y="65" class="ink" text-anchor="middle" font-weight="600" font-size="14">the wall: a drug needs an approved application (NDA) before sale</text>
-    <g>
-     <rect x="40" y="110" width="190" height="130" rx="10" class="box"/><rect x="250" y="110" width="190" height="130" rx="10" fill="var(--mark)" stroke="var(--ink)" stroke-width="1.5"/><rect x="460" y="110" width="190" height="130" rx="10" class="box"/><rect x="670" y="110" width="180" height="130" rx="10" class="box" stroke-dasharray="4 3"/>
+  <div class="scroll"><svg viewBox="18 0 844 330" role="img" aria-label="A wall labelled FDA approval with four doors: shortage compounding, which closed in 2025; 503A listed bulk substances and the 2026 enforcement-discretion list; research-use-only labelling; offshore vendors paid in crypto">
+    <g font-size="14">
+    <rect x="20" y="2" width="840" height="40" rx="2" fill="var(--wash)"/>
+    <text x="36" y="27" class="ink" font-weight="600">the wall: a drug needs an approved application (NDA) before sale</text>
+    <rect x="20" y="58" width="198" height="235" rx="2" fill="var(--wash)"/>
+    <text x="36" y="85" class="mu m">door 1</text>
+    <text x="36" y="104" class="ink" font-weight="600">shortage</text>
+    <text x="36" y="132" class="ink">compounding allowed</text>
+    <text x="36" y="149" class="ink">while the brand is in</text>
+    <text x="36" y="166" class="ink">shortage</text>
+    <text x="36" y="194" class="mu">tirzepatide shut</text>
+    <text x="36" y="211" class="mu">2025-02/03</text>
+    <text x="36" y="228" class="mu">semaglutide shut</text>
+    <text x="36" y="245" class="mu">2025-04/05</text>
+    <text x="36" y="273" class="ink" font-weight="600">shut, under litigation</text>
+    <rect x="234" y="58" width="198" height="235" rx="2" fill="var(--wash)"/>
+    <text x="250" y="85" class="mu m">door 2</text>
+    <text x="250" y="104" class="ink" font-weight="600">503A bulks list</text>
+    <text x="250" y="132" class="ink">a pharmacy compounds</text>
+    <text x="250" y="149" class="ink">from a listed substance,</text>
+    <text x="250" y="166" class="ink">on script</text>
+    <text x="250" y="194" class="mu">HHS draft 2026-10:</text>
+    <text x="250" y="211" class="mu">6 peptides</text>
+    <text x="250" y="228" class="mu">10 conditions, no blends</text>
+    <text x="250" y="273" class="ink" font-weight="600">ajar, not law</text>
+    <rect x="448" y="58" width="198" height="235" rx="2" fill="var(--wash)"/>
+    <text x="464" y="85" class="mu m">door 3</text>
+    <text x="464" y="104" class="ink" font-weight="600">"research use only"</text>
+    <text x="464" y="132" class="ink">sell the powder</text>
+    <text x="464" y="149" class="ink">with a label that says</text>
+    <text x="464" y="166" class="ink">not for humans</text>
+    <text x="464" y="194" class="mu">FDA: the label</text>
+    <text x="464" y="211" class="mu">changes nothing;</text>
+    <text x="464" y="228" class="mu">warning letters</text>
+    <text x="464" y="245" class="mu">since 2024</text>
+    <text x="464" y="273" class="ink" font-weight="600">open, enforced slowly</text>
+    <rect x="662" y="58" width="198" height="235" rx="2" fill="var(--wash)"/>
+    <text x="678" y="85" class="mu m">door 4</text>
+    <text x="678" y="104" class="ink" font-weight="600">offshore</text>
+    <text x="678" y="132" class="ink">buy from a Chinese</text>
+    <text x="678" y="149" class="ink">exporter,</text>
+    <text x="678" y="166" class="ink">pay in stablecoins</text>
+    <text x="678" y="194" class="mu">$32 M in Q1 2026, +159%</text>
+    <text x="678" y="211" class="mu">testing spend $8</text>
+    <text x="678" y="228" class="mu">per buyer</text>
+    <text x="678" y="273" class="ink" font-weight="600">wide open</text>
+    <text x="20" y="323" class="mu">Door 1 is where compounded Ozempic came from in 2023–25. Doors 2–4 are where BPC-157 and MOTS-c come from now.</text>
     </g>
-    <text x="135" y="134" class="ink" text-anchor="middle" font-weight="600"><tspan>door 1</tspan><tspan dx="7">shortage</tspan></text><text x="135" y="154" class="ink" text-anchor="middle">compounding allowed while</text><text x="135" y="170" class="ink" text-anchor="middle">the brand is in shortage</text><text x="135" y="196" class="mu" text-anchor="middle">tirzepatide shut 2025-02/03</text><text x="135" y="212" class="mu" text-anchor="middle">semaglutide shut 2025-04/05</text><text x="135" y="230" text-anchor="middle" fill="var(--ink)">shut, under litigation</text>
-    <text x="345" y="134" fill="var(--ink)" text-anchor="middle" font-weight="600"><tspan>door 2</tspan><tspan dx="7">503A bulks list</tspan></text><text x="345" y="154" class="ink" text-anchor="middle">a pharmacy compounds from</text><text x="345" y="170" class="ink" text-anchor="middle">a listed substance, on script</text><text x="345" y="196" class="mu" text-anchor="middle">HHS draft 2026-10: 6 peptides</text><text x="345" y="212" class="mu" text-anchor="middle">10 conditions, no blends</text><text x="345" y="230" fill="var(--ink)" text-anchor="middle">ajar, not law</text>
-    <text x="555" y="134" class="ink" text-anchor="middle" font-weight="600"><tspan>door 3</tspan><tspan dx="7">"research use only"</tspan></text><text x="555" y="154" class="ink" text-anchor="middle">sell the powder with a label</text><text x="555" y="170" class="ink" text-anchor="middle">that says not for humans</text><text x="555" y="196" class="mu" text-anchor="middle">FDA: the label changes nothing;</text><text x="555" y="212" class="mu" text-anchor="middle">warning letters since 2024</text><text x="555" y="230" class="mu" text-anchor="middle">open, enforced slowly</text>
-    <text x="760" y="134" fill="var(--ink)" text-anchor="middle" font-weight="600"><tspan>door 4</tspan><tspan dx="7">offshore</tspan></text><text x="760" y="154" class="ink" text-anchor="middle">buy from a Chinese exporter,</text><text x="760" y="170" class="ink" text-anchor="middle">pay in stablecoins</text><text x="760" y="196" class="mu" text-anchor="middle">$32 M in Q1 2026, +159%</text><text x="760" y="212" class="mu" text-anchor="middle">testing spend $8 per buyer</text><text x="760" y="230" fill="var(--ink)" text-anchor="middle">wide open</text>
-    <text x="440" y="280" class="mu" text-anchor="middle">Door 1 is where compounded Ozempic came from in 2023–25. Doors 2–4 are where BPC-157 and MOTS-c come from now.</text>
-   </g>
   </svg></div>
   
-  <div class="fkey"><span class="key"><i class="sw" data-s="box"></i>legal, conditional</span> <span class="key"><i class="sw" data-s="box" style="--b:var(--mark)"></i>2026 policy</span> <span class="key"><i class="sw" data-s="dash"></i>unregulated</span></div>
- <figcaption><span class="k">Figure 16</span> <b>Pharmacies reopened their door in October 2026, a year after the shortage door shut.</b> How an unapproved peptide reaches a person. Shortage-compounding deadlines from FDA's resolution notices (tirzepatide 503A to 18 Feb 2025, 503B to 19 Mar 2025; semaglutide 503A to 22 Apr 2025, 503B to 22 May 2025).<sup class="ref"><a href="#r69">69</a></sup> The 503A door from the HHS draft;<sup class="ref"><a href="#r14">14</a></sup> doors 3 and 4 from Chainalysis and Undark.<sup class="ref"><a href="#r60">60</a>,<a href="#r17">17</a></sup></figcaption>
+  <figcaption><span class="k">Figure 16</span><b>Pharmacies reopened their door in October 2026, a year after the shortage door shut.</b> How an unapproved peptide reaches a person. Shortage-compounding deadlines from FDA's resolution notices (tirzepatide 503A to 18 Feb 2025, 503B to 19 Mar 2025; semaglutide 503A to 22 Apr 2025, 503B to 22 May 2025).<sup class="ref"><a href="#r69">69</a></sup> The 503A door from the HHS draft;<sup class="ref"><a href="#r14">14</a></sup> doors 3 and 4 from Chainalysis and Undark.<sup class="ref"><a href="#r60">60</a>,<a href="#r17">17</a></sup></figcaption>
  </figure>
  <figure class="fig" id="fig5">
- <div class="scroll"><svg style="min-width:820px" viewBox="29 0 773 554" role="img" aria-label="One time axis from July 2021 to December 2026, to scale. Regulation events above the axis, market events below, and a strip of crypto inflows to grey-market peptide vendors underneath: $12 M in Q4 2025, $32 M in Q1 2026 (+159%), a run rate above $100 M a year">
+ <div class="scroll"><svg viewBox="29 0 773 554" role="img" aria-label="One time axis from July 2021 to December 2026, to scale. Regulation events above the axis, market events below, and a strip of crypto inflows to grey-market peptide vendors underneath: $12 M in Q4 2025, $32 M in Q1 2026 (+159%), a run rate above $100 M a year">
   <g font-size="14">
    <line x1="123.2" y1="34" x2="123.2" y2="524" stroke="var(--hair)" stroke-width="1"/>
    <line x1="256.6" y1="34" x2="256.6" y2="524" stroke="var(--hair)" stroke-width="1"/>
@@ -5452,7 +5515,7 @@ L 1145.4 188.0
  </div></section>
 
 <section class="ch" id="evidence"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="evidence"><b>07</b><span>Reading the evidence, and what would move it</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="evidence"><b>07</b><span class="vh">Reading the evidence, and what would move it</span></button></div>
  <h2>Reading the evidence, and what would move it</h2>
  <p>Ask any peptide claim which species, how many labs, and what else is in the vial.</p>
  <figure class="fig" id="figgb" style="--capw:99.3%">
@@ -5512,7 +5575,7 @@ L 1145.4 188.0
  </div></section>
 
 <section class="ch" id="appendix"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="appendix"><b>A</b><span>Appendix</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="appendix"><b>A</b><span class="vh">Appendix</span></button></div>
  <h2>Appendix</h2>
  <p>Figures and tables the story above can do without, each with its caption and sources.</p>
   <details>
@@ -5839,7 +5902,7 @@ L 1145.4 188.0
   <details>
   <summary>what a month costs, and what it costs to make</summary>
   <figure class="fig" id="fig4">
- <div class="scroll"><svg style="min-width:820px" viewBox="28 0 744 334" role="img" aria-label="Two registers. A: log-scale axis of dollars per month: cost-based price 0.89 to 4.73, Medicare 245, TrumpRx cash 350, list 1349; the list is 285 to 1,500 times the cost, the cash price 74 to 390 times. B: the 1,349 list price as one linear bar: cost under 0.4%, cash price 26%, the remaining 74% is the gap between cash and list">
+ <div class="scroll"><svg viewBox="28 0 744 334" role="img" aria-label="Two registers. A: log-scale axis of dollars per month: cost-based price 0.89 to 4.73, Medicare 245, TrumpRx cash 350, list 1349; the list is 285 to 1,500 times the cost, the cash price 74 to 390 times. B: the 1,349 list price as one linear bar: cost under 0.4%, cash price 26%, the remaining 74% is the gap between cash and list">
   <g font-size="14">
    <text x="30" y="22" class="mu m"><tspan class="ink" font-weight="600">A</tspan><tspan dx="8">US$ per month, log scale</tspan></text>
    <path d="M225.0 56 v-6 H716.0 v6" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
@@ -5896,7 +5959,7 @@ L 1145.4 188.0
   <details>
   <summary>one turn of the synthesis cycle</summary>
   <figure class="fig" id="fig14">
-  <div class="scroll"><svg id="spps" style="min-width:820px" viewBox="10 0 819 440" role="img" aria-label="A four-step cycle: remove Fmoc with piperidine, wash, couple the next Fmoc amino acid with an activator, wash; after the last residue, cleave with TFA, purify by HPLC, lyophilise">
+  <div class="scroll"><svg id="spps" viewBox="10 0 819 440" role="img" aria-label="A four-step cycle: remove Fmoc with piperidine, wash, couple the next Fmoc amino acid with an activator, wash; after the last residue, cleave with TFA, purify by HPLC, lyophilise">
    <defs><marker id="ar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
    <g font-size="14">
         <circle cx="300" cy="200" r="110" fill="none" stroke="var(--hair)" stroke-width="3"/>
@@ -6198,8 +6261,9 @@ L 1145.4 188.0
  </div></section>
 
 <section class="ch" id="refs"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="refs"><b>R</b><span>93 references, retrieved 2026-11-05, DOIs checked against Crossref, web sources dated</span></button></div>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="refs"><b>R</b><span class="vh">References</span></button></div>
  <h2>References</h2>
+ <p class="k">93 references, retrieved 2026-11-05, DOIs checked against Crossref, web sources dated</p>
  <ol class="refs">
   <li id="r1">Muttenthaler M, King GF, Adams DJ, Alewood PF (2021). Trends in peptide drug discovery. <i>Nat Rev Drug Discov</i>, 20(4), 309–325. <a href="https://doi.org/10.1038/s41573-020-00135-8">doi:10.1038/s41573-020-00135-8</a></li>
   <li id="r2">US Food and Drug Administration (2020). Definition of the term "biological product": final rule, 21 CFR 600.3(h); effective 21 Feb 2020. <a href="https://www.fda.gov/media/123882/download">fda.gov/media/123882</a></li>
