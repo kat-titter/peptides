@@ -6,13 +6,13 @@
 <meta property="og:title" content="Peptide Atlas: messages, mechanisms and money">
 <meta property="og:description" content="Nineteen peptides, from semaglutide to BPC-157, ranked by how much proof there is in people: what each one does in a cell, and who keeps the margin.">
 <meta property="og:url" content="https://kat-titter.github.io/peptides/">
-<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=bce4da1b">
+<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=eef4e992">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=bce4da1b">
+<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=eef4e992">
 <meta name="twitter:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Peptide Atlas</title>
@@ -21,51 +21,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#ffffff; --ink:#0d1117; --body:#1f2328; --muted:#57606a; --hair:#e4e8ec;
-    --glp:#ec3c6e; --bpc:#b14f12; --mots:#4269e2; --mark:#ebf3dc;
+  --paper:#ffffff; --ink:#0a0d12; --body:#1c222b; --muted:#5a6370; --hair:#e3e7ec;
+    --plate:#eef1f4; --plate-hair:#d9dee5; --plate-muted:#56606d;
+    --glp:oklch(.62 .25 358); --bpc:oklch(.68 .21 42); --mots:oklch(.56 .25 266); --mark:oklch(.94 .17 118);
+  --sans:"Geist",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,monospace;
+  --s0:12px; --s1:13px; --s2:15px; --s3:19px; --s4:23px; --s5:46px; --s6:56px;
+    --text:680px; --band:880px; --r:12px; --bleed:24px;
+    --wk:6%; --tk:22%;
+  color-scheme:light dark;
+}
+:root,figure{
   --green:color-mix(in srgb,var(--ink) 78%,var(--paper));
   --smx:color-mix(in oklch,var(--glp) 62%,var(--ink));
   --ela:color-mix(in oklch,var(--bpc) 62%,var(--paper)); --gb:color-mix(in oklch,var(--bpc) 60%,var(--ink));
   --mtx:color-mix(in oklch,var(--mots) 60%,var(--ink)); --ghk:color-mix(in oklch,var(--mots) 62%,var(--paper));
   --gb-g:color-mix(in srgb,var(--ink) 6%,var(--paper)); --gb-w:color-mix(in srgb,var(--ink) 36%,var(--paper));
-    --green-s:color-mix(in srgb,var(--green) 22%,var(--paper)); --on:var(--paper);
-  --wash:color-mix(in srgb,var(--ink) 6%,var(--paper)); --xna:color-mix(in srgb,var(--ink) 16%,var(--paper));
-  --glp-s:color-mix(in srgb,var(--glp) 22%,var(--paper)); --smx-s:color-mix(in srgb,var(--smx) 22%,var(--paper)); --bpc-s:color-mix(in srgb,var(--bpc) 22%,var(--paper)); --ela-s:color-mix(in srgb,var(--ela) 22%,var(--paper)); --mtx-s:color-mix(in srgb,var(--mtx) 22%,var(--paper)); --ghk-s:color-mix(in srgb,var(--ghk) 22%,var(--paper)); --mots-s:color-mix(in srgb,var(--mots) 22%,var(--paper));
-    --ghk1:color-mix(in srgb,var(--ink) 6%,var(--paper)); --ghk2:color-mix(in srgb,var(--ink) 21%,var(--paper)); --ghk3:color-mix(in srgb,var(--ink) 36%,var(--paper));
-  --sans:"Geist",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,monospace;
-  --s0:11px; --s1:12px; --s2:14px; --s3:17px; --s4:21px; --s5:44px;
-    --text:780px; --wide:740px; --fig-inset:2.5641%;     color-scheme:light dark;
+    --green-s:color-mix(in srgb,var(--green) var(--tk),var(--paper)); --on:var(--paper);
+  --wash:color-mix(in srgb,var(--ink) var(--wk),var(--paper)); --xna:color-mix(in srgb,var(--ink) 16%,var(--paper));
+  --glp-s:color-mix(in srgb,var(--glp) var(--tk),var(--paper)); --smx-s:color-mix(in srgb,var(--smx) var(--tk),var(--paper)); --bpc-s:color-mix(in srgb,var(--bpc) var(--tk),var(--paper)); --ela-s:color-mix(in srgb,var(--ela) var(--tk),var(--paper)); --mtx-s:color-mix(in srgb,var(--mtx) var(--tk),var(--paper)); --ghk-s:color-mix(in srgb,var(--ghk) var(--tk),var(--paper)); --mots-s:color-mix(in srgb,var(--mots) var(--tk),var(--paper));
+    --ghk1:color-mix(in srgb,var(--ink) var(--wk),var(--paper)); --ghk2:color-mix(in srgb,var(--ink) 21%,var(--paper)); --ghk3:color-mix(in srgb,var(--ink) 36%,var(--paper));
 }
 @media screen and (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0d1117; --ink:#e6edf3; --body:#d1d9e0; --muted:#9198a1; --hair:#262c33;
-  --glp:#f76286; --bpc:#bd5a30; --mots:#6b8dfb; --mark:#262b22;
-  --ghk2:color-mix(in srgb,var(--ink) 21%,var(--paper)); --ghk3:color-mix(in srgb,var(--ink) 36%,var(--paper));}}
+  --paper:#06080b; --ink:#eef2f6; --body:#cfd6de; --muted:#8a94a2; --hair:#1f252d;
+  --plate:#161b22; --plate-hair:#262d37; --plate-muted:#8a94a2;
+  --glp:oklch(.72 .23 358); --bpc:oklch(.77 .18 50); --mots:oklch(.70 .19 262); --mark:oklch(.40 .11 120);}}
 @media screen{:root[data-theme="dark"]{
-  --paper:#0d1117; --ink:#e6edf3; --body:#d1d9e0; --muted:#9198a1; --hair:#262c33;
-  --glp:#f76286; --bpc:#bd5a30; --mots:#6b8dfb; --mark:#262b22;
-  --ghk2:color-mix(in srgb,var(--ink) 21%,var(--paper)); --ghk3:color-mix(in srgb,var(--ink) 36%,var(--paper));}}
+  --paper:#06080b; --ink:#eef2f6; --body:#cfd6de; --muted:#8a94a2; --hair:#1f252d;
+  --plate:#161b22; --plate-hair:#262d37; --plate-muted:#8a94a2;
+  --glp:oklch(.72 .23 358); --bpc:oklch(.77 .18 50); --mots:oklch(.70 .19 262); --mark:oklch(.40 .11 120);}}
+@media screen{
+  figure{--paper:var(--plate); --hair:var(--plate-hair); --muted:var(--plate-muted); --wk:8%; --tk:24%;
+    background:var(--paper); border-radius:var(--r)}
+}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
-body{margin:0; background:var(--paper); color:var(--body); font:400 var(--s3)/1.65 var(--sans); -webkit-font-smoothing:antialiased}
+body{margin:0; background:var(--paper); color:var(--body); font:400 var(--s3)/1.62 var(--sans); -webkit-font-smoothing:antialiased}
 a{color:inherit; text-decoration-color:var(--hair); text-underline-offset:3px} a:hover{text-decoration-color:var(--ink)}
 :focus-visible{outline:2px solid var(--ink); outline-offset:2px}
 
-.wrap{max-width:calc(var(--text) + 32px); margin:0 auto; padding:0 16px}
+.wrap{max-width:calc(var(--band) + 32px); margin:0 auto; padding:0 16px}
 .wrap > :is(p,h2,h3,.k,.read,ul), details > p, .read{max-width:var(--text); margin-left:0; margin-right:auto}
 section.ch{padding:120px 0 0; scroll-margin-top:96px}
 
 .k{font:400 var(--s1)/1.5 var(--mono); color:var(--muted); margin:0 0 16px}
 .k b{color:var(--ink); font-weight:500; margin-right:.6em}
 .ch .wrap > .k:first-child{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-h1,h2,h3{color:var(--ink); font-family:var(--sans); font-weight:600; margin:0}
-h1,h2{font-size:var(--s5); line-height:1.05; letter-spacing:-.035em}
-h2{margin:0 0 24px}
-h3{font-size:var(--s4); line-height:1.3; letter-spacing:-.015em; margin:72px 0 16px}
-p{margin:0 0 24px}
+h1,h2,h3{color:var(--ink); font-family:var(--mono); font-weight:500; letter-spacing:-.06em; margin:0; text-wrap:balance}
+h1{font-size:var(--s6); line-height:1; letter-spacing:-.07em}
+h2{font-size:var(--s5); line-height:1.06; margin:0 0 24px}
+h3{font-size:var(--s4); line-height:1.3; letter-spacing:-.04em; margin:72px 0 16px}
+p{margin:0 0 24px; text-wrap:pretty}
 p b,li b{color:var(--ink); font-weight:600}
-mark{background:var(--mark); color:var(--ink); padding:0 .15em; border-radius:2px}
+mark{background:var(--mark); color:var(--ink); padding:0 .15em; border-radius:3px}
+:is([data-p],#proofstrip em){color:color-mix(in oklch,var(--c) 62%,var(--ink))}
+:is([data-p],#proofstrip em):is([style*="--smx)"],[style*="--gb)"],[style*="--mtx)"]){color:var(--c)}
 .mono{font-family:var(--mono)}
 sup{font:500 var(--s0)/0 var(--mono); color:var(--muted); margin-left:1px}
 sup a{color:inherit; text-decoration:none} sup a:hover,sup a:focus-visible{color:var(--ink)}
@@ -73,7 +84,7 @@ sup a{display:inline-block}
 sup a:only-child{padding:10px 8px; margin:-10px -8px}      sup a:not(:only-child){padding:10px 3px; margin:-10px -3px} 
 header{padding:80px 0 24px}
 header .k{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 16px}
-header h1{margin:0 0 24px; max-width:var(--text)}
+header h1{margin:0 0 24px}
 button{font:400 var(--s1)/1 var(--mono); color:var(--muted); background:none; border:1px solid var(--hair); border-radius:999px; min-height:44px; padding:0 14px; cursor:pointer; white-space:nowrap}
 button:hover{color:var(--ink); border-color:var(--muted)}
 .top{display:grid; grid-template-columns:minmax(0,1fr) 200px; gap:0 48px}
@@ -90,7 +101,7 @@ nav a:hover,nav a[aria-current]{color:var(--ink)}
     header > .wrap .k{flex-direction:column; align-items:flex-start}
 }
 
-#hook{margin:36px 0 0; --c:var(--bpc)}
+#hook{margin:28px 0 0; max-width:600px; --c:var(--bpc)}
 #hook > a{display:block; color:inherit; text-decoration:none}
 #hook svg{display:block; width:100%; height:auto; overflow:visible}
 #hook path{fill:none; stroke:var(--c); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke}
@@ -105,33 +116,33 @@ nav a:hover,nav a[aria-current]{color:var(--ink)}
 @media (max-width:720px){ #hook text{display:none} #hook g[data-b] path:nth-child(2){stroke-width:2.4} }
 
 dl{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:32px; margin:48px 0 72px}
-dl > div{border-top:1px solid var(--hair); padding:12px 0 16px; min-width:0}
+dl > div{padding:8px 0 14px; min-width:0}
 dt{font:500 var(--s1)/1.4 var(--mono); color:var(--ink); margin:0 0 4px}
 dd{font:400 var(--s2)/1.5 var(--sans); color:var(--muted); margin:0; overflow-wrap:anywhere}
 dd.mono{color:var(--ink)}
 dl [data-res]{transition:background .2s} dl [data-res].lit{background:var(--mark)}
 
 figure dl{margin:32px 0 0}
+figure details{margin:20px 0 0}
 
-details{border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); margin:48px 0; max-width:var(--text)}
-details + details{margin-top:-49px}
+details{margin:48px 0; max-width:var(--text)}
+details + details{margin-top:-40px}
 summary{cursor:pointer; font:500 var(--s1)/1.4 var(--mono); color:var(--ink); list-style:none; display:flex; align-items:center; gap:12px; min-height:44px; max-width:var(--text); margin:0}
 summary::-webkit-details-marker{display:none}
 summary::before{content:""; width:7px; height:7px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(-45deg); transition:transform .25s; flex:none; margin:0 2px}
 details[open] summary::before{transform:rotate(45deg)}
 details[open] summary{margin-bottom:16px}
 
-#proofstrip{margin:18px 0 0; padding:0; list-style:none; display:grid; gap:1px; background:var(--hair);
-  border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); max-width:var(--text)}
-#proofstrip li{background:var(--paper); padding:4px 0; display:grid; gap:0 10px; align-items:baseline;
+#proofstrip{margin:18px 0 0; padding:0; list-style:none; display:grid; gap:3px; max-width:var(--text)}
+#proofstrip li{padding:2px 0; display:grid; gap:0 10px; align-items:baseline;
   grid-template-columns:24px 1fr}
-#proofstrip b{font:500 var(--s1)/1.5 var(--mono); text-align:center; border-radius:2px;
+#proofstrip b{font:500 var(--s1)/1.5 var(--mono); text-align:center; border-radius:3px;
   background:var(--t); color:var(--ink)}
 #proofstrip li:is([data-t="4"],[data-t="5"]) b{color:var(--on)}
 #proofstrip li[data-t="0"] b{color:var(--muted)}
 #proofstrip span{font:400 var(--s1)/1.5 var(--sans); color:var(--body)}
 #proofstrip a{text-decoration:none; border-bottom:1px solid var(--hair)}
-#proofstrip em{font-style:normal; color:color-mix(in srgb,var(--c) 62%,var(--ink))}
+#proofstrip em{font-style:normal}
 #proofstrip i{font:400 var(--s0)/1.5 var(--mono); font-style:normal; color:var(--muted); margin-right:8px}
 #proofkey{margin:8px 0 0; font-size:var(--s0)}
 @media (max-width:720px){
@@ -141,9 +152,9 @@ details[open] summary{margin-bottom:16px}
 }
 
 .cards{margin:24px 0 48px}
-.cards > div,dl:has(> div:nth-child(10)) > div{display:grid; grid-template-columns:minmax(0,13rem) minmax(0,1fr); column-gap:32px; align-items:baseline; border-top:1px solid var(--hair); padding:12px 0 14px}
+.cards > div,dl:has(> div:nth-child(10)) > div{display:grid; grid-template-columns:minmax(0,13rem) minmax(0,1fr); column-gap:32px; align-items:baseline; padding:8px 0 14px}
 .cards > div > h4{grid-row:1 / span 3} .cards > div > p{grid-column:2} dl:has(> div:nth-child(10)){display:block; margin:24px 0 48px}
-.cards h4{margin:0 0 4px; font:600 var(--s3)/1.3 var(--sans); color:var(--ink)}
+.cards h4{margin:0 0 4px; font:500 var(--s3)/1.3 var(--mono); letter-spacing:-.06em; color:var(--ink)}
 .cards p{margin:4px 0; font-size:var(--s2); line-height:1.5}
 
 .scroll{overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch}
@@ -161,40 +172,52 @@ td[data-t]{text-align:center; font:500 var(--s1)/1.4 var(--mono); width:44px}
 [data-t="3"]{--t:color-mix(in srgb,var(--green) 50%,var(--paper))} [data-t="4"]{--t:color-mix(in srgb,var(--green) 75%,var(--paper))} [data-t="5"]{--t:var(--green)}
 td[data-t]{background:var(--t); color:var(--ink)} td[data-t="0"]{color:var(--muted)} td:is([data-t="4"],[data-t="5"]){color:var(--on)}
 .tier{display:inline-grid; grid-template-columns:repeat(5,9px); gap:2px; vertical-align:-1px; margin-right:6px}
-.tier i{display:block; height:9px; border-radius:2px; background:var(--wash)}
+.tier i{display:block; height:9px; border-radius:3px; background:var(--wash)}
 .tier[data-t="1"] i:nth-child(-n+1),.tier[data-t="2"] i:nth-child(-n+2),.tier[data-t="3"] i:nth-child(-n+3),
 .tier[data-t="4"] i:nth-child(-n+4),.tier[data-t="5"] i:nth-child(-n+5){background:var(--t); outline-color:var(--t)}
 
-figure{margin:72px var(--fig-inset)}
+figure{margin:72px 0; position:relative}
 figure svg{display:block; width:100%; height:auto}
 .scroll > svg{min-width:0}
 @media (max-width:720px){.scroll > svg{min-width:880px}}
 figure svg text{font-family:var(--sans)}
-.fkey{max-width:var(--capw, var(--wide)); margin:12px 0 0; padding-bottom:10px; border-bottom:1px solid var(--hair);
+.fkey{max-width:var(--capw, 100%); margin:12px 0 0;
   display:flex; flex-wrap:wrap; gap:2px 20px; font:400 var(--s1)/1.7 var(--sans); color:var(--muted)}
 .fkey .key{margin-right:0} .fkey .kl{color:var(--ink)}
-figcaption{max-width:var(--capw, var(--wide)); margin:14px 0 0; font:400 var(--s2)/1.55 var(--sans); color:var(--muted)}
+@media screen{.fkey[data-print]{display:none}}
+figcaption{max-width:var(--capw, 100%); margin:14px 0 0; font:400 var(--s2)/1.55 var(--sans); color:var(--muted)}
 figcaption > .k:first-child{display:block; letter-spacing:.06em; text-transform:uppercase; margin:0 0 8px}
 figcaption b{color:var(--ink); font-weight:600}
+figcaption > b:first-of-type{font-family:var(--mono); font-weight:500; letter-spacing:-.06em}
+@media screen{
+  figure{padding:22px var(--bleed) 20px; margin:56px 0 56px calc(-1 * var(--bleed))}
+  #hook{padding:22px var(--bleed) 18px; margin-left:calc(-1 * var(--bleed))}
+    figcaption > .k:first-child{position:absolute; top:12px; left:var(--bleed); margin:0; letter-spacing:.12em; font-size:var(--s0)}
+  figure:not(#hook) > :first-child{margin-top:18px}
+}
+@media screen and (max-width:720px){
+  figure,#hook{margin-left:-16px; margin-right:-16px; border-radius:0; padding-left:16px; padding-right:16px}
+  figcaption > .k:first-child{left:16px}
+}
 figure > .k{max-width:var(--text); margin:0 0 8px}
 figure > .k button{margin-right:8px}
 .key{white-space:nowrap; margin-right:.6em}
-.k:has(> .key > .tier){display:grid; grid-template-columns:repeat(3,max-content); gap:4px 24px; max-width:var(--wide)}
+.k:has(> .key > .tier){display:grid; grid-template-columns:repeat(3,max-content); gap:4px 24px}
 .k:has(> .key > .tier) > span:last-child{grid-column:1 / -1}
 @media (max-width:720px){ .k:has(> .key > .tier){grid-template-columns:1fr} }
 .k[role=group]{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:0 0 16px}
 .k[role=group] .key[data-k]{display:inline-flex; align-items:center; min-height:44px; margin:0; padding:0 10px; border:1px solid var(--hair); border-radius:999px; color:var(--ink)}
 .sw{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--c,var(--ink)); margin:0 5px 0 1px; vertical-align:0}
-.sw[data-s="sq"]{border-radius:2px}
+.sw[data-s="sq"]{border-radius:3px}
 .sw[data-s="ring"]{background:color-mix(in srgb,var(--c,var(--ink)) 22%,var(--paper)); border:1.5px solid var(--c,var(--ink)); width:11px; height:11px; vertical-align:-1px}
-.sw[data-s="box"]{background:var(--b,var(--paper)); border:1.5px solid var(--c,var(--ink)); border-radius:2px; width:13px; height:11px; vertical-align:-1px}
-.sw[data-s="dash"]{background:none; border:1.5px dashed var(--c,var(--ink)); border-radius:2px; width:13px; height:11px; vertical-align:-1px}
+.sw[data-s="box"]{background:var(--b,var(--paper)); border:1.5px solid var(--c,var(--ink)); border-radius:3px; width:13px; height:11px; vertical-align:-1px}
+.sw[data-s="dash"]{background:none; border:1.5px dashed var(--c,var(--ink)); border-radius:3px; width:13px; height:11px; vertical-align:-1px}
 .sw[data-s="line"]{width:18px; height:0; border-radius:0; background:none; border-top:1.5px solid var(--c,var(--ink)); vertical-align:3px}
 .sw[data-s="dline"]{width:18px; height:0; border-radius:0; background:none; border-top:1.5px dashed var(--c,var(--ink)); vertical-align:3px}
 .sw[data-s="tick"]{width:0; height:12px; border-radius:0; background:none; border-left:1.5px solid var(--c,var(--ink)); vertical-align:-2px}
-.sw[data-s="band"]{width:14px; height:11px; border-radius:2px; background:var(--mark); vertical-align:-1px}
-.sw[data-s="pill"]{background:var(--b,var(--paper)); border:1.5px solid var(--c,var(--ink)); border-radius:2px; width:18px; height:11px; vertical-align:-1px}
-.sw[data-s="bar"]{width:18px; height:7px; border-radius:2px; vertical-align:1px}
+.sw[data-s="band"]{width:14px; height:11px; border-radius:3px; background:var(--mark); vertical-align:-1px}
+.sw[data-s="pill"]{background:var(--b,var(--paper)); border:1.5px solid var(--c,var(--ink)); border-radius:3px; width:18px; height:11px; vertical-align:-1px}
+.sw[data-s="bar"]{width:18px; height:7px; border-radius:3px; vertical-align:1px}
 .sw[data-s="arr"],.sw[data-s="tee"]{position:relative; width:18px; height:0; border-radius:0; background:none; border-top:1.5px solid var(--c,var(--ink)); vertical-align:3px}
 .sw[data-s="arr"]::after{content:""; position:absolute; right:-1px; top:-4px; border:4px solid transparent; border-right:0; border-left-color:var(--c,var(--ink))}
 .sw[data-s="tee"]::after{content:""; position:absolute; right:0; top:-4.5px; width:0; height:9px; border-left:1.5px solid var(--c,var(--ink))}
@@ -204,13 +227,13 @@ figure > .k button{margin-right:8px}
 .box{fill:var(--paper); stroke:var(--ink); stroke-width:1.5}
 .box2{fill:var(--wash); stroke:var(--ink); stroke-width:1.5}
 .soft{fill:color-mix(in srgb,var(--c,var(--ink)) 22%,var(--paper)); stroke:var(--c,var(--ink)); stroke-width:1.5}
-.bar{fill:var(--c,var(--ink)); stroke:none}
+.bar{fill:var(--c,var(--ink)); stroke:none; rx:3px}
 .bar.t{fill:color-mix(in srgb,var(--c,var(--ink)) 30%,var(--paper)); stroke:none}
 .halo{paint-order:stroke; stroke:var(--paper); stroke-width:5px; stroke-linejoin:round}
 
 figure [data-k],.linked [data-k]{transition:opacity .2s} figure [data-k],.linked .key[data-k]{cursor:pointer}
 .hl [data-k]:not(.lit){opacity:.28} .linked.hl tr[data-k]:not(.lit){opacity:.4}
-.key[data-k]{padding:12px 4px; margin:-12px 0; border-radius:4px}
+.key[data-k]{padding:12px 4px; margin:-12px 0; border-radius:3px}
 .key[data-k].lit{color:var(--ink); background:var(--wash)}
 [data-k]:focus-visible,figure svg [role=button]:focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:4px}
 #stip,.tc{background:var(--paper); color:var(--ink); border:1px solid var(--hair); border-radius:8px; padding:8px 10px; font:400 var(--s2)/1.45 var(--sans); text-align:left}
@@ -248,7 +271,7 @@ svg [data-seq]:focus-visible > rect{stroke-width:1.5px}
 #spps path[data-step].lit{stroke-width:3}
 #spps [data-new]{transition:opacity .3s} #spps .on [data-new]{opacity:0} #spps .on:is([data-s="3"],[data-s="4"]) [data-new]{opacity:1}
 
-@media (min-width:860px){ #fig6 .scroll > svg{min-width:0} }
+@media (min-width:884px){ #fig6 .scroll > svg{min-width:0} }
 #figgap .cols{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:3.977%; margin-top:34px}
 #figgap .cols > svg:not(:first-child){grid-row:2}
 @media (max-width:720px){
@@ -256,7 +279,7 @@ svg [data-seq]:focus-visible > rect{stroke-width:1.5px}
   #figgap .cols > svg:not(:first-child){grid-row:auto} #figgap .cols > svg:first-child{margin-bottom:-21px} }
 
 .peps{display:flex; flex-wrap:wrap; gap:2px 6px; margin:8px 0 0; align-items:baseline}
-figure > .peps{max-width:var(--wide); margin:16px 0 0; padding-top:12px; border-top:1px solid var(--hair);
+figure > .peps{margin:16px 0 0;
   font:400 var(--s1)/1.7 var(--sans); color:var(--muted)}
 a.pep{font:500 var(--s1)/1.7 var(--mono); color:var(--ink); text-decoration:none;
   border-bottom:2px solid var(--c,var(--muted)); padding:1px 1px 0}
@@ -276,7 +299,7 @@ button.fold[aria-expanded="false"]::after{transform:rotate(-45deg)}
   .ch:has(button.fold[aria-expanded="false"]){padding-top:48px}
   .ch:has(button.fold[aria-expanded="false"]) > .wrap > *{display:none}
   .ch:has(button.fold[aria-expanded="false"]) > .wrap > .k:first-child{display:block}
-  .ch:has(button.fold[aria-expanded="false"]) > .wrap > h2{display:block; margin:0; font-size:var(--s4); letter-spacing:-.015em}
+  .ch:has(button.fold[aria-expanded="false"]) > .wrap > h2{display:block; margin:0; font-size:var(--s4); letter-spacing:-.04em}
 }
 
 #limits{scroll-margin-top:96px}
@@ -294,15 +317,15 @@ button.fold[aria-expanded="false"]::after{transform:rotate(-45deg)}
 footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 
 @media (max-width:720px){
-  :root{--s4:19px; --s5:34px}
+  :root{--s3:18px; --s4:20px; --s5:34px; --s6:42px}
   header{padding-top:44px} section.ch{padding-top:72px}
-  header h1{margin-bottom:16px} #hook{margin-top:20px}
+  header h1{margin-bottom:16px}
   dl{grid-template-columns:1fr}
   .cards > div,dl:has(> div:nth-child(10)) > div{grid-template-columns:1fr} .cards > div > p{grid-column:1}
     .fkey:has(> :last-child:nth-child(odd)){grid-template-columns:1fr}
     table,table.mx,table.ax{min-width:0; table-layout:fixed; width:100%; overflow-wrap:anywhere}
   table.mx .ph{display:none} table td,table th{padding:6px 4px}
-  table.mx{font-size:var(--s1)} table.mx th:nth-child(1){width:31%} table.mx th:nth-child(2){width:9%}
+    table.mx{font-size:var(--s1)} table.mx th:nth-child(1){width:31%} table.mx th:nth-child(2){width:9%}
   table.mx th:nth-child(4){width:22%} table.mx th:nth-child(7){width:16%} table.mx th:nth-child(8){width:22%}
   table.mx td,table.mx th{overflow-wrap:break-word}
     figcaption,.fkey{max-width:none}
@@ -314,14 +337,14 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
   table.mx th:nth-child(4){width:13%} table.mx th:nth-child(5){width:12%} table.mx th:nth-child(6){width:8%}
   table.mx th:nth-child(7){width:8%} table.mx th:nth-child(8){width:12%} table.mx th:nth-child(9){width:12%} table.mx td{overflow-wrap:break-word}
   table.mx td:first-child{padding-left:24px}
-  dl:has(> div:nth-child(2):last-child),dl:has(> div:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+    dl:has(> div:nth-child(2):last-child),dl:has(> div:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
   dl:has(> div:nth-child(8):last-child){grid-template-columns:repeat(4,minmax(0,1fr))} }
 @media print{
     body{display:flex; flex-direction:column}
   #appendix{order:1} footer{order:2}
     @page{margin:16mm 14mm;
-    @bottom-left{content:"Peptide Atlas"; font:11px "Geist Mono",ui-monospace,monospace; color:#57606a}
-    @bottom-right{content:counter(page) " / " counter(pages); font:11px "Geist Mono",ui-monospace,monospace; color:#57606a}}
+    @bottom-left{content:"Peptide Atlas"; font:11px "Geist Mono",ui-monospace,monospace; color:#5a6370}
+    @bottom-right{content:counter(page) " / " counter(pages); font:11px "Geist Mono",ui-monospace,monospace; color:#5a6370}}
   nav,button,figure > .k,summary::before{display:none!important}
     button.fold{display:flex!important} button.fold::after{display:none}
   section.ch{padding:24px 0} figure{break-inside:avoid; margin:24px 0} dl > div,.cards > div{break-inside:avoid}
@@ -396,7 +419,7 @@ requestAnimationFrame(loop);
 <section class="ch" id="intro"><div class="wrap">
  <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="intro"><b>00</b><span class="vh">Frontier biotech in first-class mail</span></button></div>
  <h2>Frontier biotech in first-class mail</h2>
- <p>For $54 to $74, a vial of copper peptide powder comes in the post<sup class="ref"><a href="#r78">78</a></sup>, labelled &#8220;research use only&#8221;. So what is in the envelope? Inside is a short chain of amino acids, the kind of message the body already sends. Insulin is one such message; so are glucagon-like peptide-1 (GLP-1) and oxytocin.<sup class="ref"><a href="#r1">1</a></sup> Many of these messages work like a key that fits a receptor on a cell, switches it on at tiny (nanomolar) doses, then breaks down into plain amino acids. That last step is the weak spot: a bare peptide lasts minutes in blood and is lost in the gut, so chemists gave semaglutide a fatty tail, and now it lasts a week.<sup class="ref"><a href="#r18">18</a></sup> Which leaves the vial in the post two questions. Does it work in people? And how would you know? This page asks both of every peptide it follows.</p>
+ <p>For $54 to $74, a vial of copper peptide powder comes in the post<sup class="ref"><a href="#r78">78</a></sup>, labelled &#8220;research use only&#8221;. So what is in the envelope? Inside is a short chain of amino acids, the kind of message the body already sends. Insulin is one such message; so are glucagon-like peptide-1 (<span data-p style="--c:var(--glp)">GLP-1</span>) and oxytocin.<sup class="ref"><a href="#r1">1</a></sup> Many of these messages work like a key that fits a receptor on a cell, switches it on at tiny (nanomolar) doses, then breaks down into plain amino acids. That last step is the weak spot: a bare peptide lasts minutes in blood and is lost in the gut, so chemists gave <span data-p style="--c:var(--glp)">semaglutide</span> a fatty tail, and now it lasts a week.<sup class="ref"><a href="#r18">18</a></sup> Which leaves the vial in the post two questions. Does it work in people? And how would you know? This page asks both of every peptide it follows.</p>
  <div class="read"><h3>A peptide fits a receptor the way the body&#8217;s own hormone does</h3>
  <p>Why a peptide at all? Most drugs are small molecules, built to sit in a pocket, and many of the body&#8217;s most important switches have no pocket. GLP-1&#8217;s receptor, for one, holds its hormone across a long interface; others are flat, wide faces where one protein meets another. Peptides fit because they <i>are</i> the messages those switches evolved to hold.<sup class="ref"><a href="#r1">1</a>,<a href="#r19">19</a></sup></p></div>
  <figure class="fig" id="fig2" style="--capw:99.4%">
@@ -528,14 +551,14 @@ requestAnimationFrame(loop);
 </figure>
  <div class="read">
  <p>Those messages have had a name since 1902, when Emil Fischer joined two glycines and called the product a <i>peptide</i>, after <i>peptone</i>, digested protein, from the Greek for "cooked" (standard history, not retrieved here). Read literally, the name says what it is: a piece of protein the size digestion leaves.</p>
- <p>Digestion cuts one kind of link, the one every peptide is built from. Join the acid end of one amino acid to the amine end of the next and a water molecule leaves; that link is the peptide bond. Each amino acid is now a residue, a bead on a string (bond and term: standard chemistry, not retrieved here). And chemists use <i>peptide</i> loosely for any short chain; the US Food and Drug Administration (FDA) draws its legal line at 40.<sup class="ref"><a href="#r2">2</a></sup> With twenty kinds of bead, a 15-bead chain like BPC-157 is one of <math display="inline"><msup><mn>20</mn><mn>15</mn></msup><mo>≈</mo><mn>3.3</mn><mo>×</mo><msup><mn>10</mn><mn>19</mn></msup></math> possible messages.</p>
+ <p>Digestion cuts one kind of link, the one every peptide is built from. Join the acid end of one amino acid to the amine end of the next and a water molecule leaves; that link is the peptide bond. Each amino acid is now a residue, a bead on a string (bond and term: standard chemistry, not retrieved here). And chemists use <i>peptide</i> loosely for any short chain; the US Food and Drug Administration (FDA) draws its legal line at 40.<sup class="ref"><a href="#r2">2</a></sup> With twenty kinds of bead, a 15-bead chain like <span data-p style="--c:var(--bpc)">BPC-157</span> is one of <math display="inline"><msup><mn>20</mn><mn>15</mn></msup><mo>≈</mo><mn>3.3</mn><mo>×</mo><msup><mn>10</mn><mn>19</mn></msup></math> possible messages.</p>
  </div>
  </div></section>
 
 <section class="ch" id="map"><div class="wrap">
  <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="map"><b>01</b><span class="vh">Each peptide&#8217;s effect begins at its own address in the cell</span></button></div>
  <h2>Each peptide&#8217;s effect begins at its own address in the cell</h2>
- <p>Each of those messages needs an address. Picture every cell as a house, every door an address with its own lock, and peptides as keys the body cuts itself. Some knock at the door, as GLP-1 does at its receptor. Instead of knocking, some hold the furniture still: thymosin &#946;4 grips actin, the cell&#8217;s scaffolding,<sup class="ref"><a href="#r94">94</a></sup> and elamipretide sticks to cardiolipin, a fat in the mitochondrial membrane. Some walk right in: MOTS-c, which the mitochondria write themselves, gets as far as the kitchen (the mitochondrion), then the office (the nucleus). And some catch a bus, the blood protein albumin, and stay in town for a week. However it gets in, every visit starts a mechanism of action: the chain from where a drug binds to the change a body shows. Semaglutide&#8217;s chain ends in a long programme of randomised trials, BPC-157&#8217;s runs mostly through rats, and MOTS-c&#8217;s rests on one trial of a close copy, in 20 people. Every one of them starts at an address on this cell.</p>
+ <p>Each of those messages needs an address. Picture every cell as a house, every door an address with its own lock, and peptides as keys the body cuts itself. Some knock at the door, as <span data-p style="--c:var(--glp)">GLP-1</span> does at its receptor. Instead of knocking, some hold the furniture still: thymosin &#946;4 grips actin, the cell&#8217;s scaffolding,<sup class="ref"><a href="#r94">94</a></sup> and <span data-p style="--c:var(--ela)">elamipretide</span> sticks to cardiolipin, a fat in the mitochondrial membrane. Some walk right in: <span data-p style="--c:var(--mots)">MOTS-c</span>, which the mitochondria write themselves, gets as far as the kitchen (the mitochondrion), then the office (the nucleus). And some catch a bus, the blood protein albumin, and stay in town for a week. However it gets in, every visit starts a mechanism of action: the chain from where a drug binds to the change a body shows. <span data-p style="--c:var(--glp)">Semaglutide</span>&#8217;s chain ends in a long programme of randomised trials, <span data-p style="--c:var(--bpc)">BPC-157</span>&#8217;s runs mostly through rats, and <span data-p style="--c:var(--mots)">MOTS-c</span>&#8217;s rests on one trial of a close copy, in 20 people. Every one of them starts at an address on this cell.</p>
  <figure class="fig" id="fig6">
  <div class="scroll">
  <svg viewBox="-14 0 907 566" role="img" aria-label="A cell with its membrane, nucleus, mitochondrion and actin, and blood plasma beside it. Nine numbered addresses mark where each peptide on this page acts, and each number carries its own labelled callout: 1 GPCRs above; 3 VEGFR2, 4 GH receptor, 7 nucleus and 8 PepT1 down the left; 5 mitochondrion, 2 albumin, 6 cytosol and 9 cytoskeleton down the right">
@@ -724,7 +747,7 @@ requestAnimationFrame(loop);
 <section class="ch" id="glp1"><div class="wrap">
  <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="glp1"><b>02</b><span class="vh">GLP-1 drugs worked in people, and the money followed</span></button></div>
  <h2>GLP-1 drugs worked in people, and the money followed</h2>
- <p>Start with semaglutide&#8217;s class, the one that worked. After a meal, your gut texts &#8220;enough&#8221;. That text is GLP-1, a hormone that slows the stomach and makes you feel full, and tells the pancreas to release insulin only when blood sugar is high.<sup class="ref"><a href="#r19">19</a></sup> Then it self-deletes, in about a minute and a half.<sup class="ref"><a href="#r95">95</a></sup> Chemists shielded it from that enzyme, added the fatty tail from the opening, and a minute and a half became a week.<sup class="ref"><a href="#r18">18</a></sup> First came a drug from a Gila-monster venom peptide (1992);<sup class="ref"><a href="#r25">25</a></sup> semaglutide and tirzepatide followed, and in 2026 retatrutide reached 28% weight loss.<sup class="ref"><a href="#r24">24</a>,<a href="#r28">28</a></sup> Money came with them: in 2025 those drugs earned Novo 206 bn Danish kroner (DKK) and Lilly $36.5 bn. Researchers followed this chain into people; every chapter here is measured against it.</p>
+ <p>Start with <span data-p style="--c:var(--glp)">semaglutide</span>&#8217;s class, the one that worked. After a meal, your gut texts &#8220;enough&#8221;. That text is <span data-p style="--c:var(--glp)">GLP-1</span>, a hormone that slows the stomach and makes you feel full, and tells the pancreas to release insulin only when blood sugar is high.<sup class="ref"><a href="#r19">19</a></sup> Then it self-deletes, in about a minute and a half.<sup class="ref"><a href="#r95">95</a></sup> Chemists shielded it from that enzyme, added the fatty tail from the opening, and a minute and a half became a week.<sup class="ref"><a href="#r18">18</a></sup> First came a drug from a Gila-monster venom peptide (1992);<sup class="ref"><a href="#r25">25</a></sup> <span data-p style="--c:var(--glp)">semaglutide</span> and <span data-p style="--c:var(--glp)">tirzepatide</span> followed, and in 2026 <span data-p style="--c:var(--glp)">retatrutide</span> reached 28% weight loss.<sup class="ref"><a href="#r24">24</a>,<a href="#r28">28</a></sup> Money came with them: in 2025 those drugs earned Novo 206 bn Danish kroner (DKK) and Lilly $36.5 bn. Researchers followed this chain into people; every chapter here is measured against it.</p>
  <figure class="fig" id="fig12">
  <div class="scroll"><svg viewBox="18 28 911 480" role="group" aria-label="Bead strings of native GLP-1, semaglutide and tirzepatide: the DPP-4 cut site, the Aib substitutions, and the lipidated lysine whose linker and fatty diacid park each drug on albumin">
   <g font-size="14" class="m">
@@ -1399,14 +1422,14 @@ L 186.2 78.6
  <p>People on orforglipron lose less weight than on the injectables: 11.2% of body weight at the top dose, against 2.1% on placebo.<sup class="ref"><a href="#r27">27</a></sup> The peptides&#8217; moat is potency per molecule and the albumin trick; the pill&#8217;s moat is the bottle. Both will share a market that Novo now guides down 5 to 13% on price.<sup class="ref"><a href="#r6">6</a></sup></p>
  </details>
  <div class="read">
- <p>Each rung on the ladder of proof in people (Figure 6) can fail, which is why so few molecules reach the top. GLP-1 drugs climbed every one.</p>
+ <p>Each rung on the ladder of proof in people (Figure 6) can fail, which is why so few molecules reach the top. <span data-p style="--c:var(--glp)">GLP-1</span> drugs climbed every one.</p>
  </div>
  </div></section>
 
 <section class="ch" id="motsc"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="motsc"><b>03</b><span class="vh">Mitochondria write their own hormone, MOTS-c, and only a copy has reached a human trial</span></button></div>
- <h2>Mitochondria write their own hormone, MOTS-c, and only a copy has reached a human trial</h2>
- <p>Lower down the ladder, the biology gets stranger. Mitochondria, the cell&#8217;s power plants, keep a tiny notebook of their own DNA. In 2015, on a page everyone had taken for scaffolding, the 12S rRNA gene, researchers found a hidden 16-bead message, MOTS-c.<sup class="ref"><a href="#r34">34</a></sup> Exercise prints it. In the cell&#8217;s fluid it brakes the folate cycle, which switches on AMPK, the cell&#8217;s fuel gauge, so muscle burns fuel.<sup class="ref"><a href="#r34">34</a>,<a href="#r35">35</a></sup> When glucose runs short, it walks to the office, the nucleus, and helps switch on antioxidant genes;<sup class="ref"><a href="#r36">36</a></sup> it also travels in the blood, and in mice it falls with age and helps insulin work.<sup class="ref"><a href="#r34">34</a>,<a href="#r37">37</a></sup></p>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="motsc"><b>03</b><span class="vh">Mitochondria write a hormone, MOTS-c; only a copy reached a human trial</span></button></div>
+ <h2>Mitochondria write a hormone, MOTS-c; only a copy reached a human trial</h2>
+ <p>Lower down the ladder, the biology gets stranger. Mitochondria, the cell&#8217;s power plants, keep a tiny notebook of their own DNA. In 2015, on a page everyone had taken for scaffolding, the 12S rRNA gene, researchers found a hidden 16-bead message, <span data-p style="--c:var(--mots)">MOTS-c</span>.<sup class="ref"><a href="#r34">34</a></sup> Exercise prints it. In the cell&#8217;s fluid it brakes the folate cycle, which switches on AMPK, the cell&#8217;s fuel gauge, so muscle burns fuel.<sup class="ref"><a href="#r34">34</a>,<a href="#r35">35</a></sup> When glucose runs short, it walks to the office, the nucleus, and helps switch on antioxidant genes;<sup class="ref"><a href="#r36">36</a></sup> it also travels in the blood, and in mice it falls with age and helps insulin work.<sup class="ref"><a href="#r34">34</a>,<a href="#r37">37</a></sup></p>
  <dl>
   <div><dt>sequence</dt><dd class="mono">Met-Arg-Trp-Gln-Glu-Met-Gly-Tyr-Ile-Phe-Tyr-Pro-Arg-Lys-Leu-Arg</dd></div>
   <div><dt>length</dt><dd class="mono">16 aa</dd></div>
@@ -2114,18 +2137,18 @@ L 186.2 78.6
 </figure>
  <dl data-struct="motsc">
   <div data-res="3,8,9,10,11"><dt><span class="term" tabindex="0">Tyr8<span class="tc">tyrosine, residue 8</span></span>, <span class="term" tabindex="0">Ile9<span class="tc">isoleucine, residue 9</span></span>, <span class="term" tabindex="0">Phe10<span class="tc">phenylalanine, residue 10</span></span>, <span class="term" tabindex="0">Tyr11<span class="tc">tyrosine, residue 11</span></span></dt><dd>The hydrophobic core. Swap it for alanines and the peptide stays out of the nucleus.</dd><dd class="k">measured, Kim 2018</dd></div>
-  <div data-res="2,13,16"><dt><span class="term" tabindex="0">Arg2<span class="tc">arginine, residue 2</span></span>, <span class="term" tabindex="0">Arg13<span class="tc">arginine, residue 13</span></span>, <span class="term" tabindex="0">Lys14<span class="tc">lysine, residue 14</span></span>, <span class="term" tabindex="0">Arg16<span class="tc">arginine, residue 16</span></span></dt><dd>Net +3; the 13&#8211;16 run resembles a nuclear localisation signal, though MOTS-c has no known one.</dd><dd class="k">chemistry; swapping this cluster did not block nuclear entry</dd></div>
+  <div data-res="2,13,16"><dt><span class="term" tabindex="0">Arg2<span class="tc">arginine, residue 2</span></span>, <span class="term" tabindex="0">Arg13<span class="tc">arginine, residue 13</span></span>, <span class="term" tabindex="0">Lys14<span class="tc">lysine, residue 14</span></span>, <span class="term" tabindex="0">Arg16<span class="tc">arginine, residue 16</span></span></dt><dd>Net +3; the 13&#8211;16 run resembles a nuclear localisation signal, though <span data-p style="--c:var(--mots)">MOTS-c</span> has no known one.</dd><dd class="k">chemistry; swapping this cluster did not block nuclear entry</dd></div>
   <div data-res="14"><dt><span class="term" tabindex="0">Lys14<span class="tc">lysine, residue 14</span></span> → Gln</dt><dd>One base swapped (m.1382A&gt;C) and the change is predicted to matter, though no retrieved study measures a weaker effect; the variant is enriched in long-lived Japanese.</dd><dd class="k">association, Fuku 2015</dd></div>
   <div data-res=""><dt>translated in the cytosol</dt><dd>Read with the standard genetic code, not the mitochondrial one.</dd><dd class="k">Lee 2015</dd></div>
  </dl>
  <p>Old mice give the clearest result: at 22 months, treated ones ran 2.16 times as far on a treadmill as untreated (n = 19 and 18).<sup class="ref"><a href="#r37">37</a>,<a href="#r38">38</a></sup> People have had one trial, of a close copy, CB4211. In 20 adults with obesity and fatty liver, 25 mg a day for 4 weeks cut ALT, a liver-damage enzyme, by 21%, 25 points better than placebo (11 on drug, 9 on placebo); weight only trended down.<sup class="ref"><a href="#r40">40</a></sup></p>
- <p>Even so, MOTS-c matters. It is the clearest case of mitochondria talking back to the nucleus with peptides, the one shown to enter it,<sup class="ref"><a href="#r52">52</a>,<a href="#r53">53</a></sup> and it turns exercise into a drug target with a messenger the body already makes. For now that&#8217;s a research programme, not yet a product.</p>
+ <p>Even so, <span data-p style="--c:var(--mots)">MOTS-c</span> matters. It is the clearest case of mitochondria talking back to the nucleus with peptides, the one shown to enter it,<sup class="ref"><a href="#r52">52</a>,<a href="#r53">53</a></sup> and it turns exercise into a drug target with a messenger the body already makes. For now that&#8217;s a research programme, not yet a product.</p>
  </div></section>
 
 <section class="ch" id="bpc157"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="bpc157"><b>04</b><span class="vh">BPC-157 comes from a stomach protein and has been tested almost only in rats</span></button></div>
- <h2>BPC-157 comes from a stomach protein and has been tested almost only in rats</h2>
- <p>Already a product, BPC-157 is the chain turning at the top of this page: a 15-bead message cut from a stomach protein. It appears to work from outside cells: on blood-vessel cells it raises VEGFR2, the receptor for a growth signal, so vessels grow;<sup class="ref"><a href="#r29">29</a></sup> on tendon cells it raises the growth-hormone receptor, so tendons knit.<sup class="ref"><a href="#r31">31</a>,<a href="#r30">30</a></sup> Nearly every paper on it since 1992 came from one lab, in Zagreb,<sup class="ref"><a href="#r17">17</a></sup> and sellers pitch it for tendons, gut and joints. Its rodent record is large and consistent. In people, the one fair test (53 patients, two weeks) heard nothing above the noise.<sup class="ref"><a href="#r13">13</a></sup></p>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="bpc157"><b>04</b><span class="vh">BPC-157 is a stomach-protein fragment tested almost only in rats</span></button></div>
+ <h2>BPC-157 is a stomach-protein fragment tested almost only in rats</h2>
+ <p>Already a product, <span data-p style="--c:var(--bpc)">BPC-157</span> is the chain turning at the top of this page: a 15-bead message cut from a stomach protein. It appears to work from outside cells: on blood-vessel cells it raises VEGFR2, the receptor for a growth signal, so vessels grow;<sup class="ref"><a href="#r29">29</a></sup> on tendon cells it raises the growth-hormone receptor, so tendons knit.<sup class="ref"><a href="#r31">31</a>,<a href="#r30">30</a></sup> Nearly every paper on it since 1992 came from one lab, in Zagreb,<sup class="ref"><a href="#r17">17</a></sup> and sellers pitch it for tendons, gut and joints. Its rodent record is large and consistent. In people, the one fair test (53 patients, two weeks) heard nothing above the noise.<sup class="ref"><a href="#r13">13</a></sup></p>
  <dl>
   <div><dt>sequence</dt><dd class="mono">Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val</dd></div>
   <div><dt>length</dt><dd class="mono">15 aa</dd></div>
@@ -2660,37 +2683,36 @@ L 186.2 78.6
   <div data-res="7"><dt>1,420 Da, unmodified, <span class="term" tabindex="0">Lys7<span class="tc">lysine, residue 7</span></span> free</dt><dd>No Aib, no lipid: half-life under 30 minutes in rats and dogs, so any effect is a brief pulse.</dd><dd class="k">measured, He 2022</dd></div>
  </dl>
  <div class="read">
- <p>In numbers, the human record is thin. PubMed holds about 200 BPC-157 studies,<sup class="ref"><a href="#r17">17</a></sup> of which the FDA found five done in people, the only randomised one null and published only as an abstract.<sup class="ref"><a href="#r13">13</a></sup> One tolerability study against placebo, 24 healthy subjects. Three clinic reports, 2 to 17 people each, no control group.<sup class="ref"><a href="#r17">17</a></sup> FDA&#8217;s adverse-event database held three reports to December 2025. It found no cancer study at all, and the repeat-dose and DNA-damage studies it did find were in animals, none covering how the compounded product would be used.<sup class="ref"><a href="#r13">13</a></sup> So what can rats tell you? That the mechanism is worth a trial. Not that a tendon heals.</p></div>
+ <p>In numbers, the human record is thin. PubMed holds about 200 <span data-p style="--c:var(--bpc)">BPC-157</span> studies,<sup class="ref"><a href="#r17">17</a></sup> of which the FDA found five done in people, the only randomised one null and published only as an abstract.<sup class="ref"><a href="#r13">13</a></sup> One tolerability study against placebo, 24 healthy subjects. Three clinic reports, 2 to 17 people each, no control group.<sup class="ref"><a href="#r17">17</a></sup> FDA&#8217;s adverse-event database held three reports to December 2025. It found no cancer study at all, and the repeat-dose and DNA-damage studies it did find were in animals, none covering how the compounded product would be used.<sup class="ref"><a href="#r13">13</a></sup> So what can rats tell you? That the mechanism is worth a trial. Not that a tendon heals.</p></div>
  <details><summary>who says BPC-157 works, and who gains if it does?</summary>
- <p>With no positive trial on file, FDA scientists found the legal criteria "weigh against" adding BPC-157 to the compounding list: no evidence it works in ulcerative colitis, too little human safety data to characterise the risk, a risk of immune reactions to impurities and clumps in the powder (certificates at 97.8% and 98.3% purity, no endotoxin test), and animal toxicology that does not cover the product as it would be sold.<sup class="ref"><a href="#r13">13</a></sup> Its advisory committee voted the other way on 23 July 2026,<sup class="ref"><a href="#r16">16</a></sup> and the Department of Health and Human Services (HHS) put BPC-157 on its enforcement-discretion list for injection under the skin or into muscle, by mouth and on the skin.<sup class="ref"><a href="#r14">14</a></sup> From the clinic, a 2025 review of muscle and joint use reached the same place: promising animal data, no controlled human trial.<sup class="ref"><a href="#r33">33</a></sup></p>
- <p>Who would gain from a good trial? In February 2026 Undark and STAT reported that Sikirić has been named on BPC-157 patent applications since 1989. He is listed as an owner of PharmaCotherapia, which sponsored a 2015 trial whose data were submitted and then withdrawn from the registry, and as CEO of Diagen, which says it owns a patent on a stable form that is "currently for sale". None of this appeared on the papers they reviewed.<sup class="ref"><a href="#r17">17</a></sup> Conflicts don&#8217;t make the biology wrong. They make a second lab worth wanting, and there is one, small, in Taiwan.</p>
- <p>Beyond any lab, sport has ruled too: the World Anti-Doping Agency (WADA) named BPC-157 as an example under S0, non-approved substances, from 1 January 2022.<sup class="ref"><a href="#r10">10</a></sup></p>
+ <p>With no positive trial on file, FDA scientists found the legal criteria "weigh against" adding <span data-p style="--c:var(--bpc)">BPC-157</span> to the compounding list: no evidence it works in ulcerative colitis, too little human safety data to characterise the risk, a risk of immune reactions to impurities and clumps in the powder (certificates at 97.8% and 98.3% purity, no endotoxin test), and animal toxicology that does not cover the product as it would be sold.<sup class="ref"><a href="#r13">13</a></sup> Its advisory committee voted the other way on 23 July 2026,<sup class="ref"><a href="#r16">16</a></sup> and the Department of Health and Human Services (HHS) put <span data-p style="--c:var(--bpc)">BPC-157</span> on its enforcement-discretion list for injection under the skin or into muscle, by mouth and on the skin.<sup class="ref"><a href="#r14">14</a></sup> From the clinic, a 2025 review of muscle and joint use reached the same place: promising animal data, no controlled human trial.<sup class="ref"><a href="#r33">33</a></sup></p>
+ <p>Who would gain from a good trial? In February 2026 Undark and STAT reported that Sikirić has been named on <span data-p style="--c:var(--bpc)">BPC-157</span> patent applications since 1989. He is listed as an owner of PharmaCotherapia, which sponsored a 2015 trial whose data were submitted and then withdrawn from the registry, and as CEO of Diagen, which says it owns a patent on a stable form that is "currently for sale". None of this appeared on the papers they reviewed.<sup class="ref"><a href="#r17">17</a></sup> Conflicts don&#8217;t make the biology wrong. They make a second lab worth wanting, and there is one, small, in Taiwan.</p>
+ <p>Beyond any lab, sport has ruled too: the World Anti-Doping Agency (WADA) named <span data-p style="--c:var(--bpc)">BPC-157</span> as an example under S0, non-approved substances, from 1 January 2022.<sup class="ref"><a href="#r10">10</a></sup></p>
  </details>
  </div></section>
 
 <section class="ch" id="doors"><div class="wrap">
  <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="doors"><b>05</b><span class="vh">On the skin or up the nose, a peptide is read only where it lands</span></button></div>
  <h2>On the skin or up the nose, a peptide is read only where it lands</h2>
- <p>Tendon or gut, a needle is the usual price of a peptide. Semax skips it up the nose, Matrixyl and copper peptide on the skin; they barely reach the blood and need not: each is read where it lands. Semax is a fragment of the stress hormone ACTH, and in rats it raises the brain-growth factor BDNF;<sup class="ref"><a href="#r57">57</a></sup> the other two target the fibroblasts that make collagen.</p>
+ <p>Tendon or gut, a needle is the usual price of a peptide. <span data-p style="--c:var(--smx)">Semax</span> skips it up the nose, <span data-p style="--c:var(--mtx)">Matrixyl</span> and copper peptide on the skin; they barely reach the blood and need not: each is read where it lands. <span data-p style="--c:var(--smx)">Semax</span> is a fragment of the stress hormone ACTH, and in rats it raises the brain-growth factor BDNF;<sup class="ref"><a href="#r57">57</a></sup> the other two target the fibroblasts that make collagen.</p>
  <figure class="fig" id="figroute">
-  <div class="scroll"><svg viewBox="-3 0 863 300" role="img" aria-label="Horizontal bars on a log scale: intravenous 100 percent, subcutaneous about 90, intramuscular similar, intranasal 1 to 10, oral with SNAC about 1, oral unprotected about 0, topical about 0 systemic, rectal enema of BPC-157 undetectable in plasma">
-   <g font-size="14">
-        <line x1="120" y1="250" x2="840" y2="250" stroke="var(--ink)" stroke-width="1.5"/>
-    <g class="mu m" font-size="14" text-anchor="middle"><text x="120" y="270">0.1%</text><text x="360" y="270">1%</text><text x="600" y="270">10%</text><text x="840" y="270">100%</text></g>
-    <text x="480" y="292" class="ink" text-anchor="middle">share of the dose reaching the blood, log scale → more arrives</text>
-    <g font-size="14">
-     <text x="110" y="50" class="ink" text-anchor="end">intravenous</text><rect x="120" y="40" width="720" height="14" rx="7" fill="var(--ink)"/><text x="128" y="34" class="mu m" font-size="14">100%, by definition</text>
-     <text x="110" y="80" class="ink" text-anchor="end">subcutaneous</text><rect x="120" y="70" width="708" height="14" rx="7" fill="var(--ink)"/><text x="128" y="64" class="mu m" font-size="14">~90% (semaglutide label)</text>
-     <text x="110" y="110" class="ink" text-anchor="end">intranasal</text><rect x="120" y="100" width="360" height="14" rx="7" fill="var(--muted)"/><text x="486" y="112" class="mu m" font-size="14">~1–10%, typical: Semax, Selank</text>
-     <text x="110" y="140" class="ink" text-anchor="end">oral, with SNAC</text><rect x="120" y="130" width="240" height="14" rx="7" fill="var(--muted)"/><text x="366" y="142" class="mu m" font-size="14">~1% (semaglutide; absorbed in the stomach)</text>
-     <text x="110" y="170" class="ink" text-anchor="end">oral, bare peptide</text><rect x="120" y="160" width="40" height="14" rx="7" fill="var(--xna)"/><text x="166" y="172" class="mu m" font-size="14">≈ 0: cut by pepsin, trypsin; too polar to cross</text>
-     <text x="110" y="200" class="ink" text-anchor="end">topical</text><rect x="120" y="190" width="30" height="14" rx="7" fill="var(--xna)"/><text x="156" y="202" class="mu m" font-size="14">≈ 0 systemic; acts in skin (GHK-Cu, KPV)</text>
-     <text x="110" y="230" class="ink" text-anchor="end">rectal enema</text><rect x="120" y="220" width="24" height="14" rx="7" fill="var(--xna)"/><text x="150" y="232" class="mu m" font-size="14">BPC-157 not detected in plasma (two trials)</text>
-    </g>
-   </g>
-  </svg></div>
+  <div class="scroll"><svg viewBox="0 0 807 466" role="img" aria-label="Horizontal bars on a log scale, one row per route with its symbol: intravenous 100%; subcutaneous about 90%; intranasal about 1–10%; oral, with SNAC about 1%; oral, bare peptide about 0; topical about 0; rectal enema about 0">
+  <g font-size="14">
+   <g data-k="r0" data-tip="&lt;b&gt;intravenous&lt;/b&gt;&lt;br&gt;100%, by definition&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;injected&lt;/span&gt;" tabindex="0" role="button" aria-label="intravenous: 100%, by definition"><rect x="0" y="0" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 4) scale(0.95)"><path fill-rule="evenodd" d="M18 25.3109V6H20V26.3634C20 27.5835 18.5966 28.3039 17.6103 27.5393L5.83566 18.412L7.06097 16.8313L12.9379 21.3869L12.213 14.8123L14.2009 14.5931L15.138 23.0924L18 25.3109ZM26 20.2538V6H28V19.4295L30.1434 18.3481L31.5234 12.0822L33.4766 12.5124L32.4474 17.1858L40.0496 13.3504L40.9505 15.1361L28.1806 21.5785C27.223 22.0616 26 21.4082 26 20.2538ZM41.5394 17.2746L42.4606 19.0498L36.3711 22.2097L41.7364 23.5148L41.2637 25.4582L33.6705 23.6112L28.5195 26.2841C28.1901 26.455 28 26.7783 28 27.1135V42H26V27.1135C26 26.0114 26.6242 25.0143 27.5983 24.5089L41.5394 17.2746ZM9.0889 26.9251L4.3927 23.335L5.60737 21.7461L18.8434 31.8648C19.5736 32.423 20 33.2911 20 34.2095V42H18V34.2095C18 33.9105 17.8611 33.6313 17.6288 33.4537L11.1181 28.4764L5.72709 29.8346L5.2385 27.8952L9.0889 26.9251Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M25.2266 12.8495C25.518 13.3187 25.3739 13.9352 24.9047 14.2266C24.4355 14.518 23.819 14.3738 23.5276 13.9047C23.2362 13.4355 23.3804 12.819 23.8495 12.5276C24.3187 12.2362 24.9353 12.3803 25.2266 12.8495Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M23.2266 21.8495C23.518 22.3187 23.3739 22.9352 22.9047 23.2266C22.4355 23.518 21.819 23.3738 21.5276 22.9047C21.2362 22.4355 21.3804 21.819 21.8495 21.5276C22.3187 21.2362 22.9353 21.3803 23.2266 21.8495Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M24.2266 28.8495C24.518 29.3187 24.3739 29.9352 23.9047 30.2266C23.4355 30.518 22.819 30.3738 22.5276 29.9047C22.2362 29.4355 22.3804 28.819 22.8495 28.5276C23.3187 28.2362 23.9353 28.3803 24.2266 28.8495Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M23.2266 37.8495C23.518 38.3187 23.3739 38.9352 22.9047 39.2266C22.4355 39.518 21.819 39.3738 21.5276 38.9047C21.2362 38.4355 21.3804 37.819 21.8495 37.5276C22.3187 37.2362 22.9353 37.3803 23.2266 37.8495Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M23.2266 8.84952C23.518 9.31868 23.3739 9.93523 22.9047 10.2266C22.4355 10.518 21.819 10.3738 21.5276 9.90468C21.2362 9.43551 21.3804 8.81897 21.8495 8.52759C22.3187 8.23622 22.9353 8.38035 23.2266 8.84952Z" fill="var(--muted)"/></g><text x="58" y="31.8" class="ink">intravenous</text><rect class="bar" x="200" y="17.8" width="555" height="18" style="--c:var(--muted)"/><text x="765" y="31.8" class="mu m">100%</text></g>
+   <g data-k="r1" data-tip="&lt;b&gt;subcutaneous&lt;/b&gt;&lt;br&gt;~90% (semaglutide label)&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;injected&lt;/span&gt;" tabindex="0" role="button" aria-label="subcutaneous: ~90% (semaglutide label)"><rect x="0" y="54" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 58) scale(0.95)" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-45 24 24)"><path d="M5 18 V30 M5 24 H12 M12 16 V32 M12 19 H34 V29 H12 M18 19 V23 M23 19 V23 M28 19 V23 M34 22 H38 V26 H34 M38 24 H46"/></g></g><text x="58" y="85.8" class="ink">subcutaneous</text><rect class="bar" x="200" y="71.8" width="546.446" height="18" style="--c:var(--glp)"/><text x="756.446" y="85.8" class="mu m">~90%</text></g>
+   <g data-k="r2" data-tip="&lt;b&gt;intranasal&lt;/b&gt;&lt;br&gt;~1–10%, typical: Semax, Selank&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;mucosal, with help&lt;/span&gt;" tabindex="0" role="button" aria-label="intranasal: ~1–10%, typical: Semax, Selank"><rect x="0" y="122" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 126) scale(0.95)" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4 C17 15 24 23 34 30 C40 34.5 38.5 43 31 43 H22 M22 43 C15 43 14 35 19 32 C22 30.5 26 32 27 36"/></g><text x="58" y="153.8" class="ink">intranasal</text><rect class="bar" x="200" y="139.8" width="277.5" height="18" style="--c:var(--smx)"/><text x="487.5" y="153.8" class="mu m">~1–10%</text></g>
+   <g data-k="r3" data-tip="&lt;b&gt;oral, with SNAC&lt;/b&gt;&lt;br&gt;~1% (semaglutide; absorbed in the stomach)&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;mucosal, with help&lt;/span&gt;" tabindex="0" role="button" aria-label="oral, with SNAC: ~1% (semaglutide; absorbed in the stomach)"><rect x="0" y="176" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 180) scale(0.95)"><path fill-rule="evenodd" d="M22.4334 7.80593C22.4533 8.36778 22.5582 8.69871 22.726 8.89808C22.9709 9.18891 23.2164 9.29144 23.5052 9.31683C23.8448 9.34667 24.2768 9.26968 24.8473 9.09176C25.1253 9.00507 25.413 8.90227 25.7226 8.79014C25.7542 8.77871 25.786 8.76717 25.818 8.75554C26.0937 8.65557 26.3867 8.54931 26.6793 8.4528C27.3241 8.24013 28.0616 8.04116 28.8096 8.04116C33.6124 8.04116 36.4607 11.7906 38.3369 15.1376C40.6411 19.2481 40.5437 24.3791 38.0901 28.4016C36.4758 31.048 34.4126 33.3397 31.285 34.5561C26.7482 36.3206 21.7413 35.6382 17.6158 33.6006C16.6965 33.1466 15.6176 33.845 15.6176 34.733V41H13.6176V34.733C13.6176 32.1815 16.4189 30.7789 18.5014 31.8074C22.2428 33.6552 26.6583 34.2097 30.56 32.6921C33.127 31.6937 34.8943 29.8001 36.3826 27.3601C38.4604 23.9538 38.5426 19.5948 36.5923 16.1156C34.74 12.8112 32.402 10.0412 28.8096 10.0412C28.3898 10.0412 27.8992 10.1564 27.3057 10.3521C27.0427 10.4389 26.7781 10.5349 26.4984 10.6363C26.467 10.6476 26.4355 10.6591 26.4037 10.6706C26.0953 10.7823 25.7689 10.8993 25.4427 11.0011C24.8049 11.2 24.0686 11.374 23.3301 11.3091C22.541 11.2398 21.7986 10.9018 21.1962 10.1863C20.5915 9.46816 20.4596 8.58044 20.4347 7.8768C20.4218 7.51463 20.4367 7.15567 20.452 6.8418C20.4544 6.79377 20.4567 6.7471 20.459 6.70166C20.4723 6.43537 20.4835 6.21135 20.4825 6.00469L22.4825 5.99536C22.4837 6.26171 22.4693 6.54872 22.456 6.8111C22.4538 6.8546 22.4517 6.89742 22.4496 6.93936C22.4345 7.24986 22.4238 7.53535 22.4334 7.80593ZM13.8577 6.50519C13.8582 6.33584 13.8586 6.16741 13.8586 6.00002H15.8586C15.8586 6.12523 15.8585 6.24953 15.8584 6.37296C15.8558 9.10063 15.8536 11.4006 17.1253 13.5438C18.0092 15.0336 19.3171 16.0774 20.8048 17.2647C21.0222 17.4382 21.2434 17.6147 21.4677 17.7962C23.2701 19.2543 23.6577 21.2332 23.0424 22.9664C22.4511 24.6318 20.9625 26.011 19.13 26.5353C18.1451 26.8171 17.2109 27.0258 16.3643 27.215C16.1656 27.2594 15.9717 27.3027 15.7832 27.3456C14.7716 27.5759 13.913 27.7949 13.1496 28.1109C11.7108 28.7064 10.5341 29.6729 9.59141 31.984C9.20068 32.9418 9 33.9633 9 34.994V41H7V34.994C7 33.7033 7.25136 32.4254 7.73956 31.2286C8.87478 28.4456 10.4298 27.072 12.3847 26.2629C13.3181 25.8766 14.3219 25.6271 15.3392 25.3955C15.542 25.3493 15.7455 25.3038 15.9503 25.258C16.7929 25.0697 17.6571 24.8765 18.5798 24.6125C19.827 24.2556 20.7947 23.3194 21.1576 22.2972C21.4965 21.3429 21.3361 20.2623 20.2099 19.3511C20.0047 19.1851 19.794 19.0178 19.5801 18.8478C18.1129 17.6823 16.4906 16.3936 15.4053 14.5644C13.8438 11.9327 13.851 9.10954 13.8577 6.50519Z" fill="var(--muted)"/></g><text x="58" y="207.8" class="ink">oral, with SNAC</text><rect class="bar" x="200" y="193.8" width="185" height="18" style="--c:var(--glp)"/><text x="395" y="207.8" class="mu m">~1%</text></g>
+   <g data-k="r4" data-tip="&lt;b&gt;oral, bare peptide&lt;/b&gt;&lt;br&gt;≈ 0: cut by pepsin, trypsin; too polar to cross&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;local only&lt;/span&gt;" tabindex="0" role="button" aria-label="oral, bare peptide: ≈ 0: cut by pepsin, trypsin; too polar to cross"><rect x="0" y="244" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 248) scale(0.95)"><path fill-rule="evenodd" d="M22.4334 7.80593C22.4533 8.36778 22.5582 8.69871 22.726 8.89808C22.9709 9.18891 23.2164 9.29144 23.5052 9.31683C23.8448 9.34667 24.2768 9.26968 24.8473 9.09176C25.1253 9.00507 25.413 8.90227 25.7226 8.79014C25.7542 8.77871 25.786 8.76717 25.818 8.75554C26.0937 8.65557 26.3867 8.54931 26.6793 8.4528C27.3241 8.24013 28.0616 8.04116 28.8096 8.04116C33.6124 8.04116 36.4607 11.7906 38.3369 15.1376C40.6411 19.2481 40.5437 24.3791 38.0901 28.4016C36.4758 31.048 34.4126 33.3397 31.285 34.5561C26.7482 36.3206 21.7413 35.6382 17.6158 33.6006C16.6965 33.1466 15.6176 33.845 15.6176 34.733V41H13.6176V34.733C13.6176 32.1815 16.4189 30.7789 18.5014 31.8074C22.2428 33.6552 26.6583 34.2097 30.56 32.6921C33.127 31.6937 34.8943 29.8001 36.3826 27.3601C38.4604 23.9538 38.5426 19.5948 36.5923 16.1156C34.74 12.8112 32.402 10.0412 28.8096 10.0412C28.3898 10.0412 27.8992 10.1564 27.3057 10.3521C27.0427 10.4389 26.7781 10.5349 26.4984 10.6363C26.467 10.6476 26.4355 10.6591 26.4037 10.6706C26.0953 10.7823 25.7689 10.8993 25.4427 11.0011C24.8049 11.2 24.0686 11.374 23.3301 11.3091C22.541 11.2398 21.7986 10.9018 21.1962 10.1863C20.5915 9.46816 20.4596 8.58044 20.4347 7.8768C20.4218 7.51463 20.4367 7.15567 20.452 6.8418C20.4544 6.79377 20.4567 6.7471 20.459 6.70166C20.4723 6.43537 20.4835 6.21135 20.4825 6.00469L22.4825 5.99536C22.4837 6.26171 22.4693 6.54872 22.456 6.8111C22.4538 6.8546 22.4517 6.89742 22.4496 6.93936C22.4345 7.24986 22.4238 7.53535 22.4334 7.80593ZM13.8577 6.50519C13.8582 6.33584 13.8586 6.16741 13.8586 6.00002H15.8586C15.8586 6.12523 15.8585 6.24953 15.8584 6.37296C15.8558 9.10063 15.8536 11.4006 17.1253 13.5438C18.0092 15.0336 19.3171 16.0774 20.8048 17.2647C21.0222 17.4382 21.2434 17.6147 21.4677 17.7962C23.2701 19.2543 23.6577 21.2332 23.0424 22.9664C22.4511 24.6318 20.9625 26.011 19.13 26.5353C18.1451 26.8171 17.2109 27.0258 16.3643 27.215C16.1656 27.2594 15.9717 27.3027 15.7832 27.3456C14.7716 27.5759 13.913 27.7949 13.1496 28.1109C11.7108 28.7064 10.5341 29.6729 9.59141 31.984C9.20068 32.9418 9 33.9633 9 34.994V41H7V34.994C7 33.7033 7.25136 32.4254 7.73956 31.2286C8.87478 28.4456 10.4298 27.072 12.3847 26.2629C13.3181 25.8766 14.3219 25.6271 15.3392 25.3955C15.542 25.3493 15.7455 25.3038 15.9503 25.258C16.7929 25.0697 17.6571 24.8765 18.5798 24.6125C19.827 24.2556 20.7947 23.3194 21.1576 22.2972C21.4965 21.3429 21.3361 20.2623 20.2099 19.3511C20.0047 19.1851 19.794 19.0178 19.5801 18.8478C18.1129 17.6823 16.4906 16.3936 15.4053 14.5644C13.8438 11.9327 13.851 9.10954 13.8577 6.50519Z" fill="var(--muted)"/></g><text x="58" y="275.8" class="ink">oral, bare peptide</text><rect class="bar" x="200" y="261.8" width="31" height="18" style="--c:var(--muted)"/><text x="241" y="275.8" class="mu m">≈ 0</text></g>
+   <g data-k="r5" data-tip="&lt;b&gt;topical&lt;/b&gt;&lt;br&gt;≈ 0 systemic; acts in skin (GHK-Cu, KPV)&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;local only&lt;/span&gt;" tabindex="0" role="button" aria-label="topical: ≈ 0 systemic; acts in skin (GHK-Cu, KPV)"><rect x="0" y="298" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 302) scale(0.95)"><path fill-rule="evenodd" d="M44 39H4V37H44V39Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M11 29.002C12.6569 29.0006 14.0016 30.3431 14.0029 32C14.0043 33.6568 12.6617 35.0006 11.0049 35.002C9.34804 35.0033 8.00429 33.6617 8.00293 32.0049C8.00157 30.348 9.34315 29.0033 11 29.002ZM11.002 31.002C10.4498 31.0024 10.0026 31.4508 10.0029 32.0029C10.0034 32.5551 10.4508 33.0022 11.0029 33.002C11.5551 33.0015 12.0032 32.5541 12.0029 32.002C12.0025 31.4498 11.5541 31.0017 11.002 31.002Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M38 29.002C39.6569 29.0006 41.0016 30.3431 41.0029 32C41.0043 33.6568 39.6617 35.0006 38.0049 35.002C36.348 35.0033 35.0043 33.6617 35.0029 32.0049C35.0016 30.348 36.3431 29.0033 38 29.002ZM38.002 31.002C37.4498 31.0024 37.0026 31.4508 37.0029 32.0029C37.0034 32.5551 37.4508 33.0022 38.0029 33.002C38.5551 33.0015 39.0032 32.5541 39.0029 32.002C39.0025 31.4498 38.5541 31.0017 38.002 31.002Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M24 25.002C25.6569 25.0006 27.0016 26.3431 27.0029 28C27.0043 29.6568 25.6617 31.0006 24.0049 31.002C22.348 31.0033 21.0043 29.6617 21.0029 28.0049C21.0016 26.348 22.3431 25.0033 24 25.002ZM24.002 27.002C23.4498 27.0024 23.0026 27.4508 23.0029 28.0029C23.0034 28.5551 23.4508 29.0022 24.0029 29.002C24.5551 29.0015 25.0032 28.5541 25.0029 28.002C25.0025 27.4498 24.5541 27.0017 24.002 27.002Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M11.0225 19C12.5133 19.0001 13.9162 19.7064 14.8037 20.9043C15.314 21.5931 16.1203 21.9999 16.9775 22H17.6885C18.5458 22 19.353 21.5932 19.8633 20.9043C20.7508 19.7064 22.1537 19 23.6445 19H24.3555C25.8463 19 27.2492 19.7064 28.1367 20.9043C28.647 21.5932 29.4542 22 30.3115 22H31.0225C31.8797 21.9999 32.686 21.5931 33.1963 20.9043C34.0838 19.7064 35.4867 19.0001 36.9775 19H37.6885C39.1795 19 40.5832 19.7062 41.4707 20.9043C41.981 21.5932 42.7872 22 43.6445 22H44V24H43.6445C42.1537 24 40.7508 23.2936 39.8633 22.0957C39.353 21.4068 38.5458 21 37.6885 21H36.9775C36.1203 21.0001 35.314 21.4069 34.8037 22.0957C33.9162 23.2936 32.5133 23.9999 31.0225 24H30.3115C28.8205 24 27.4168 23.2938 26.5293 22.0957C26.019 21.4068 25.2128 21 24.3555 21H23.6445C22.7872 21 21.981 21.4068 21.4707 22.0957C20.5832 23.2938 19.1795 24 17.6885 24H16.9775C15.4867 23.9999 14.0838 23.2936 13.1963 22.0957C12.686 21.4069 11.8797 21.0001 11.0225 21H10.3115C9.45419 21 8.64703 21.4068 8.13672 22.0957C7.24919 23.2936 5.84635 24 4.35547 24H4V22H4.35547C5.2128 22 6.01899 21.5932 6.5293 20.9043C7.41681 19.7062 8.82052 19 10.3115 19H11.0225Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M44 12H4V10H44V12Z" fill="var(--muted)"/></g><text x="58" y="329.8" class="ink">topical</text><rect class="bar" x="200" y="315.8" width="23" height="18" style="--c:var(--ghk)"/><text x="233" y="329.8" class="mu m">≈ 0</text></g>
+   <g data-k="r6" data-tip="&lt;b&gt;rectal enema&lt;/b&gt;&lt;br&gt;BPC-157 not detected in plasma (two trials)&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;local only&lt;/span&gt;" tabindex="0" role="button" aria-label="rectal enema: BPC-157 not detected in plasma (two trials)"><rect x="0" y="352" width="807" height="54" fill="transparent" pointer-events="all"/><g transform="translate(0 356) scale(0.95)"><path fill-rule="evenodd" d="M6 12.1944C6 8.77335 8.77335 6 12.1944 6C13.6163 6 14.9271 6.47988 15.9723 7.28507C17.0174 6.47988 18.3282 6 19.7501 6C21.3959 6 22.8916 6.64243 24.0001 7.68804C25.1085 6.64243 26.6042 6 28.2501 6C29.6719 6 30.9827 6.47987 32.0278 7.28502C33.0729 6.47987 34.3837 6 35.8055 6C39.2266 6 42 8.77335 42 12.1944C42 13.6129 41.5223 14.921 40.7206 15.9649C41.5261 17.1052 42 18.498 42 20C42 21.6057 41.4585 23.0861 40.5496 24.2668C41.454 25.3431 42 26.7332 42 28.2501C42 31.6712 39.2267 34.4445 35.8056 34.4445C34.3837 34.4445 33.073 33.9646 32.0278 33.1595C31.7715 33.357 31.4992 33.5349 31.2131 33.691C31.2052 33.7087 31.1965 33.7297 31.1871 33.7542C31.1244 33.9175 31.06 34.1596 31 34.4761V42H29V34.3846C29 34.3253 29.0053 34.2662 29.0158 34.2078C29.0897 33.7964 29.1865 33.3849 29.32 33.0372C29.387 32.8629 29.4739 32.6758 29.5906 32.5038C29.7032 32.3376 29.8827 32.1274 30.156 31.9877C30.5851 31.7683 30.9721 31.4768 31.3007 31.1288C31.4896 30.9287 31.7526 30.8153 32.0278 30.8153C32.303 30.8153 32.566 30.9287 32.7549 31.1288C33.521 31.9402 34.6036 32.4445 35.8056 32.4445C38.1221 32.4445 40 30.5666 40 28.2501C40 26.9746 39.432 25.833 38.5316 25.0621C38.3181 24.8793 38.1913 24.6151 38.1824 24.3341C38.1736 24.0531 38.2833 23.7814 38.4849 23.5855C39.4206 22.6758 40 21.4064 40 20C40 18.6918 39.4989 17.503 38.6765 16.6112C38.308 16.2117 38.3261 15.5909 38.7173 15.2136C39.5093 14.4495 40 13.3801 40 12.1944C40 9.95267 38.2413 8.12165 36.0284 8.00582V8.03547C35.0773 8.03547 34.0984 8.50674 33.4631 9.27834C32.8483 10.025 32.566 11.0356 32.9487 12.1838C33.1234 12.7078 32.8402 13.2741 32.3162 13.4487C31.7923 13.6234 31.226 13.3402 31.0513 12.8162C30.6133 11.5022 30.7216 10.2536 31.185 9.19783C30.4275 8.45575 29.3927 8 28.2501 8C26.8323 8 25.5785 8.70248 24.8177 9.78286C24.6304 10.0488 24.3254 10.2071 24.0001 10.2071C23.6747 10.2071 23.3697 10.0488 23.1824 9.78286C22.4216 8.70248 21.1678 8 19.7501 8C18.548 8 17.4654 8.50432 16.6994 9.31573C16.5105 9.51584 16.2474 9.62925 15.9722 9.62925C15.6971 9.62925 15.434 9.51584 15.2451 9.31573C14.4791 8.50432 13.3965 8 12.1944 8C9.87792 8 8 9.87792 8 12.1944C8 13.3965 8.50432 14.4791 9.31573 15.2451C9.51585 15.434 9.62926 15.6971 9.62926 15.9723C9.62926 16.2475 9.51585 16.5105 9.31574 16.6994C8.50433 17.4654 8.00001 18.548 8.00001 19.7501C8.00001 21.1678 8.70249 22.4216 9.78287 23.1824C10.0489 23.3697 10.2071 23.6747 10.2071 24.0001C10.2071 24.3254 10.0489 24.6304 9.78287 24.8177C8.70249 25.5785 8.00001 26.8323 8.00001 28.2501C8.00001 30.2334 9.3775 31.8974 11.2291 32.3331C11.6808 32.4394 12 32.8425 12 33.3065V35.3335C12 35.8245 12.398 36.2224 12.8889 36.2224C13.3798 36.2224 13.7778 35.8245 13.7778 35.3336V32.7576C13.7778 32.3995 13.9692 32.0688 14.2797 31.8904C15.5422 31.1653 16.3889 29.806 16.3889 28.2501C16.3889 26.8323 15.6864 25.5785 14.606 24.8177C14.5496 24.7779 14.498 24.7328 14.4517 24.6834C13.7663 24.2325 12.9467 23.9999 11.9999 23.9999C11.4476 23.9999 10.9999 23.5522 10.9999 22.9999C10.9999 22.4477 11.4477 21.9999 11.9999 21.9999C13.1309 21.9999 14.1881 22.2486 15.1211 22.7549C15.9043 21.9921 16.3889 20.9276 16.3889 19.7501C16.3889 18.548 15.8846 17.4654 15.0732 16.6994C14.8731 16.5105 14.7596 16.2474 14.7596 15.9722C14.7596 15.697 14.8731 15.434 15.0732 15.2451C15.1321 15.1894 15.1894 15.1321 15.2451 15.0732C15.434 14.873 15.697 14.7596 15.9722 14.7596C16.2474 14.7596 16.5105 14.873 16.6994 15.0732C17.4654 15.8846 18.548 16.3889 19.7501 16.3889C21.1678 16.3889 22.4216 15.6864 23.1824 14.606C23.3697 14.34 23.6747 14.1818 24.0001 14.1818C24.3254 14.1818 24.6304 14.34 24.8177 14.606C25.5785 15.6864 26.8323 16.3889 28.2501 16.3889C28.6583 16.3889 29.0512 16.3309 29.422 16.2233C29.808 16.1112 30.2237 16.2412 30.4771 16.5533C30.7305 16.8654 30.7723 17.2989 30.5834 17.6537C30.2113 18.3523 30 19.15 30 20C30 20.9044 30.2393 21.7506 30.6579 22.4812C31.797 23.1214 32.5429 23.7528 32.9825 24.4854C33.5016 25.3507 33.5007 26.2228 33.5 26.9235L33.5 26.9999C33.5 27.5522 33.0523 27.9999 32.5 27.9999C31.9477 27.9999 31.5 27.5522 31.5 26.9999C31.5 26.2131 31.4793 25.8674 31.2675 25.5144C31.0944 25.2259 30.736 24.8519 29.9177 24.3637C29.8417 24.3547 29.7659 24.3368 29.6918 24.3097C29.2435 24.1456 28.7584 24.0556 28.2501 24.0556C25.9335 24.0556 24.0556 25.9335 24.0556 28.2501C24.0556 29.8786 24.9835 31.2922 26.3441 31.9877C26.4499 32.0418 26.5448 32.1054 26.6294 32.1739C26.8638 32.3637 27 32.6493 27 32.951V42H25V33.5242C23.2347 32.4342 22.0556 30.4806 22.0556 28.2501C22.0556 24.829 24.829 22.0556 28.2501 22.0556L28.307 22.0559C28.1074 21.4054 28 20.7149 28 20C28 19.446 28.0645 18.9063 28.1866 18.3886C26.5658 18.3723 25.0943 17.733 24.0001 16.7008C22.8916 17.7465 21.3959 18.3889 19.7501 18.3889C19.2116 18.3889 18.689 18.3201 18.1908 18.1908C18.3201 18.689 18.3889 19.2116 18.3889 19.7501C18.3889 21.3959 17.7465 22.8916 16.7009 24.0001C17.7465 25.1085 18.3889 26.6042 18.3889 28.2501C18.3889 30.3371 17.3563 32.182 15.7778 33.3033V35.3336C15.7778 36.929 14.4844 38.2224 12.8889 38.2224C11.2934 38.2224 10 36.929 10 35.3335V34.0442C7.66233 33.1583 6.00001 30.8993 6.00001 28.2501C6.00001 26.6042 6.64245 25.1085 7.68805 24.0001C6.64245 22.8916 6.00001 21.3959 6.00001 19.7501C6.00001 18.3282 6.47989 17.0174 7.28508 15.9723C6.47989 14.9271 6 13.6163 6 12.1944Z" fill="var(--muted)"/></g><text x="58" y="383.8" class="ink">rectal enema</text><rect class="bar" x="200" y="369.8" width="18" height="18" style="--c:var(--bpc)"/><text x="228" y="383.8" class="mu m">≈ 0</text></g>
+   <line x1="200" y1="416" x2="755" y2="416" stroke="var(--ink)" stroke-width="1.5"/>
+   <g class="mu m" text-anchor="middle"><text x="200" y="436">0.1%</text><text x="385" y="436">1%</text><text x="570" y="436">10%</text><text x="755" y="436">100%</text></g>
+   <text x="477.5" y="456" class="ink" text-anchor="middle">share of the dose reaching the blood, log scale → more arrives</text>
+  </g>
+ </svg></div>
   
-  <div class="fkey"><span class="key"><i class="sw" data-s="bar"></i>injected</span> <span class="key"><i class="sw" data-s="bar" style="--c:var(--muted)"></i>mucosal, with help</span> <span class="key"><i class="sw" data-s="bar" style="--c:var(--xna)"></i>local only</span></div>
+  <div class="fkey"><span class="key"><i class="sw" data-s="bar" style="--c:var(--glp)"></i>semaglutide</span> <span class="key"><i class="sw" data-s="bar" style="--c:var(--smx)"></i>Semax</span> <span class="key"><i class="sw" data-s="bar" style="--c:var(--ghk)"></i>GHK-Cu</span> <span class="key"><i class="sw" data-s="bar" style="--c:var(--bpc)"></i>BPC-157</span> <span class="key"><i class="sw" data-s="bar" style="--c:var(--muted)"></i>any peptide</span></div>
+ <div class="fkey" data-print><span><b>intravenous</b> 100%, by definition</span> <span><b>subcutaneous</b> ~90% (semaglutide label)</span> <span><b>intranasal</b> ~1–10%, typical: Semax, Selank</span> <span><b>oral, with SNAC</b> ~1% (semaglutide; absorbed in the stomach)</span> <span><b>oral, bare peptide</b> ≈ 0: cut by pepsin, trypsin; too polar to cross</span> <span><b>topical</b> ≈ 0 systemic; acts in skin (GHK-Cu, KPV)</span> <span><b>rectal enema</b> BPC-157 not detected in plasma (two trials)</span></div>
  <figcaption><span class="k">Figure 11</span> <b>Needles are the price of the message.</b> Oral semaglutide needs the enhancer SNAC;<sup class="ref"><a href="#r23">23</a></sup> BPC-157 enema data from the FDA review;<sup class="ref"><a href="#r13">13</a></sup> the HHS draft asks compounders of oral forms for human bioavailability data.<sup class="ref"><a href="#r14">14</a></sup> The intranasal percentages are typical values, not retrieved measurements; the subcutaneous figure is semaglutide&#8217;s 89% absolute bioavailability from its label.<sup class="ref"><a href="#r98">98</a></sup></figcaption>
  </figure>
  <figure class="fig" id="figdoors">
@@ -2704,6 +2726,7 @@ L 186.2 78.6
       <text x="20" y="92" class="ink">Semax</text>
    <text x="20" y="110" class="mu">7 aa, 813.9 Da</text>
    <text x="20" y="128" class="mu">intranasal drops</text>
+   <g transform="translate(136 82) scale(0.95)" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4 C17 15 24 23 34 30 C40 34.5 38.5 43 31 43 H22 M22 43 C15 43 14 35 19 32 C22 30.5 26 32 27 36"/></g>
    <g class="mu" text-anchor="middle"><text x="268" y="68">ACTH(4–10) analogue</text><text x="438" y="68">Pro-Gly-Pro, added</text></g>
    <path d="M206 76 V82 H330 V76 M370 76 V82 H506 V76" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
    <path d="M212 102 H460" stroke="var(--muted)" stroke-width="1.5"/>
@@ -2720,6 +2743,7 @@ L 186.2 78.6
       <text x="20" y="224" class="ink">Matrixyl</text>
    <text x="20" y="242" class="mu">5 aa + C16 tail</text>
    <text x="20" y="260" class="mu">topical cream</text>
+   <g transform="translate(136 214) scale(0.95)"><path fill-rule="evenodd" d="M44 39H4V37H44V39Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M11 29.002C12.6569 29.0006 14.0016 30.3431 14.0029 32C14.0043 33.6568 12.6617 35.0006 11.0049 35.002C9.34804 35.0033 8.00429 33.6617 8.00293 32.0049C8.00157 30.348 9.34315 29.0033 11 29.002ZM11.002 31.002C10.4498 31.0024 10.0026 31.4508 10.0029 32.0029C10.0034 32.5551 10.4508 33.0022 11.0029 33.002C11.5551 33.0015 12.0032 32.5541 12.0029 32.002C12.0025 31.4498 11.5541 31.0017 11.002 31.002Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M38 29.002C39.6569 29.0006 41.0016 30.3431 41.0029 32C41.0043 33.6568 39.6617 35.0006 38.0049 35.002C36.348 35.0033 35.0043 33.6617 35.0029 32.0049C35.0016 30.348 36.3431 29.0033 38 29.002ZM38.002 31.002C37.4498 31.0024 37.0026 31.4508 37.0029 32.0029C37.0034 32.5551 37.4508 33.0022 38.0029 33.002C38.5551 33.0015 39.0032 32.5541 39.0029 32.002C39.0025 31.4498 38.5541 31.0017 38.002 31.002Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M24 25.002C25.6569 25.0006 27.0016 26.3431 27.0029 28C27.0043 29.6568 25.6617 31.0006 24.0049 31.002C22.348 31.0033 21.0043 29.6617 21.0029 28.0049C21.0016 26.348 22.3431 25.0033 24 25.002ZM24.002 27.002C23.4498 27.0024 23.0026 27.4508 23.0029 28.0029C23.0034 28.5551 23.4508 29.0022 24.0029 29.002C24.5551 29.0015 25.0032 28.5541 25.0029 28.002C25.0025 27.4498 24.5541 27.0017 24.002 27.002Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M11.0225 19C12.5133 19.0001 13.9162 19.7064 14.8037 20.9043C15.314 21.5931 16.1203 21.9999 16.9775 22H17.6885C18.5458 22 19.353 21.5932 19.8633 20.9043C20.7508 19.7064 22.1537 19 23.6445 19H24.3555C25.8463 19 27.2492 19.7064 28.1367 20.9043C28.647 21.5932 29.4542 22 30.3115 22H31.0225C31.8797 21.9999 32.686 21.5931 33.1963 20.9043C34.0838 19.7064 35.4867 19.0001 36.9775 19H37.6885C39.1795 19 40.5832 19.7062 41.4707 20.9043C41.981 21.5932 42.7872 22 43.6445 22H44V24H43.6445C42.1537 24 40.7508 23.2936 39.8633 22.0957C39.353 21.4068 38.5458 21 37.6885 21H36.9775C36.1203 21.0001 35.314 21.4069 34.8037 22.0957C33.9162 23.2936 32.5133 23.9999 31.0225 24H30.3115C28.8205 24 27.4168 23.2938 26.5293 22.0957C26.019 21.4068 25.2128 21 24.3555 21H23.6445C22.7872 21 21.981 21.4068 21.4707 22.0957C20.5832 23.2938 19.1795 24 17.6885 24H16.9775C15.4867 23.9999 14.0838 23.2936 13.1963 22.0957C12.686 21.4069 11.8797 21.0001 11.0225 21H10.3115C9.45419 21 8.64703 21.4068 8.13672 22.0957C7.24919 23.2936 5.84635 24 4.35547 24H4V22H4.35547C5.2128 22 6.01899 21.5932 6.5293 20.9043C7.41681 19.7062 8.82052 19 10.3115 19H11.0225Z" fill="var(--muted)"/><path fill-rule="evenodd" d="M44 12H4V10H44V12Z" fill="var(--muted)"/></g>
    <g class="mu" text-anchor="middle"><text x="258" y="200">palmitoyl, added</text><text x="460" y="200">pro-collagen I (KTTKS)</text></g>
    <path d="M196 208 V214 H306 V208 M370 208 V214 H550 V208" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
    <path d="M306 234 H504" stroke="var(--muted)" stroke-width="1.5"/>
@@ -2736,13 +2760,13 @@ L 186.2 78.6
  <figcaption><span class="k">Figure 12</span> <b>Each door gets its own tail: a Pro-Gly-Pro tail closes the chain at the nose, a C16 fat carries five residues through skin.</b> One bead per residue, as in Figure 4, where the GLP-1 class makes the same two moves. Semax from Dolotov et al. 2006, who read it as an ACTH(4–10) analogue;<sup class="ref"><a href="#r57">57</a></sup> pal-KTTKS is named here as its supplier names it, with no primary structural paper retrieved for this page. Neither route was measured for this figure; bioavailabilities are in Figure 11.</figcaption>
 </figure>
  <dl>
-  <div><dt><a href="#row-semax">Semax</a>, evidence <span class="tier" data-t="2" role="img" aria-label="evidence 2 of 5"><i></i><i></i><i></i><i></i><i></i></span>2 of 5</dt><dd>Russian clinical use, and one resting-state fMRI study in 52 healthy adults.<sup class="ref"><a href="#r102">102</a></sup> A blinded stroke or cognition trial outside Russia would move it; none was retrieved, and no study links Semax to ketamine tolerance.</dd></div>
+  <div><dt><a href="#row-semax">Semax</a>, evidence <span class="tier" data-t="2" role="img" aria-label="evidence 2 of 5"><i></i><i></i><i></i><i></i><i></i></span>2 of 5</dt><dd>Russian clinical use, and one resting-state fMRI study in 52 healthy adults.<sup class="ref"><a href="#r102">102</a></sup> A blinded stroke or cognition trial outside Russia would move it; none was retrieved, and no study links <span data-p style="--c:var(--smx)">Semax</span> to ketamine tolerance.</dd></div>
   <div><dt><a href="#row-matrixyl">Matrixyl</a>, evidence <span class="tier" data-t="2" role="img" aria-label="evidence 2 of 5"><i></i><i></i><i></i><i></i><i></i></span>2 of 5</dt><dd>Small cosmetic trials on wrinkle depth. A drug-grade randomised trial would move it; none was retrieved.</dd></div>
  </dl>
- <p>Copper peptide, the powder in that first envelope, is GHK, glycine-histidine-lysine. Your blood already carries it, about 200 ng per mL at age 20 and, by an often-repeated figure, 80 by 60.<sup class="ref"><a href="#r51">51</a></sup> It was found in human serum in 1973, keeping liver cells alive in a dish.<sup class="ref"><a href="#r49">49</a></sup> GHK grips one copper ion, and the pair, GHK-Cu, is the <span class="term" tabindex="0">copper tripeptide-1<span class="tc"><b>copper tripeptide-1</b>, the ingredient-list name for GHK-Cu; as a drug, prezatide copper. C&#8321;&#8324;H&#8322;&#8323;CuN&#8326;O&#8324;&#8314;, 402.92 g/mol.<sup class="ref"><a href="#r72">72</a></sup></span></span> on ingredient lists. Brands also sell GHK with a palmitoyl tail, a 16-carbon fatty acid that helps it into skin, as Pal-GHK (Figure 28).<sup class="ref"><a href="#r73">73</a></sup></p>
- <h3>Intact human skin keeps GHK-Cu out; pierced or thinned skin lets copper through</h3>
- <p>In cells, GHK raises output of collagen, elastin and glycosaminoglycans and supports the fibroblasts that build skin.<sup class="ref"><a href="#r51">51</a></sup> On cell studies alone, a 2025 review calls it &#8220;undoubtedly&#8221; an anti-wrinkle ingredient;<sup class="ref"><a href="#r73">73</a></sup> in people, the same review finds &#8220;a surprising absence of clinical studies&#8221; of GHK-Cu or Pal-GHK.<sup class="ref"><a href="#r73">73</a></sup> Skin is the bottleneck: water-loving GHK-Cu barely gets in, and intact human skin let almost none through in 9 hours.<sup class="ref"><a href="#r74">74</a></sup></p>
- <p>So how a serum is made probably matters more than the number on its label. Both labs tested GHK-Cu on excised human skin; Hostynek&#8217;s used a flow-through diffusion cell, a chamber that holds skin over a fluid and measures what gets through.</p>
+ <p>Copper peptide, the powder in that first envelope, is <span data-p style="--c:var(--ghk)">GHK</span>, glycine-histidine-lysine. Your blood already carries it, about 200 ng per mL at age 20 and, by an often-repeated figure, 80 by 60.<sup class="ref"><a href="#r51">51</a></sup> It was found in human serum in 1973, keeping liver cells alive in a dish.<sup class="ref"><a href="#r49">49</a></sup> <span data-p style="--c:var(--ghk)">GHK</span> grips one copper ion, and the pair, <span data-p style="--c:var(--ghk)">GHK-Cu</span>, is the <span class="term" tabindex="0">copper tripeptide-1<span class="tc"><b>copper tripeptide-1</b>, the ingredient-list name for <span data-p style="--c:var(--ghk)">GHK-Cu</span>; as a drug, prezatide copper. C&#8321;&#8324;H&#8322;&#8323;CuN&#8326;O&#8324;&#8314;, 402.92 g/mol.<sup class="ref"><a href="#r72">72</a></sup></span></span> on ingredient lists. Brands also sell <span data-p style="--c:var(--ghk)">GHK</span> with a palmitoyl tail, a 16-carbon fatty acid that helps it into skin, as Pal-GHK (Figure 28).<sup class="ref"><a href="#r73">73</a></sup></p>
+ <h3>Copper peptide raises collagen output in cells; intact skin barely lets it in</h3>
+ <p>In cells, <span data-p style="--c:var(--ghk)">GHK</span> raises output of collagen, elastin and glycosaminoglycans and supports the fibroblasts that build skin.<sup class="ref"><a href="#r51">51</a></sup> On cell studies alone, a 2025 review calls it &#8220;undoubtedly&#8221; an anti-wrinkle ingredient;<sup class="ref"><a href="#r73">73</a></sup> in people, the same review finds &#8220;a surprising absence of clinical studies&#8221; of <span data-p style="--c:var(--ghk)">GHK-Cu</span> or Pal-GHK.<sup class="ref"><a href="#r73">73</a></sup> Skin is the bottleneck: water-loving <span data-p style="--c:var(--ghk)">GHK-Cu</span> barely gets in, and intact human skin let almost none through in 9 hours.<sup class="ref"><a href="#r74">74</a></sup></p>
+ <p>So how a serum is made probably matters more than the number on its label. Both labs tested <span data-p style="--c:var(--ghk)">GHK-Cu</span> on excised human skin; Hostynek&#8217;s used a flow-through diffusion cell, a chamber that holds skin over a fluid and measures what gets through.</p>
  <figure class="fig" id="figskin">
  <div class="scroll"><svg viewBox="18 0 834 336" role="img" aria-label="Three samples of human skin in diffusion cells. Intact skin, 9 hours: almost no peptide or copper crossed. Skin pierced by microneedles, 9 hours: 134 nanomoles of peptide and 705 of copper crossed. Dermatomed skin, 48 hours, 0.68 percent in water: 136 micrograms of copper per square centimetre crossed; the peptide was not measured.">
  <defs>
@@ -2883,10 +2907,10 @@ L 186.2 78.6
   <div data-k="rec"><h4>Ipamorelin</h4><p>Aib-His-D-2-Nal-D-Phe-Lys-NH₂; the first GHRP-receptor agonist as selective for GH as GHRH itself, leaving ACTH and cortisol unmoved, in pigs and rats.<sup class="ref"><a href="#r42">42</a></sup></p><p><b>Human:</b> no efficacy trial retrieved. Ipamorelin acetate remains in FDA Category 2 for 503B outsourcing facilities.<sup class="ref"><a href="#r11">11</a></sup></p></div>
   <div data-k="rec"><h4>Tesamorelin</h4><p>Unlike CJC-1295, this GHRH analogue was approved: Egrifta, 10 November 2010, to reduce visceral fat in HIV lipodystrophy, on two phase 3 trials.<sup class="ref"><a href="#r43">43</a></sup> Proof that the GH-axis peptides can clear the bar when someone runs the trials.</p></div>
   <div data-k="mit"><h4>Elamipretide (SS-31)</h4><p>D-Arg-Dmt-Lys-Phe-NH₂ concentrates in the inner mitochondrial membrane and binds cardiolipin, re-energising ischaemic mitochondria in rats.<sup class="ref"><a href="#r44">44</a>,<a href="#r45">45</a></sup></p><p><b>Human:</b> accelerated approval 19 September 2025 (Forzinity) for Barth syndrome on knee-extensor strength gained in TAZPOWER&#8217;s open-label part; continued approval may hang on a confirmatory trial. Potentially a first-in-class drug, aimed at the inner mitochondrial membrane.<sup class="ref"><a href="#r46">46</a></sup></p></div>
-  <div data-k="mit"><h4>Humanin and the SHLPs</h4><p>MOTS-c's older sibling: a 24-residue peptide from the 16S rRNA gene, found in 2001 as a factor that rescued neurons from Alzheimer's-gene toxicity;<sup class="ref"><a href="#r52">52</a></sup> six small humanin-like peptides (20–38 aa) followed.<sup class="ref"><a href="#r53">53</a></sup></p><p><b>Human:</b> none retrieved. Not on FDA&#8217;s category 2 or withdrawn-nomination lists.</p></div>
+  <div data-k="mit"><h4>Humanin and the SHLPs</h4><p><span data-p style="--c:var(--mots)">MOTS-c</span>'s older sibling: a 24-residue peptide from the 16S rRNA gene, found in 2001 as a factor that rescued neurons from Alzheimer's-gene toxicity;<sup class="ref"><a href="#r52">52</a></sup> six small humanin-like peptides (20–38 aa) followed.<sup class="ref"><a href="#r53">53</a></sup></p><p><b>Human:</b> none retrieved. Not on FDA&#8217;s category 2 or withdrawn-nomination lists.</p></div>
   <div data-k="rec"><h4>Bremelanotide (PT-141)</h4><p>Melanocortin agonist approved 21 June 2019 (Vyleesi) for hypoactive sexual desire disorder in premenopausal women; effect modest versus placebo in two 24-week trials, 1,247 women.<sup class="ref"><a href="#r54">54</a></sup></p></div>
   <div data-k="nuc"><h4>Epitalon</h4><p>Tetrapeptide from the Khavinson school. In 2025, telomerase activity rose 4× in IBR.3 fibroblasts and 26× in HMEC cells, with longer telomeres, in culture.<sup class="ref"><a href="#r55">55</a>,<a href="#r56">56</a></sup></p><p><b>Human:</b> none retrieved. HHS draft lists it for intermittent SC/IM courses (insomnia was the PCAC indication).</p></div>
-  <div data-k="rec"><h4>Semax (and Selank)</h4><p>Met-Glu-His-Phe-Pro-Gly-Pro raises BDNF and TrkB in rat hippocampus;<sup class="ref"><a href="#r57">57</a></sup> Selank, its stablemate from the same school, was read beside it in the one human study this page retrieved.<sup class="ref"><a href="#r102">102</a></sup> That study, and the clinical use behind both, are Russian.</p><p><b>Human:</b> one resting-state fMRI study, 52 healthy adults, measuring brain connectivity against placebo.<sup class="ref"><a href="#r102">102</a></sup> HHS draft lists Semax intranasal.</p></div>
+  <div data-k="rec"><h4>Semax (and Selank)</h4><p>Met-Glu-His-Phe-Pro-Gly-Pro raises BDNF and TrkB in rat hippocampus;<sup class="ref"><a href="#r57">57</a></sup> Selank, its stablemate from the same school, was read beside it in the one human study this page retrieved.<sup class="ref"><a href="#r102">102</a></sup> That study, and the clinical use behind both, are Russian.</p><p><b>Human:</b> one resting-state fMRI study, 52 healthy adults, measuring brain connectivity against placebo.<sup class="ref"><a href="#r102">102</a></sup> HHS draft lists <span data-p style="--c:var(--smx)">Semax</span> intranasal.</p></div>
   <div data-k="tra"><h4>KPV</h4><p>Lys-Pro-Val: the last three beads of &#945;-MSH, whose chain ends SYSMEHFRWG&#8209;KPV.<sup class="ref"><a href="#r100">100</a></sup> Oral KPV reduced DSS and TNBS colitis in mice through the PepT1 di/tripeptide transporter.<sup class="ref"><a href="#r58">58</a></sup></p><p><b>Human:</b> FDA found no human exposure data.<sup class="ref"><a href="#r11">11</a></sup> HHS draft: topical and oral.</p></div>
   <div data-k="rec"><h4>AOD-9604</h4><p>Residues 177 to 191 from the tail of human growth hormone, plus one tyrosine, reported to copy the hormone&#8217;s fat burning without its effect on blood sugar.<sup class="ref"><a href="#r101">101</a></sup> Its 2007 phase 2b obesity trial missed its endpoint and development ended, a result known mainly through company disclosures (secondary sources). Nomination withdrawn.</p></div>
   <div data-k="tra"><h4>Thymosin α1</h4><p>Thymalfasin, Zadaxin: in trials for hepatitis B and C with mixed results, and not approved by the FDA.<sup class="ref"><a href="#r59">59</a></sup> Nomination withdrawn.</p></div>
@@ -2930,8 +2954,8 @@ L 186.2 78.6
  </div></section>
 
 <section class="ch" id="supply"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="supply"><b>07</b><span class="vh">A peptide chain takes days to make, then leaves the factory in different envelopes</span></button></div>
- <h2>A peptide chain takes days to make, then leaves the factory in different envelopes</h2>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="supply"><b>07</b><span class="vh">Made in days, a peptide chain leaves the factory in different envelopes</span></button></div>
+ <h2>Made in days, a peptide chain leaves the factory in different envelopes</h2>
  <p>Vials sold online typically start life as a necklace. Chemists thread amino acids one at a time onto a plastic bead in a tank, then cut the chain loose, wash it and freeze-dry it;<sup class="ref"><a href="#r107">107</a>,<a href="#r108">108</a></sup> a 15-bead peptide is fifteen turns of the loop. Biology has a second way, the one used for human insulin: hand the gene to a living cell and let it brew.<sup class="ref"><a href="#r107">107</a></sup> A pharmacy pen is usually brewed, then finished by chemistry. Either way the chain is done in days (typical times, marked as estimates in Figure 15). What differs is the envelope: the same kind of molecule can leave the factory as a branded pen, a pharmacist&#8217;s vial or a website&#8217;s &#8220;research only&#8221; vial. Which envelope is the vial in the post?</p>
  <figure class="fig" id="figtime">
   <div class="scroll"><svg viewBox="18 0 847 308" role="img" aria-label="A log time axis from one hour to thirty years with markers: one coupling cycle in hours; a chain in days; a tested vial in weeks; a released GMP batch in months; a medicine in about ten years, with semaglutide's dates above">
@@ -3142,7 +3166,7 @@ L 186.2 78.6
  <div class="fkey"><span class="key"><i class="sw" data-s="ring"></i>event</span> <span class="key"><i class="sw" data-s="ring" style="--c:var(--green)"></i>approval or vote</span> <span class="key"><i class="sw" data-s="bar" style="background:color-mix(in srgb,var(--ink) 30%,var(--paper))"></i>crypto inflows, quarterly</span> <span class="key"><i class="sw" data-s="dline"></i>yearly run rate</span> <span class="key"><i class="sw" data-s="dline" style="--c:var(--muted);border-top-style:dotted"></i>today, 5 Nov 2026</span></div>
  <figcaption><span class="k">Figure 17</span> <b>Five years from WADA naming it to enforcement discretion, and the money that followed the thaw.</b> July 2021 to December 2026. Dates from WADA,<sup class="ref"><a href="#r10">10</a></sup> FDA's Category 2 page,<sup class="ref"><a href="#r11">11</a></sup> the PCAC record,<sup class="ref"><a href="#r12">12</a></sup> law-firm summaries of the HHS policy,<sup class="ref"><a href="#r14">14</a>,<a href="#r15">15</a></sup> Undark<sup class="ref"><a href="#r17">17</a></sup> and the releases cited in 02 and 07; crypto inflows from Chainalysis via The Block.<sup class="ref"><a href="#r60">60</a></sup> The 2024-12 warning-letter date rests on secondary reports.</figcaption>
 </figure>
- <p>Money follows every envelope, factories first. Novo Holdings paid $16.5 bn for Catalent in December 2024;<sup class="ref"><a href="#r61">61</a></sup> Pfizer paid about $10 bn for Metsera's obesity pipeline in November 2025.<sup class="ref"><a href="#r62">62</a></sup> Meanwhile, CordenPharma committed about &#8364;900 M over three years to peptide capacity, on GLP-1 contracts it puts at &#8364;3 bn.<sup class="ref"><a href="#r106">106</a>,<a href="#r63">63</a></sup> Analysts put the 2025 peptide-drug market anywhere from $50 to 101 bn.<sup class="ref"><a href="#r65">65</a>,<a href="#r66">66</a></sup> At the other end, crypto payments to grey-market vendors went from $12 M to $32 M in one quarter, a 159% jump.<sup class="ref"><a href="#r60">60</a>,<a href="#r105">105</a></sup></p>
+ <p>Money follows every envelope, factories first. Novo Holdings paid $16.5 bn for Catalent in December 2024;<sup class="ref"><a href="#r61">61</a></sup> Pfizer paid about $10 bn for Metsera's obesity pipeline in November 2025.<sup class="ref"><a href="#r62">62</a></sup> Meanwhile, CordenPharma committed about &#8364;900 M over three years to peptide capacity, on <span data-p style="--c:var(--glp)">GLP-1</span> contracts it puts at &#8364;3 bn.<sup class="ref"><a href="#r106">106</a>,<a href="#r63">63</a></sup> Analysts put the 2025 peptide-drug market anywhere from $50 to 101 bn.<sup class="ref"><a href="#r65">65</a>,<a href="#r66">66</a></sup> At the other end, crypto payments to grey-market vendors went from $12 M to $32 M in one quarter, a 159% jump.<sup class="ref"><a href="#r60">60</a>,<a href="#r105">105</a></sup></p>
  <h3>The label, not the molecule, decides which law a seller works under</h3>
  <div class="scroll"><table>
   <thead><tr><th>seller</th><th>sells, and under what law</th><th>outside tests</th><th>reading</th></tr></thead>
@@ -3157,10 +3181,10 @@ L 186.2 78.6
   <summary>what to do before you buy</summary>
   <ol class="read">
   <li><b>Divide before you buy.</b> Compare price per milligram of copper peptide, as Figure 14 does, not price per bottle.</li>
-  <li><b>Read the label&#8217;s number.</b> &#8220;10%&#8221; on a Matrixyl bottle is the share of a supplier&#8217;s solution.</li>
+  <li><b>Read the label&#8217;s number.</b> &#8220;10%&#8221; on a <span data-p style="--c:var(--mtx)">Matrixyl</span> bottle is the share of a supplier&#8217;s solution.</li>
   <li><b>Check the legal door first.</b> For injectables, a draft from the Department of Health and Human Services (HHS) lets <span class="term" tabindex="0">503A<span class="tc"><b>503A</b> the section of US drug law for pharmacies that compound a medicine for one named patient, on a prescription</span></span> pharmacies compound six peptides, which stay unapproved drugs; comments closed 13 November 2026, docket HHS-OASH-2026-0496.<sup class="ref"><a href="#r14">14</a></sup></li>
-  <li><b>Treat a seller&#8217;s certificate as the seller grading itself.</b> Finnrick publishes outside tests; Penguin&#8217;s record there is 6 of 10, on two GLP-1 peptides rather than the skin peptides.<sup class="ref"><a href="#r84">84</a></sup></li>
-  <li><b>Watch for a GLP-1 under a code name, sold with mixing water.</b> FDA warned a seller about one in March 2026.<sup class="ref"><a href="#r85">85</a></sup></li>
+  <li><b>Treat a seller&#8217;s certificate as the seller grading itself.</b> Finnrick publishes outside tests; Penguin&#8217;s record there is 6 of 10, on two <span data-p style="--c:var(--glp)">GLP-1</span> peptides rather than the skin peptides.<sup class="ref"><a href="#r84">84</a></sup></li>
+  <li><b>Watch for a <span data-p style="--c:var(--glp)">GLP-1</span> under a code name, sold with mixing water.</b> FDA warned a seller about one in March 2026.<sup class="ref"><a href="#r85">85</a></sup></li>
   <li><b>California reaches further than federal law.</b> On a plain reading, its 2026 synthetic-cannabinoid definition covers ART27.13, one of Everychem&#8217;s compounds, though the same section lets the substances be obtained for bona fide research.<sup class="ref"><a href="#r87">87</a></sup></li>
   <li><b>Ask for the trial.</b> Cells say yes and faces have not been asked. Hostynek&#8217;s skin test above came from the University of California, San Francisco, across town from the shop that sells Good Molecules.<sup class="ref"><a href="#r80">80</a>,<a href="#r82">82</a></sup></li>
  </ol>
@@ -3168,8 +3192,8 @@ L 186.2 78.6
  </div></section>
 
 <section class="ch" id="evidence"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="evidence"><b>08</b><span class="vh">Most claims here hold in a rat, in one lab, for a molecule and not a vial</span></button></div>
- <h2>Most claims here hold in a rat, in one lab, for a molecule and not a vial</h2>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="evidence"><b>08</b><span class="vh">Most claims here hold in a rat, in one lab, for a molecule, not a vial</span></button></div>
+ <h2>Most claims here hold in a rat, in one lab, for a molecule, not a vial</h2>
  <p>So how would you know? Ask any peptide claim three things: which species, how many labs, and what else is in the vial.</p>
  <figure class="fig" id="figgb" style="--capw:99.3%">
  <div class="scroll"><svg viewBox="18 0 678 196" role="img" aria-label="Pal-GHK and GB-115 side by side. Pal-GHK: a palmitoyl tail on glycine, then histidine and lysine. GB-115: a phenylhexanoyl cap on glycine, then tryptophan and an amide end. Both carry a hydrophobic cap on glycine.">
@@ -3216,10 +3240,10 @@ L 186.2 78.6
  It is a reversed copy of cholecystokinin-4 (CCK-4), a four-residue piece of the hormone cholecystokinin that causes anxiety; in rats and mice GB-115 prevented anxiety brought on by CCK-4, and its authors conclude the two share a target.<sup class="ref"><a href="#r88">88</a></sup> Its active shape is a &#946;-turn, a tight hairpin of the backbone.<sup class="ref"><a href="#r89">89</a></sup> The companion page that takes that seller&#8217;s shelf compound by compound draws it at its target: the Everychem basket, GB-115.</figcaption>
 </figure>
  <div class="read">
- <p><b>Ask the species.</b> Most peptide claims are true — in a rat. Human trials have to meet a standard: for ulcerative colitis the FDA&#8217;s is a modified Mayo score over at least a year.<sup class="ref"><a href="#r13">13</a></sup> BPC-157&#8217;s ran two weeks and reported a composite index its abstract did not define.</p>
- <p><b>Then count the labs.</b> One group&#8217;s result is a hypothesis with good press. BPC-157&#8217;s second group is small, and in Taiwan;<sup class="ref"><a href="#r17">17</a></sup> even MOTS-c&#8217;s human exercise data come from the discovering lab&#8217;s own collaboration.<sup class="ref"><a href="#r37">37</a></sup></p>
+ <p><b>Ask the species.</b> Most peptide claims are true — in a rat. Human trials have to meet a standard: for ulcerative colitis the FDA&#8217;s is a modified Mayo score over at least a year.<sup class="ref"><a href="#r13">13</a></sup> <span data-p style="--c:var(--bpc)">BPC-157</span>&#8217;s ran two weeks and reported a composite index its abstract did not define.</p>
+ <p><b>Then count the labs.</b> One group&#8217;s result is a hypothesis with good press. <span data-p style="--c:var(--bpc)">BPC-157</span>&#8217;s second group is small, and in Taiwan;<sup class="ref"><a href="#r17">17</a></sup> even <span data-p style="--c:var(--mots)">MOTS-c</span>&#8217;s human exercise data come from the discovering lab&#8217;s own collaboration.<sup class="ref"><a href="#r37">37</a></sup></p>
  <p><b>Last, separate the molecule from the vial.</b> What worries the FDA is the roughly 2% of a compounded powder that isn&#8217;t the sequence: chains cut short, beads flipped to their mirror image, clumps and bacterial endotoxin.<sup class="ref"><a href="#r13">13</a></sup> Certificates showing 98% purity say nothing about the other 2%. Neither does &#8220;research use only&#8221;: printing it takes no test at all. No label can tell you what is in any one vial, and this page cannot either. Nothing can, short of opening it and testing.</p>
- <p>Testing need not cost the wonder. MOTS-c, a 16-bead hormone written inside a ribosome gene and read by the nucleus under stress, is a new kind of biology, found only in 2015.<sup class="ref"><a href="#r34">34</a>,<a href="#r36">36</a></sup> As a class, peptides deserve the excitement; each molecule has to earn it.</p>
+ <p>Testing need not cost the wonder. <span data-p style="--c:var(--mots)">MOTS-c</span>, a 16-bead hormone written inside a ribosome gene and read by the nucleus under stress, is a new kind of biology, found only in 2015.<sup class="ref"><a href="#r34">34</a>,<a href="#r36">36</a></sup> As a class, peptides deserve the excitement; each molecule has to earn it.</p>
  <p>Which of the six peptides on the HHS interim access list<sup class="ref"><a href="#r14">14</a></sup> will get its trial first, and who will pay for it?</p>
  <p>Until someone pays for that trial, the vial in the post holds the same kind of molecule as the drugs that worked, and almost none of the proof behind them. Chemists can make the molecule in days; the proof is a chain of evidence, from cell to rat, rat to person, one lab to a second, and for most of these peptides nobody has finished it.</p>
  <p><b>Read the species, count the labs, test the vial.</b></p>
@@ -3238,15 +3262,15 @@ L 186.2 78.6
   <div><dt>peptide</dt><dd>A short chain of amino acids. ≤ 40: a drug. &gt; 40: a protein.<sup class="ref"><a href="#r2">2</a></sup></dd></div>
   <div><dt>peptide bond</dt><dd>The amide C(=O)–NH between residues; the link proteases cut.</dd></div>
   <div><dt>residue</dt><dd>One amino acid inside a chain; its side chain R sets its chemistry.</dd></div>
-  <div><dt>half-life, t½</dt><dd>Time for the blood level to halve. Native GLP-1: 1.5 minutes.<sup class="ref"><a href="#r95">95</a></sup> Semaglutide, with its fatty tail: about a week.<sup class="ref"><a href="#r18">18</a></sup></dd></div>
+  <div><dt>half-life, t½</dt><dd>Time for the blood level to halve. Native <span data-p style="--c:var(--glp)">GLP-1</span>: 1.5 minutes.<sup class="ref"><a href="#r95">95</a></sup> <span data-p style="--c:var(--glp)">Semaglutide</span>, with its fatty tail: about a week.<sup class="ref"><a href="#r18">18</a></sup></dd></div>
   <div><dt>agonist</dt><dd>A molecule that fits a receptor and switches it on.</dd></div>
   <div><dt>oral bioavailability</dt><dd>The share of a swallowed dose that reaches blood. Peptides: very low without an absorption enhancer.<sup class="ref"><a href="#r23">23</a>,<a href="#r67">67</a></sup></dd></div>
   <div><dt>immunogenicity</dt><dd>The chance antibodies form against the drug or its impurities.</dd></div>
   <div><dt>503A</dt><dd>US rule letting a pharmacy compound a prescription from a listed bulk substance; six peptides are allowed meanwhile under interim enforcement discretion.<sup class="ref"><a href="#r14">14</a></sup></dd></div>
   <div><dt>GPCR</dt><dd>G-protein-coupled receptor: the class of switch GLP-1&#8217;s receptor belongs to.</dd></div>
    <div><dt>cAMP</dt><dd>Cyclic adenosine monophosphate: the second messenger such a receptor raises inside the cell.</dd></div>
-   <div><dt>DPP-4</dt><dd>Dipeptidyl peptidase 4: the enzyme that cuts GLP-1 two residues in.<sup class="ref"><a href="#r95">95</a></sup></dd></div>
-   <div><dt>mtDNA</dt><dd>Mitochondrial DNA: the small genome inside the mitochondrion, where MOTS-c is written.<sup class="ref"><a href="#r34">34</a></sup></dd></div>
+   <div><dt>DPP-4</dt><dd>Dipeptidyl peptidase 4: the enzyme that cuts <span data-p style="--c:var(--glp)">GLP-1</span> two residues in.<sup class="ref"><a href="#r95">95</a></sup></dd></div>
+   <div><dt>mtDNA</dt><dd>Mitochondrial DNA: the small genome inside the mitochondrion, where <span data-p style="--c:var(--mots)">MOTS-c</span> is written.<sup class="ref"><a href="#r34">34</a></sup></dd></div>
    <div><dt>RCT</dt><dd>Randomised controlled trial: people put by chance into the drug group or the control group.</dd></div>
    <div><dt>SC, IM</dt><dd>Subcutaneous and intramuscular: under the skin, into muscle. The routes in the tables above.</dd></div>
    <div><dt>aa</dt><dd>Amino acids: how many beads are in the chain.</dd></div>
@@ -3328,12 +3352,12 @@ L 186.2 78.6
   <details>
   <summary>why does a peptide make a good drug?</summary>
   <dl>
-  <div><dt>1 the body already wrote the message</dt><dd>Insulin, GLP-1, oxytocin, GHRH, α-MSH are peptides.<sup class="ref"><a href="#r1">1</a>,<a href="#r99">99</a>,<a href="#r100">100</a>,<a href="#r107">107</a></sup> Copy the hormone, edit two residues, and you start from nanomolar potency and decades of physiology.</dd><dd class="k">why potency comes cheap</dd></div>
-  <div><dt>2 sequence is code, SPPS is the compiler</dt><dd>Swap a residue (<span class="term" tabindex="0">Aib<span class="tc">α-Aminoisobutyric acid: alanine with a second methyl on the α-carbon. Knudsen and Lau call it the one substitution that both resisted DPP-4 and kept receptor affinity. It is the dashed bead in the sequence strings on this page.</span></span>), add a fatty tail (semaglutide's is C18)<sup class="ref"><a href="#r107">107</a></sup>, close a ring, use a D-amino acid: standard modules, same reactor. Retatrutide hits three receptors from one chain.<sup class="ref"><a href="#r28">28</a></sup></dd><dd class="k">why iteration is fast</dd></div>
+  <div><dt>1 the body already wrote the message</dt><dd>Insulin, <span data-p style="--c:var(--glp)">GLP-1</span>, oxytocin, GHRH, α-MSH are peptides.<sup class="ref"><a href="#r1">1</a>,<a href="#r99">99</a>,<a href="#r100">100</a>,<a href="#r107">107</a></sup> Copy the hormone, edit two residues, and you start from nanomolar potency and decades of physiology.</dd><dd class="k">why potency comes cheap</dd></div>
+  <div><dt>2 sequence is code, SPPS is the compiler</dt><dd>Swap a residue (<span class="term" tabindex="0">Aib<span class="tc">α-Aminoisobutyric acid: alanine with a second methyl on the α-carbon. Knudsen and Lau call it the one substitution that both resisted DPP-4 and kept receptor affinity. It is the dashed bead in the sequence strings on this page.</span></span>), add a fatty tail (<span data-p style="--c:var(--glp)">semaglutide</span>'s is C18)<sup class="ref"><a href="#r107">107</a></sup>, close a ring, use a D-amino acid: standard modules, same reactor. <span data-p style="--c:var(--glp)">Retatrutide</span> hits three receptors from one chain.<sup class="ref"><a href="#r28">28</a></sup></dd><dd class="k">why iteration is fast</dd></div>
   <div><dt>3 clean exit</dt><dd>A peptide is metabolised to amino acids: no reactive metabolites, little liver-enzyme interaction, low off-target toxicity compared with a new small molecule.</dd><dd class="k">general pharmacology, not retrieved</dd></div>
   <div><dt>4 the business case</dt><dd>Cents to make, patentable as an edited sequence, approved through the drug (NDA) path at ≤ 40 residues<sup class="ref"><a href="#r2">2</a></sup>, and priced like a biologic.</dd><dd class="k">Figure 23</dd></div>
-  <div><dt>5 new biology keeps arriving</dt><dd>Mitochondrial DNA hides short reading frames (MOTS-c, humanin); the nuclear genome holds further unannotated short ORFs. Each is a candidate message.</dd><dd class="k">Lee 2015<sup class="ref"><a href="#r34">34</a></sup>, Hashimoto 2001<sup class="ref"><a href="#r52">52</a></sup></dd></div>
-  <div><dt>6 the catch</dt><dd>Delivery and half-life. The hot peptides are the ones where those were solved (GLP-1); the grey ones are the ones where they were not.</dd><dd class="k">Figure 19</dd></div>
+  <div><dt>5 new biology keeps arriving</dt><dd>Mitochondrial DNA hides short reading frames (<span data-p style="--c:var(--mots)">MOTS-c</span>, humanin); the nuclear genome holds further unannotated short ORFs. Each is a candidate message.</dd><dd class="k">Lee 2015<sup class="ref"><a href="#r34">34</a></sup>, Hashimoto 2001<sup class="ref"><a href="#r52">52</a></sup></dd></div>
+  <div><dt>6 the catch</dt><dd>Delivery and half-life. The hot peptides are the ones where those were solved (<span data-p style="--c:var(--glp)">GLP-1</span>); the grey ones are the ones where they were not.</dd><dd class="k">Figure 19</dd></div>
  </dl>
  </details>
   <details>
