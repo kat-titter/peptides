@@ -369,20 +369,19 @@ requestAnimationFrame(loop);
  <p>Most drugs are small molecules, built to sit in a pocket. Many of the body's most important switches have no pocket to sit in. A switch like GLP-1's receptor holds its hormone across a long interface; others are faces where protein meets protein, flat and wide. A peptide fits because it <i>is</i> the message those switches evolved to hold.<sup class="ref"><a href="#r1">1</a>,<a href="#r19">19</a></sup></p></div>
  <figure class="fig" id="fig2" style="--capw:99.4%">
   <div class="scroll"><svg viewBox="73 0 779 376" role="img" aria-label="Dot plot of molecular mass on a log scale: aspirin 180, GHK 340, elamipretide 640, BPC-157 1,420, MOTS-c 2,175, semaglutide 4,114, tirzepatide 4,811, insulin 5,808, IgG antibody about 150,000 daltons; the peptide range runs from about 130 to 5,000">
-            <rect x="190.5" y="46" width="268.5" height="262" fill="var(--mark)"/>
-    <text x="324.75" y="66" text-anchor="middle" class="ink" font-size="14" font-weight="600">peptides, 2–40 residues</text>
-
-        <g stroke="var(--hair)" stroke-width="1" fill="none" style="stroke:var(--muted)">
+                <g stroke="var(--hair)" stroke-width="1" fill="none" style="stroke:var(--muted)">
       <path d="M170 40 V34 H289 V40"/>
       <path d="M459 40 V34 H850 V40"/>
+      <path d="M190.5 70 V64 H459 V70"/>
     </g>
+    <text x="324.75" y="56" text-anchor="middle" class="ink" font-size="14" font-weight="500">peptides, 2–40 residues</text>
     <text x="229.5" y="26" text-anchor="middle" class="mu" font-size="14">small molecules, &lt; 500</text>
     <text x="654.5" y="26" text-anchor="middle" class="mu" font-size="14">proteins and antibodies</text>
 
         <g stroke="var(--hair)" stroke-width="1" fill="none">
-      <line x1="170" y1="46" x2="170" y2="316"/><line x1="340" y1="46" x2="340" y2="316"/>
-      <line x1="510" y1="46" x2="510" y2="316"/><line x1="680" y1="46" x2="680" y2="316"/>
-      <line x1="850" y1="46" x2="850" y2="316"/>
+      <line x1="170" y1="76" x2="170" y2="316"/><line x1="340" y1="76" x2="340" y2="316"/>
+      <line x1="510" y1="76" x2="510" y2="316"/><line x1="680" y1="76" x2="680" y2="316"/>
+      <line x1="850" y1="76" x2="850" y2="316"/>
     </g>
 
         <g font-size="14">
@@ -419,8 +418,7 @@ requestAnimationFrame(loop);
     </g>
     <text x="510" y="364" text-anchor="middle" class="ink" font-size="14">molecular mass, daltons (log scale)</text>
   </svg></div>
-  <div class="fkey"><span class="key"><i class="sw"></i>reference</span> <span class="key"><i class="sw" data-s="band"></i>peptide range</span></div>
- <figcaption><span class="k">Figure 1</span> <b>Peptides sit between pills and proteins, from about 130 to 5,000 daltons.</b> Upper edge: 40 residues at about 110 Da each plus a lipid tail, so about 5,000 Da — an arithmetic bound on the FDA's line, not a measurement. Insulin (51 residues, two chains) sits past the FDA's 40-residue line, a biologic since 2020.<sup class="ref"><a href="#r2">2</a></sup> Masses from RDKit on the drawn structures, tirzepatide&#8217;s mass from its primary paper, semaglutide&#8217;s computed from its structure; aspirin, insulin and IgG are textbook values, not retrieved for this page.</figcaption>
+  <figcaption><span class="k">Figure 1</span><b>Peptides sit between pills and proteins, from about 130 to 5,000 daltons.</b> Upper edge: 40 residues at about 110 Da each plus a lipid tail, so about 5,000 Da — an arithmetic bound on the FDA's line, not a measurement. Insulin (51 residues, two chains) sits past the FDA's 40-residue line, a biologic since 2020.<sup class="ref"><a href="#r2">2</a></sup> Masses from RDKit on the drawn structures, tirzepatide&#8217;s mass from its primary paper, semaglutide&#8217;s computed from its structure; aspirin, insulin and IgG are textbook values, not retrieved for this page.</figcaption>
  </figure>
  <figure class="fig" id="figgap">
  <div class="scroll">
@@ -607,8 +605,8 @@ Q 153.0 179.6, 154.5 179.6
   <g fill="var(--paper)" stroke="var(--muted)" stroke-width="1.5"><rect x="365" y="160" width="6" height="46" rx="3"/><rect x="376" y="160" width="6" height="46" rx="3"/><rect x="387" y="160" width="6" height="46" rx="3"/><rect x="398" y="160" width="6" height="46" rx="3"/><rect x="409" y="160" width="6" height="46" rx="3"/><rect x="420" y="160" width="6" height="46" rx="3"/><rect x="431" y="160" width="6" height="46" rx="3"/></g>
   <path d="M437 150 C 437 96, 501 80, 519 104 C 535 126, 511 150, 455 152 Z" fill="var(--xna)" stroke="var(--muted)" stroke-width="1.5"/>
   <text x="305" y="88" class="mu" font-size="14">extracellular domain</text>
-  <path d="M357 176 C 401 150, 455 140, 511 146" fill="none" stroke="var(--glp)" stroke-width="1.5"/>
-  <g fill="var(--glp)"><circle cx="359" cy="174" r="4.5"/><circle cx="378" cy="167" r="4.5"/><circle cx="397" cy="162" r="4.5"/><circle cx="416" cy="158" r="4.5"/><circle cx="435" cy="155" r="4.5"/><circle cx="454" cy="153" r="4.5"/><circle cx="473" cy="152" r="4.5"/><circle cx="492" cy="152" r="4.5"/><circle cx="511" cy="153" r="4.5"/></g>
+  <path d="M357 176 C 401 150, 455 140, 511 146" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+  <g fill="var(--ink)"><circle cx="359" cy="174" r="4.5"/><circle cx="378" cy="167" r="4.5"/><circle cx="397" cy="162" r="4.5"/><circle cx="416" cy="158" r="4.5"/><circle cx="435" cy="155" r="4.5"/><circle cx="454" cy="153" r="4.5"/><circle cx="473" cy="152" r="4.5"/><circle cx="492" cy="152" r="4.5"/><circle cx="511" cy="153" r="4.5"/></g>
   <text x="305" y="274" class="ink" font-size="14">hormone receptor, class B</text>
   <text x="305" y="291" class="mu" font-size="14">a long groove and a lobe, held along both</text>
 
@@ -621,12 +619,12 @@ Q 153.0 179.6, 154.5 179.6
     <path d="M150 390 H820" stroke="var(--ink)" stroke-width="1"/>
   <g><path d="M150 390 V395" stroke="var(--muted)" stroke-width="1"/><text x="150" y="409" text-anchor="middle" class="mu m" font-size="14">0</text></g><g><path d="M302.273 390 V395" stroke="var(--muted)" stroke-width="1"/><text x="302.273" y="409" text-anchor="middle" class="mu m" font-size="14">500</text></g><g><path d="M454.545 390 V395" stroke="var(--muted)" stroke-width="1"/><text x="454.545" y="409" text-anchor="middle" class="mu m" font-size="14">1,000</text></g><g><path d="M606.818 390 V395" stroke="var(--muted)" stroke-width="1"/><text x="606.818" y="409" text-anchor="middle" class="mu m" font-size="14">1,500</text></g><g><path d="M759.091 390 V395" stroke="var(--muted)" stroke-width="1"/><text x="759.091" y="409" text-anchor="middle" class="mu m" font-size="14">2,000</text></g>
   <text x="140" y="326" text-anchor="end" class="ink" font-size="14">small molecule</text>
-  <rect x="241.364" y="318" width="60.9091" height="10" fill="color-mix(in srgb,var(--ink) 30%,var(--paper))"/>
-  <rect x="150" y="318" width="91.3636" height="10" fill="var(--ink)"/>
+  <rect x="241.364" y="318" width="60.9091" height="10" fill="color-mix(in srgb,var(--muted) 30%,var(--paper))"/>
+  <rect x="150" y="318" width="91.3636" height="10" fill="var(--muted)"/>
   <text x="310.273" y="327" class="mu m" font-size="14">300&#8211;500</text>
   <text x="140" y="350" text-anchor="end" class="ink" font-size="14">peptide</text>
-  <rect x="454.545" y="342" width="152.273" height="10" fill="color-mix(in srgb,var(--glp) 30%,var(--paper))"/>
-  <rect x="150" y="342" width="304.545" height="10" fill="var(--glp)"/>
+  <rect x="454.545" y="342" width="152.273" height="10" fill="color-mix(in srgb,var(--ink) 30%,var(--paper))"/>
+  <rect x="150" y="342" width="304.545" height="10" fill="var(--ink)"/>
   <text x="614.818" y="351" class="mu m" font-size="14">1,000&#8211;1,500</text>
   <text x="140" y="374" text-anchor="end" class="ink" font-size="14">antibody</text>
   <rect x="150" y="366" width="609.091" height="10" fill="var(--muted)"/>
@@ -634,7 +632,6 @@ Q 153.0 179.6, 154.5 179.6
   <text x="485.0" y="427" text-anchor="middle" class="ink" font-size="14">contact area with the target, &#197;&#178;</text>
  </svg>
  </div>
- <div class="fkey"><span class="key"><i class="sw" data-s="sq" style="--c:var(--ink)"></i>aspirin, a small molecule</span> <span class="key"><i class="sw" data-s="sq" style="--c:var(--glp)"></i>a peptide, drawn as its beads</span> <span class="key"><i class="sw" data-s="sq" style="--c:var(--muted)"></i>an antibody</span> <span class="key"><i class="sw" data-s="box" style="--b:var(--xna);--c:var(--muted)"></i>the surface it must hold</span></div>
  <figcaption><span class="k">Figure 2</span> <b>Each drug class is shaped like the surface it must hold.</b> An antibody is too big to enter a cell and does not survive the gut; a peptide is the size of the message these grooves were built for.<sup class="ref"><a href="#r1">1</a>,<a href="#r19">19</a></sup> Small-molecule agonists of these receptors have been hard to find: approved GLP-1 agonists were all peptides until orforglipron, which holds a pocket in the receptor's own helical bundle rather than the groove the hormone uses.<sup class="ref"><a href="#r90">90</a></sup> Aspirin is drawn by RDKit from its structure; contact areas are typical published values, and the drawings are schematic.</figcaption>
 </figure>
  <div class="read">
@@ -813,7 +810,7 @@ Q 153.0 179.6, 154.5 179.6
  </svg>
  </div>
  <p class="peps out"><span>read where they are applied, not carried in blood:</span> <a class="pep" href="#doors" style="--c:var(--mtx)">Matrixyl</a> <a class="pep" href="#supply" style="--c:var(--ghk)">GHK-Cu</a> <a class="pep" href="#doors" style="--c:var(--smx)">Semax</a></p>
- <div class="fkey"><span class="key"><i class="sw" data-s="ring" style="--c:var(--ink);background:var(--paper)"></i>address, with its callout</span> <span class="key"><i class="sw" style="--c:var(--glp)"></i>a peptide, in its own colour</span> <span class="key"><i class="sw" style="--c:var(--muted)"></i>a peptide this page does not follow</span></div>
+ <div class="fkey"><span class="key"><i class="sw" data-s="ring" style="--c:var(--ink);background:var(--paper)"></i>address, with its callout</span> <span class="key"><i class="sw" style="--c:var(--muted)"></i>a peptide this page does not follow</span></div>
  <figcaption><span class="k">Figure 3</span><b>Every peptide on this page acts somewhere on this cell, or on its surface.</b> Schematic, not to scale.</figcaption>
  <details>
   <summary>each address in full</summary>
