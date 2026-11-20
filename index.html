@@ -6,14 +6,14 @@
 <meta property="og:title" content="Peptide Atlas: messages, mechanisms and money">
 <meta property="og:description" content="Nineteen peptides, from semaglutide to BPC-157, ranked by how much proof there is in people: what each one does in a cell, and who keeps the margin.">
 <meta property="og:url" content="https://kat-titter.github.io/peptides/">
-<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=233f6ade">
+<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=bce4da1b">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech in first-class mail”, and the line “19 peptides, ranked by proof in people”.">
+<meta property="og:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=233f6ade">
-<meta name="twitter:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech in first-class mail”, and the line “19 peptides, ranked by proof in people”.">
+<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=bce4da1b">
+<meta name="twitter:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Peptide Atlas</title>
 <meta name="description" content="A textbook page on therapeutic peptides: what a peptide is, why the field is hot, how BPC-157, MOTS-c and the GLP-1 class act in the cell, the evidence behind each, the supply chain and the money. Verified sources, November 2026.">
@@ -21,10 +21,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#ffffff; --ink:#0d1117; --body:#1f2328; --muted:#57606a; --hair:#e4e8ec; --mark:#ebf3dc;
-    --glp:#ec3c6e; --smx:#9c1559; --bpc:#b14f12; --ela:#e5850f; --mtx:#11607f; --ghk:#1ca2c8; --mots:#4269e2;
-    --gb:#c4901c; --gb-g:color-mix(in srgb,var(--gb) 30%,var(--paper)); --gb-w:color-mix(in srgb,var(--gb) 55%,var(--paper));
-    --green:#0f8f6c; --green-s:color-mix(in srgb,var(--green) 22%,var(--paper)); --on:var(--ink);
+  --paper:#ffffff; --ink:#0d1117; --body:#1f2328; --muted:#57606a; --hair:#e4e8ec;
+    --glp:#ec3c6e; --bpc:#b14f12; --mots:#4269e2; --mark:#ebf3dc;
+  --green:color-mix(in srgb,var(--ink) 78%,var(--paper));
+  --smx:color-mix(in oklch,var(--glp) 62%,var(--ink));
+  --ela:color-mix(in oklch,var(--bpc) 62%,var(--paper)); --gb:color-mix(in oklch,var(--bpc) 60%,var(--ink));
+  --mtx:color-mix(in oklch,var(--mots) 60%,var(--ink)); --ghk:color-mix(in oklch,var(--mots) 62%,var(--paper));
+  --gb-g:color-mix(in srgb,var(--gb) 30%,var(--paper)); --gb-w:color-mix(in srgb,var(--gb) 55%,var(--paper));
+    --green-s:color-mix(in srgb,var(--green) 22%,var(--paper)); --on:var(--paper);
   --wash:color-mix(in srgb,var(--ink) 6%,var(--paper)); --xna:color-mix(in srgb,var(--ink) 16%,var(--paper));
   --glp-s:color-mix(in srgb,var(--glp) 22%,var(--paper)); --smx-s:color-mix(in srgb,var(--smx) 22%,var(--paper)); --bpc-s:color-mix(in srgb,var(--bpc) 22%,var(--paper)); --ela-s:color-mix(in srgb,var(--ela) 22%,var(--paper)); --mtx-s:color-mix(in srgb,var(--mtx) 22%,var(--paper)); --ghk-s:color-mix(in srgb,var(--ghk) 22%,var(--paper)); --mots-s:color-mix(in srgb,var(--mots) 22%,var(--paper));
     --ghk1:color-mix(in srgb,var(--ghk) 12%,var(--paper)); --ghk2:color-mix(in srgb,var(--ghk) 32%,var(--paper)); --ghk3:color-mix(in srgb,var(--ghk) 58%,var(--paper));
@@ -33,16 +37,12 @@
     --text:780px; --wide:740px; --fig-inset:2.5641%;     color-scheme:light dark;
 }
 @media screen and (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0d1117; --ink:#e6edf3; --body:#d1d9e0; --muted:#9198a1; --hair:#262c33; --mark:#262b22;
-  --glp:#f76286; --smx:#c2306f; --bpc:#bd5a30; --ela:#f8b43c; --mtx:#35789c; --ghk:#5accf2; --mots:#6b8dfb;
-  --gb:#d8ad45;
-  --green:#3fe0a0; --on:var(--paper);
+  --paper:#0d1117; --ink:#e6edf3; --body:#d1d9e0; --muted:#9198a1; --hair:#262c33;
+  --glp:#f76286; --bpc:#bd5a30; --mots:#6b8dfb; --mark:#262b22;
   --ghk2:color-mix(in srgb,var(--ghk) 30%,var(--paper)); --ghk3:color-mix(in srgb,var(--ghk) 48%,var(--paper));}}
 @media screen{:root[data-theme="dark"]{
-  --paper:#0d1117; --ink:#e6edf3; --body:#d1d9e0; --muted:#9198a1; --hair:#262c33; --mark:#262b22;
-  --glp:#f76286; --smx:#c2306f; --bpc:#bd5a30; --ela:#f8b43c; --mtx:#35789c; --ghk:#5accf2; --mots:#6b8dfb;
-  --gb:#d8ad45;
-  --green:#3fe0a0; --on:var(--paper);
+  --paper:#0d1117; --ink:#e6edf3; --body:#d1d9e0; --muted:#9198a1; --hair:#262c33;
+  --glp:#f76286; --bpc:#bd5a30; --mots:#6b8dfb; --mark:#262b22;
   --ghk2:color-mix(in srgb,var(--ghk) 30%,var(--paper)); --ghk3:color-mix(in srgb,var(--ghk) 48%,var(--paper));}}
 
 *{box-sizing:border-box}
@@ -131,7 +131,8 @@ details[open] summary{margin-bottom:16px}
 #proofstrip li[data-t="0"] b{color:var(--muted)}
 #proofstrip span{font:400 var(--s1)/1.5 var(--sans); color:var(--body)}
 #proofstrip a{text-decoration:none; border-bottom:1px solid var(--hair)}
-#proofstrip em{font-style:normal; color:color-mix(in srgb,var(--c) 72%,var(--ink))}
+#proofstrip em{font-style:normal; color:color-mix(in srgb,var(--c) 62%,var(--ink))}
+#proofstrip i{font:400 var(--s0)/1.5 var(--mono); font-style:normal; color:var(--muted); margin-right:8px}
 #proofkey{margin:8px 0 0; font-size:var(--s0)}
 @media (max-width:720px){
   #proofstrip{margin-top:12px} #proofkey{margin-top:6px}
@@ -348,14 +349,14 @@ requestAnimationFrame(loop);
 </script>
 </figure>
   <ol id="proofstrip" aria-label="The 19 peptides on this page, ranked 5 to 0 by how much proof there is in people">
-  <li data-t="5"><b>5</b><span><a href="#glp1"><em style="--c:var(--glp)">semaglutide</em></a>, <a href="#glp1"><em style="--c:var(--glp)">tirzepatide</em></a>, <em style="--c:var(--ela)">elamipretide</em>, bremelanotide, tesamorelin</span></li>
-  <li data-t="4"><b>4</b><span><a href="#glp1"><em style="--c:var(--glp)">retatrutide</em></a>, thymosin α1</span></li>
-  <li data-t="3"><b>3</b><span>CJC-1295, thymosin β4 / TB-500, <a href="#motsc"><em style="--c:var(--mots)">MOTS-c</em></a>, AOD-9604</span></li>
-  <li data-t="2"><b>2</b><span><a href="#bpc157"><em style="--c:var(--bpc)">BPC-157</em></a>, <a href="#doors"><em style="--c:var(--smx)">Semax</em></a>, <a href="#doors"><em style="--c:var(--mtx)">Matrixyl (pal-KTTKS)</em></a>, <em style="--c:var(--ghk)">GHK-Cu</em></span></li>
-  <li data-t="1"><b>1</b><span>ipamorelin, epitalon</span></li>
-  <li data-t="0"><b>0</b><span>KPV, humanin</span></li>
+  <li data-t="5"><b>5</b><span><i>approved</i><a href="#glp1"><em style="--c:var(--glp)">semaglutide</em></a>, <a href="#glp1"><em style="--c:var(--glp)">tirzepatide</em></a>, <em style="--c:var(--ela)">elamipretide</em>, bremelanotide, tesamorelin</span></li>
+  <li data-t="4"><b>4</b><span><i>randomised trials</i><a href="#glp1"><em style="--c:var(--glp)">retatrutide</em></a>, thymosin α1</span></li>
+  <li data-t="3"><b>3</b><span><i>small human studies</i>CJC-1295, thymosin β4 / TB-500, <a href="#motsc"><em style="--c:var(--mots)">MOTS-c</em></a>, AOD-9604</span></li>
+  <li data-t="2"><b>2</b><span><i>animals</i><a href="#bpc157"><em style="--c:var(--bpc)">BPC-157</em></a>, <a href="#doors"><em style="--c:var(--smx)">Semax</em></a>, <a href="#doors"><em style="--c:var(--mtx)">Matrixyl (pal-KTTKS)</em></a>, <em style="--c:var(--ghk)">GHK-Cu</em></span></li>
+  <li data-t="1"><b>1</b><span><i>cells</i>ipamorelin, epitalon</span></li>
+  <li data-t="0"><b>0</b><span><i>none</i>KPV, humanin</span></li>
  </ol>
-  <p class="k" id="proofkey">5 approved in people · 0 no human trial</p>
+  <p class="k" id="proofkey"><a href="#matrix">ranked by proof in people</a></p>
  </div>
 <nav aria-label="Contents"><ol><li><a href="#intro"><b>00</b>intro</a></li><li><a href="#map"><b>01</b>the cell</a></li><li><a href="#glp1"><b>02</b>GLP-1</a></li><li><a href="#motsc"><b>03</b>MOTS-c</a></li><li><a href="#bpc157"><b>04</b>BPC-157</a></li><li><a href="#doors"><b>05</b>nose, skin</a></li><li><a href="#matrix"><b>06</b>ranked</a></li><li><a href="#supply"><b>07</b>supply</a></li><li><a href="#evidence"><b>08</b>how to read</a></li><li><a href="#appendix"><b>A</b>appendix</a></li><li><a href="#refs"><b>R</b>refs</a></li></ol></nav>
 </div></div></header>
@@ -5329,7 +5330,7 @@ L 1042.3 226.6
 <section class="ch" id="matrix"><div class="wrap">
  <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="matrix"><b>06</b><span class="vh">Every peptide here, ranked by proof in people</span></button></div>
  <h2>Every peptide here, ranked by proof in people</h2>
- <p>Darker green means more proof in people. And who paid for the dark rows? Each dark row had an owner with the money to run a trial programme. The new HHS list is all pale rows. Each scores 3 or below, and its 3s belong to a close copy (CB4211) and to eye drops of the parent protein (RGN-259) — not to the vials being sold.</p>
+ <p>Darker means more proof in people. And who paid for the dark rows? Each dark row had an owner with the money to run a trial programme. The new HHS list is all pale rows. Each scores 3 or below, and its 3s belong to a close copy (CB4211) and to eye drops of the parent protein (RGN-259) — not to the vials being sold.</p>
  <div class="linked">
  <p class="k" aria-label="site of action">click a site to pick out its peptides: <span class="key" data-k="rec" tabindex="0">membrane receptor</span> <span class="key" data-k="fib" tabindex="0">fibres and matrix</span> <span class="key" data-k="nuc" tabindex="0">nucleus</span> <span class="key" data-k="mit" tabindex="0">mitochondrion</span> <span class="key" data-k="tra" tabindex="0">transporter, other</span></p>
  <div class="scroll"><table class="mx">
@@ -5355,7 +5356,7 @@ L 1042.3 226.6
    <tr data-k="tra"><td><i class="sw" style="--c:var(--muted)"></i><b>KPV</b></td><td>3</td><td class="ph">α-MSH fragment</td><td>PepT1 (gut)</td><td class="ph">oral, topical</td><td class="ph">—</td><td data-t="0"><span class="term" tabindex="0">0<span class="tc">mouse colitis; FDA found no human exposure data<sup class="ref"><a href="#r11">11</a></sup></span></span></td><td>HHS draft (oral/topical)</td><td class="ph">mice only<sup class="ref"><a href="#r58">58</a></sup></td></tr>
    <tr data-k="mit"><td><i class="sw" style="--c:var(--muted)"></i><b>humanin</b></td><td>24</td><td class="ph">endogenous, mtDNA</td><td>cytoprotection</td><td class="ph">—</td><td class="ph">—</td><td data-t="0"><span class="term" tabindex="0">0<span class="tc">no human trial retrieved</span></span></td><td><span class="k">not nominated</span></td><td class="ph">MDP family<sup class="ref"><a href="#r52">52</a></sup></td></tr>
   </tbody></table></div>
-  <p class="k"><span class="key"><span class="tier" data-t="5" role="img" aria-label="evidence 5 of 5"><i></i><i></i><i></i><i></i><i></i></span>5 FDA approved</span> <span class="key"><span class="tier" data-t="4" role="img" aria-label="evidence 4 of 5"><i></i><i></i><i></i><i></i><i></i></span>4</span> <span class="key"><span class="tier" data-t="3" role="img" aria-label="evidence 3 of 5"><i></i><i></i><i></i><i></i><i></i></span>3</span> <span class="key"><span class="tier" data-t="2" role="img" aria-label="evidence 2 of 5"><i></i><i></i><i></i><i></i><i></i></span>2</span> <span class="key"><span class="tier" data-t="1" role="img" aria-label="evidence 1 of 5"><i></i><i></i><i></i><i></i><i></i></span>1</span> <span class="key"><span class="tier" data-t="0" role="img" aria-label="evidence 0 of 5"><i></i><i></i><i></i><i></i><i></i></span>0 none</span> <span>status from FDA's 2026-04-22 list<sup class="ref"><a href="#r11">11</a></sup> and the HHS draft<sup class="ref"><a href="#r14">14</a></sup></span></p>
+  <p class="k"><span class="key"><span class="tier" data-t="5" role="img" aria-label="evidence 5 of 5"><i></i><i></i><i></i><i></i><i></i></span>5 FDA approved</span> <span class="key"><span class="tier" data-t="4" role="img" aria-label="evidence 4 of 5"><i></i><i></i><i></i><i></i><i></i></span>4 randomised trials</span> <span class="key"><span class="tier" data-t="3" role="img" aria-label="evidence 3 of 5"><i></i><i></i><i></i><i></i><i></i></span>3 small human studies</span> <span class="key"><span class="tier" data-t="2" role="img" aria-label="evidence 2 of 5"><i></i><i></i><i></i><i></i><i></i></span>2 animals</span> <span class="key"><span class="tier" data-t="1" role="img" aria-label="evidence 1 of 5"><i></i><i></i><i></i><i></i><i></i></span>1 cells</span> <span class="key"><span class="tier" data-t="0" role="img" aria-label="evidence 0 of 5"><i></i><i></i><i></i><i></i><i></i></span>0 none</span> <span>status from FDA's 2026-04-22 list<sup class="ref"><a href="#r11">11</a></sup> and the HHS draft<sup class="ref"><a href="#r14">14</a></sup></span></p>
  </div>
  
  </div></section>
@@ -5644,7 +5645,7 @@ L 1042.3 226.6
   <span class="key" data-k="cap" tabindex="0"><i class="sw" data-s="band"></i>the cap and its glycine</span>
  </div>
  <figcaption><span class="k">Figure 18</span><b>GB-115, the one peptide among the compounds Everychem sells, is glycine and tryptophan behind a phenylhexanoyl cap.</b>
- It is a reversed copy of cholecystokinin-4 (CCK-4), a four-residue piece of the hormone cholecystokinin that causes anxiety; in rats and mice GB-115 prevented anxiety brought on by CCK-4, and its authors conclude the two share a target.<sup class="ref"><a href="#r88">88</a></sup> Its active shape is a &#946;-turn, a tight hairpin of the backbone.<sup class="ref"><a href="#r89">89</a></sup> It wears ochre here and on the companion page that takes that seller&#8217;s shelf compound by compound, where it is drawn at its target: the Everychem basket, GB-115.</figcaption>
+ It is a reversed copy of cholecystokinin-4 (CCK-4), a four-residue piece of the hormone cholecystokinin that causes anxiety; in rats and mice GB-115 prevented anxiety brought on by CCK-4, and its authors conclude the two share a target.<sup class="ref"><a href="#r88">88</a></sup> Its active shape is a &#946;-turn, a tight hairpin of the backbone.<sup class="ref"><a href="#r89">89</a></sup> The companion page that takes that seller&#8217;s shelf compound by compound draws it at its target: the Everychem basket, GB-115.</figcaption>
 </figure>
  <div class="read">
  <p><b>Ask the species.</b> Most peptide claims are true — in a rat. The FDA's own standard for ulcerative colitis is a modified Mayo score over at least a year.<sup class="ref"><a href="#r13">13</a></sup> BPC-157&#8217;s only trial ran two weeks and reported a composite index its abstract did not define.</p>
