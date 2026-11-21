@@ -6,14 +6,14 @@
 <meta property="og:title" content="Peptide Atlas: messages, mechanisms and money">
 <meta property="og:description" content="Nineteen peptides, from semaglutide to BPC-157, ranked by how much proof there is in people: what each one does in a cell, and who keeps the margin.">
 <meta property="og:url" content="https://kat-titter.github.io/peptides/">
-<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=c08043c2">
+<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=7d3930ff">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
+<meta property="og:image:alt" content="The skeletal formula of BPC-157 in watermelon red beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=c08043c2">
-<meta name="twitter:image:alt" content="The skeletal formula of BPC-157 in rust orange beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
+<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=7d3930ff">
+<meta name="twitter:image:alt" content="The skeletal formula of BPC-157 in watermelon red beside the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Peptide Atlas</title>
 <meta name="description" content="A textbook page on therapeutic peptides: what a peptide is, why the field is hot, how BPC-157, MOTS-c and the GLP-1 class act in the cell, the evidence behind each, the supply chain and the money. Verified sources, November 2026.">
@@ -23,9 +23,9 @@
 :root{
   --paper:#ffffff; --ink:#0a0d12; --body:#1c222b; --muted:#5a6370; --hair:#e3e7ec;
     --plate:#eef1f4; --plate-hair:#d9dee5; --plate-muted:#56606d;
-    --glp:oklch(.554 .150 347); --tzp:oklch(.730 .159 358); --smx:oklch(.420 .214 266);
-  --mots:oklch(.618 .196 265); --ela:oklch(.765 .120 264);
-  --bpc:oklch(.652 .236 33); --ghk:oklch(.845 .091 45); --mtx:oklch(.411 .159 31);
+    --glp:oklch(.605 .150 347); --tzp:oklch(.859 .085 357);
+  --mots:oklch(.600 .208 265); --ela:oklch(.743 .131 268); --smx:oklch(.433 .239 264);
+  --bpc:oklch(.603 .243 22); --ghk:oklch(.742 .144 25); --mtx:oklch(.427 .148 21);
   --gb:var(--ink); --mark:oklch(.94 .17 118);
   --sans:"Geist",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,monospace;
     --s0:12px; --s1:13px; --s2:15px; --s3:19px; --s4:23px; --s5:46px;
@@ -44,13 +44,13 @@
 @media screen and (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#06080b; --ink:#eef2f6; --body:#cfd6de; --muted:#8a94a2; --hair:#1f252d;
   --plate:#161b22; --plate-hair:#262d37; --plate-muted:#8a94a2;
-  --glp:oklch(.743 .174 357); --tzp:oklch(.596 .122 351); --smx:oklch(.857 .070 262); --mots:oklch(.737 .135 262); --ela:oklch(.548 .199 265);
-  --bpc:oklch(.672 .220 37); --ghk:oklch(.498 .173 35); --mtx:oklch(.851 .085 42); --mark:oklch(.40 .11 120);}}
+  --glp:oklch(.689 .122 348); --tzp:oklch(.564 .141 349); --mots:oklch(.671 .178 254); --ela:oklch(.517 .180 257); --smx:oklch(.851 .076 251);
+  --bpc:oklch(.660 .226 28); --ghk:oklch(.442 .148 22); --mtx:oklch(.826 .094 25); --mark:oklch(.40 .11 120);}}
 @media screen{:root[data-theme="dark"]{
   --paper:#06080b; --ink:#eef2f6; --body:#cfd6de; --muted:#8a94a2; --hair:#1f252d;
   --plate:#161b22; --plate-hair:#262d37; --plate-muted:#8a94a2;
-  --glp:oklch(.743 .174 357); --tzp:oklch(.596 .122 351); --smx:oklch(.857 .070 262); --mots:oklch(.737 .135 262); --ela:oklch(.548 .199 265);
-  --bpc:oklch(.672 .220 37); --ghk:oklch(.498 .173 35); --mtx:oklch(.851 .085 42); --mark:oklch(.40 .11 120);}}
+  --glp:oklch(.689 .122 348); --tzp:oklch(.564 .141 349); --mots:oklch(.671 .178 254); --ela:oklch(.517 .180 257); --smx:oklch(.851 .076 251);
+  --bpc:oklch(.660 .226 28); --ghk:oklch(.442 .148 22); --mtx:oklch(.826 .094 25); --mark:oklch(.40 .11 120);}}
 @media screen{
   figure{--paper:var(--plate); --hair:var(--plate-hair); --muted:var(--plate-muted); --wk:8%; --tk:24%;
     background:var(--paper); border-radius:var(--r)}
@@ -82,9 +82,9 @@ h3{font-size:var(--s4); line-height:1.3; letter-spacing:-.04em; margin:72px 0 16
 p{margin:0 0 24px; text-wrap:pretty}
 p b,li b{color:var(--ink); font-weight:600}
 mark{background:var(--mark); color:var(--ink); padding:0 .15em; border-radius:var(--rs)}
-:is([data-p],#proofstrip em){color:color-mix(in oklch,var(--c) 62%,var(--ink))}
-:is([data-p],#proofstrip em):is([style*="--smx)"],[style*="--gb)"],[style*="--mtx)"]){color:var(--c)}
-:is([data-p],#proofstrip em,a.pep):is([style*="--tzp)"],[style*="--ela)"],[style*="--ghk)"]){color:color-mix(in oklch,var(--c) 52%,var(--ink))}
+:is([data-p],#proofstrip em,#classkey em){color:color-mix(in oklch,var(--c) 62%,var(--ink))}
+:is([data-p],#proofstrip em,#classkey em):is([style*="--smx)"],[style*="--gb)"],[style*="--mtx)"]){color:var(--c)}
+:is([data-p],#proofstrip em,#classkey em,a.pep):is([style*="--tzp)"],[style*="--ela)"],[style*="--ghk)"]){color:color-mix(in oklch,var(--c) 52%,var(--ink))}
 .mono{font-family:var(--mono)}
 sup{font:500 var(--s0)/0 var(--mono); color:var(--muted); margin-left:1px}
 sup a{color:inherit; text-decoration:none} sup a:hover,sup a:focus-visible{color:var(--ink)}
@@ -153,6 +153,11 @@ details[open] summary{margin-bottom:16px}
 #proofstrip a{text-decoration:none; border-bottom:1px solid var(--hair)}
 #proofstrip em{font-style:normal}
 #proofstrip i{font:400 var(--s0)/1.5 var(--mono); font-style:normal; color:var(--muted); margin-right:8px}
+#classkey{margin:14px 0 0 30px; display:grid; gap:3px; max-width:var(--fig); font:400 var(--s1)/1.5 var(--sans); color:var(--body)}
+#classkey p{margin:0}
+#classkey i{display:inline-block; min-width:168px; font:400 var(--s0)/1.5 var(--mono); font-style:normal; color:var(--muted)}
+#classkey em{font-style:normal; margin-right:12px; white-space:nowrap}
+#classkey s{display:inline-block; width:10px; height:10px; margin-right:6px; border-radius:3px; background:var(--c); vertical-align:-1px}
 #proofstrip{position:relative; padding-left:30px}
 #proofstrip li.ax{position:absolute; left:0; top:3px; bottom:3px; width:22px; padding:0; display:block}
 #proofstrip li.ax::before{content:""; position:absolute; right:0; top:7px; bottom:0; width:1.5px; border-radius:1px; background:var(--muted)}
@@ -160,7 +165,7 @@ details[open] summary{margin-bottom:16px}
 #proofstrip li.ax span{position:absolute; left:0; top:50%; transform:translateY(-50%) rotate(180deg); writing-mode:vertical-rl;
   font:400 var(--s0)/1 var(--mono); color:var(--muted); white-space:nowrap}
 @media (max-width:720px){
-  #proofstrip{margin-top:12px}
+  #proofstrip{margin-top:12px} #classkey i{display:block}
   #proofstrip span{font-size:var(--s0)}
   #proofstrip li{grid-template-columns:22px 1fr; padding:3px 0}
 }
@@ -425,6 +430,11 @@ requestAnimationFrame(loop);
   <li data-t="1"><b>1</b><span><i>cells</i>ipamorelin, epitalon</span></li>
   <li data-t="0"><b>0</b><span><i>none</i>KPV, humanin</span></li>
  </ol>
+  <div id="classkey" role="list" aria-label="Colour key: one hue per peptide family">
+   <p role="listitem"><i>GLP-1 drugs</i><em style="--c:var(--glp)"><s aria-hidden="true"></s>semaglutide</em><em style="--c:var(--tzp)"><s aria-hidden="true"></s>tirzepatide</em></p>
+   <p role="listitem"><i>mitochondria, brain</i><em style="--c:var(--mots)"><s aria-hidden="true"></s>MOTS-c</em><em style="--c:var(--ela)"><s aria-hidden="true"></s>elamipretide</em><em style="--c:var(--smx)"><s aria-hidden="true"></s>Semax</em></p>
+   <p role="listitem"><i>repair, skin</i><em style="--c:var(--bpc)"><s aria-hidden="true"></s>BPC-157</em><em style="--c:var(--ghk)"><s aria-hidden="true"></s>GHK-Cu</em><em style="--c:var(--mtx)"><s aria-hidden="true"></s>Matrixyl</em></p>
+  </div>
  </div>
 <nav aria-label="Contents"><ol><li><a href="#intro"><b>00</b>intro</a></li><li><a href="#map"><b>01</b>the cell</a></li><li><a href="#glp1"><b>02</b>GLP-1</a></li><li><a href="#motsc"><b>03</b>MOTS-c</a></li><li><a href="#bpc157"><b>04</b>BPC-157</a></li><li><a href="#doors"><b>05</b>nose, skin</a></li><li><a href="#matrix"><b>06</b>ranked</a></li><li><a href="#supply"><b>07</b>supply</a></li><li><a href="#evidence"><b>08</b>how to read</a></li><li><a href="#appendix"><b>A</b>appendix</a></li><li><a href="#refs"><b>R</b>refs</a></li></ol></nav>
 </div></div></header>
