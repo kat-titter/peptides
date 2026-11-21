@@ -25,7 +25,7 @@
     --plate:#eef1f4; --plate-hair:#d9dee5; --plate-muted:#56606d;
     --glp:oklch(.62 .25 358); --bpc:oklch(.68 .21 42); --mots:oklch(.56 .25 266); --mark:oklch(.94 .17 118);
   --sans:"Geist",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,monospace;
-  --s0:12px; --s1:13px; --s2:15px; --s3:19px; --s4:23px; --s5:46px; --s6:56px;
+    --s0:12px; --s1:13px; --s2:15px; --s3:19px; --s4:23px; --s5:46px;
     --text:880px; --fig:796px; --band:880px; --r:14px; --rs:6px; --bleed:24px;
     --wk:6%; --tk:22%;
   color-scheme:light dark;
@@ -63,15 +63,18 @@ a{color:inherit; text-decoration-color:var(--hair); text-underline-offset:3px} a
 
 .wrap{max-width:calc(var(--band) + 32px); margin:0 auto; padding:0 16px}
 .wrap > :is(p,h2,h3,.k,.read,ul), details > p, .read{max-width:var(--text); margin-left:0; margin-right:auto}
-.wrap > :is(figure,dl,table,.top,.scroll,.linked), details > :is(figure,dl,table,.scroll,.linked){
+.wrap > :is(figure,dl,table,.scroll,.linked), details > :is(figure,dl,table,.scroll,.linked){
   max-width:var(--fig); margin-left:auto; margin-right:auto}
-section.ch{padding:120px 0 0; scroll-margin-top:96px}
+section.ch{padding:0; scroll-margin-top:96px}
+section.ch:first-of-type{padding-top:32px}      .ch > .wrap > :last-child, .ch > .wrap > :last-child > :last-child{margin-bottom:0}
+section.ch + section.ch > .wrap::before{content:""; display:block; height:1px; background:var(--hair);
+  max-width:var(--text); margin:36px 0 20px}
 
 .k{font:400 var(--s1)/1.5 var(--mono); color:var(--muted); margin:0 0 16px}
 .k b{color:var(--ink); font-weight:500; margin-right:.6em}
 .ch .wrap > .k:first-child{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-h1,h2,h3{color:var(--ink); font-family:var(--mono); font-weight:500; letter-spacing:-.06em; margin:0; text-wrap:balance}
-h1{font-size:var(--s6); line-height:1; letter-spacing:-.07em}
+h1,h2,h3{color:var(--ink); font-family:var(--mono); font-weight:500; letter-spacing:-.06em; margin:0; text-wrap:pretty}
+h1{font-size:var(--s5); line-height:1.06; letter-spacing:-.07em}
 h2{font-size:var(--s5); line-height:1.06; margin:0 0 24px}
 h3{font-size:var(--s4); line-height:1.3; letter-spacing:-.04em; margin:72px 0 16px}
 p{margin:0 0 24px; text-wrap:pretty}
@@ -89,7 +92,8 @@ header .k{display:flex; flex-wrap:wrap; justify-content:space-between; align-ite
 header h1{margin:0 0 24px}
 button{font:400 var(--s1)/1 var(--mono); color:var(--muted); background:none; border:1px solid var(--hair); border-radius:999px; min-height:44px; padding:0 14px; cursor:pointer; white-space:nowrap}
 button:hover{color:var(--ink); border-color:var(--muted)}
-.top{display:grid; grid-template-columns:minmax(0,1fr) 200px; gap:0 48px}
+.top{max-width:var(--text); display:grid; grid-template-columns:minmax(0,1fr) 200px; gap:0 48px}
+.top > h1{grid-column:1/-1; max-width:var(--text)}
 .top > div{min-width:0}
 nav ol{list-style:none; margin:0; padding:0 0 0 16px; border-left:1px solid var(--hair)}
 nav li{margin:0}
@@ -129,7 +133,7 @@ figure details{margin:20px 0 0}
 
 details{margin:48px 0; max-width:var(--text)}
 details + details{margin-top:-40px}
-summary{cursor:pointer; font:500 var(--s1)/1.4 var(--mono); color:var(--ink); list-style:none; display:flex; align-items:center; gap:12px; min-height:44px; max-width:var(--text); margin:0}
+summary{cursor:pointer; text-wrap:pretty; font:500 var(--s1)/1.4 var(--mono); color:var(--ink); list-style:none; display:flex; align-items:center; gap:12px; min-height:44px; max-width:var(--text); margin:0}
 summary::-webkit-details-marker{display:none}
 summary::before{content:""; width:7px; height:7px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(-45deg); transition:transform .25s; flex:none; margin:0 2px}
 details[open] summary::before{transform:rotate(45deg)}
@@ -187,7 +191,7 @@ figure svg text{font-family:var(--sans)}
   display:flex; flex-wrap:wrap; gap:2px 20px; font:400 var(--s1)/1.7 var(--sans); color:var(--muted)}
 .fkey .key{margin-right:0} .fkey .kl{color:var(--ink)}
 @media screen{.fkey[data-print]{display:none}}
-figcaption{max-width:var(--capw, 100%); margin:14px 0 0; font:400 var(--s2)/1.55 var(--sans); color:var(--muted)}
+figcaption{max-width:var(--capw, 100%); text-wrap:pretty; margin:14px 0 0; font:400 var(--s2)/1.55 var(--sans); color:var(--muted)}
 figcaption > .k:first-child{display:block; letter-spacing:.06em; text-transform:uppercase; margin:0 0 8px}
 figcaption b{color:var(--ink); font-weight:600}
 figcaption > b:first-of-type{font-family:var(--mono); font-weight:500; letter-spacing:-.06em}
@@ -291,14 +295,13 @@ button.fold{display:flex; align-items:center; width:100%; max-width:var(--text);
   min-height:44px; border:0; border-radius:0; background:none; text-align:left;
   font:400 var(--s1)/1.5 var(--mono); color:var(--muted)}
 button.fold:hover{color:var(--ink); border:0}
-button.fold b{color:var(--ink); font-weight:500; margin-right:.6em}
+button.fold b{color:var(--ink); font-weight:500; margin-right:.6em; font-size:var(--s4); line-height:1.1; letter-spacing:-.04em}
 button.fold > span{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 button.fold::after{content:""; flex:none; margin-left:auto; width:7px; height:7px;
   border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
   transform:rotate(45deg); transition:transform .25s}
 button.fold[aria-expanded="false"]::after{transform:rotate(-45deg)}
 @media screen{
-  .ch:has(button.fold[aria-expanded="false"]){padding-top:48px}
   .ch:has(button.fold[aria-expanded="false"]) > .wrap > *{display:none}
   .ch:has(button.fold[aria-expanded="false"]) > .wrap > .k:first-child{display:block}
   .ch:has(button.fold[aria-expanded="false"]) > .wrap > h2{display:block; margin:0; font-size:var(--s4); letter-spacing:-.04em}
@@ -319,8 +322,8 @@ button.fold[aria-expanded="false"]::after{transform:rotate(-45deg)}
 footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 
 @media (max-width:720px){
-  :root{--s3:18px; --s4:20px; --s5:34px; --s6:42px}
-  header{padding-top:44px} section.ch{padding-top:72px}
+  :root{--s3:18px; --s4:20px; --s5:34px}
+  header{padding-top:44px} section.ch:first-of-type{padding-top:24px}
   header h1{margin-bottom:16px}
   dl{grid-template-columns:1fr}
   .cards > div,dl:has(> div:nth-child(10)) > div{grid-template-columns:1fr} .cards > div > p{grid-column:1}
@@ -369,8 +372,8 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 </head>
 <body>
 <header><div class="wrap"><div class="top">
+  <h1>Peptide Atlas: messages, mechanisms and money</h1>
  <div>
-    <h1>Peptide Atlas: messages, mechanisms and money</h1>
     <p class="k" style="justify-content:flex-start; gap:8px 32px"><span>Katherine Titterton, Macrofluidics</span><a href="https://macrofluidic.me">macrofluidic.me</a><span>2026-11-05</span></p>
   <figure id="hook">
  <a href="#bpc157" aria-label="BPC-157, 15 amino acids: its skeletal formula, turning into a computed 3D shape"><svg viewBox="0 0 532 358" aria-hidden="true"><g data-b="0"><path/><path/><path/></g><g data-b="1"><path/><path/><path/></g><g data-b="2"><path/><path/><path/></g><g data-b="3"><path d="M147.6 295.8L161.5 283.2M108.0 265.9L104.1 247.6M125.8 271.7L139.7 259.1M139.7 259.1L157.6 264.9M157.6 264.9L171.5 252.3M171.5 252.3L167.6 234.0M171.5 252.3L189.4 258.1M68.1 257.4L79.1 242.2M75.7 274.5L66.3 290.8M66.3 290.8L78.8 304.7M78.8 304.7L96.0 297.1M96.0 297.1L94.0 278.5M47.6 222.1L66.3 220.1M39.9 239.3L21.7 243.2M21.7 243.2L19.7 261.9M19.7 261.9L36.9 269.4M36.9 269.4L49.4 255.5M60.2 183.2L74.1 195.8M42.4 189.0L27.1 178.1M27.1 178.1L12.0 189.1M12.0 189.1L17.8 207.0M17.8 207.0L36.6 206.9M85.8 140.8L71.8 128.2M125.3 110.8L139.3 123.3M107.5 116.6L93.5 104.1M93.5 104.1L75.7 109.9M75.7 109.9L61.8 97.3M61.8 97.3L43.9 103.1M43.9 103.1L30.0 90.6M162.6 94.2L162.6 112.9M146.3 84.8L144.4 66.2M144.4 66.2L126.0 62.3M126.0 62.3L116.7 78.5M116.7 78.5L129.2 92.5M211.3 84.7L211.3 66.0M195.1 94.1L195.1 112.9M260.1 94.1L260.1 112.9M243.8 84.7L243.8 66.0M243.8 66.0L260.0 56.6M260.0 56.6L276.3 65.9M260.0 56.6L260.0 37.8M308.8 84.7L308.8 65.9M292.6 94.1L292.6 112.8M292.6 112.8L308.8 122.2M308.8 122.2L325.1 112.8M308.8 122.2L308.9 140.9M357.5 94.0L357.6 112.8M341.3 84.6L341.3 65.9M406.3 84.6L406.3 65.8M455.0 93.9L455.0 112.7M438.8 84.6L438.8 65.8M438.8 65.8L455.0 56.4M455.0 56.4L455.0 37.7M455.0 56.4L471.2 65.8M503.7 84.5L520.0 93.9M487.5 93.9L487.5 112.7M487.5 112.7L471.3 122.1M487.5 112.7L503.8 122.0M503.7 84.5L503.7 65.8"/><path d="M169.3 319.9L151.5 314.1M151.5 314.1L147.6 295.8M129.7 290.0L125.8 271.7M125.8 271.7L108.0 265.9M147.6 295.8L129.7 290.0M94.0 278.5L75.7 274.5M75.7 274.5L68.1 257.4M108.0 265.9L94.0 278.5M49.4 255.5L39.9 239.3M39.9 239.3L47.6 222.1M68.1 257.4L49.4 255.5M36.6 206.9L42.4 189.0M42.4 189.0L60.2 183.2M47.6 222.1L36.6 206.9M64.1 164.9L81.9 159.1M81.9 159.1L85.8 140.8M60.2 183.2L64.1 164.9M103.6 135.0L107.5 116.6M107.5 116.6L125.3 110.8M85.8 140.8L103.6 135.0M129.2 92.5L146.3 84.8M146.3 84.8L162.6 94.2M125.3 110.8L129.2 92.5M178.8 84.8L195.1 94.1M195.1 94.1L211.3 84.7M162.6 94.2L178.8 84.8M227.6 94.1L243.8 84.7M243.8 84.7L260.1 94.1M211.3 84.7L227.6 94.1M276.3 84.7L292.6 94.1M292.6 94.1L308.8 84.7M260.1 94.1L276.3 84.7M325.1 94.0L341.3 84.6M341.3 84.6L357.5 94.0M308.8 84.7L325.1 94.0M373.8 84.6L390.0 94.0M390.0 94.0L406.3 84.6M357.5 94.0L373.8 84.6M422.5 94.0L438.8 84.6M438.8 84.6L455.0 93.9M406.3 84.6L422.5 94.0M471.3 84.5L487.5 93.9M487.5 93.9L503.7 84.5M455.0 93.9L471.3 84.5"/><path/></g><path data-d="" d="M152.0 296.8L162.1 287.8M103.8 264.1L100.9 250.9M174.6 249.0L171.8 235.7M72.6 257.5L80.6 246.5M50.6 225.5L64.0 224.1M64.6 182.2L74.7 191.2M86.3 136.2L76.3 127.2M124.8 115.3L134.8 124.4M158.8 96.8L158.9 110.3M215.1 82.1L215.1 68.6M256.3 96.7L256.3 110.2M264.2 54.6L275.9 61.4M312.6 82.0L312.5 68.5M309.2 117.6L320.9 110.9M353.8 96.6L353.8 110.1M402.5 82.0L402.5 68.5M458.8 96.6L458.8 110.1M504.1 89.1L515.9 95.8"/><g data-t=""><text x="169.3" y="324.1">NH&#8322;</text><text x="161.5" y="287.4">O</text><text x="129.7" y="294.2">NH</text><text x="104.1" y="251.8">O</text><text x="167.6" y="238.2">O</text><text x="189.4" y="262.3">OH</text><text x="94.0" y="282.7">N</text><text x="79.1" y="246.4">O</text><text x="49.4" y="259.7">N</text><text x="66.3" y="224.3">O</text><text x="36.6" y="211.1">N</text><text x="74.1" y="200.0">O</text><text x="64.1" y="169.1">NH</text><text x="71.8" y="132.4">O</text><text x="103.6" y="139.2">NH</text><text x="139.3" y="127.5">O</text><text x="30.0" y="94.8">NH&#8322;</text><text x="129.2" y="96.7">N</text><text x="162.6" y="117.1">O</text><text x="178.8" y="89.0">NH</text><text x="211.3" y="70.2">O</text><text x="227.6" y="98.3">NH</text><text x="260.1" y="117.1">O</text><text x="276.3" y="70.1">O</text><text x="260.0" y="42.0">OH</text><text x="276.3" y="88.9">NH</text><text x="308.8" y="70.1">O</text><text x="325.1" y="117.0">O</text><text x="308.9" y="145.1">OH</text><text x="325.1" y="98.2">NH</text><text x="357.6" y="117.0">O</text><text x="373.8" y="88.8">NH</text><text x="406.3" y="70.0">O</text><text x="422.5" y="98.2">NH</text><text x="455.0" y="116.9">O</text><text x="471.3" y="88.7">NH</text><text x="520.0" y="98.1">O</text><text x="503.7" y="70.0">OH</text></g></svg></a>
@@ -2968,8 +2971,8 @@ L 186.2 78.6
  </div></section>
 
 <section class="ch" id="supply"><div class="wrap">
- <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="supply"><b>07</b><span class="vh">Made in days, a peptide chain leaves the factory in different envelopes</span></button></div>
- <h2>Made in days, a peptide chain leaves the factory in different envelopes</h2>
+ <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="supply"><b>07</b><span class="vh">Made in days, a peptide chain leaves the factory in different&nbsp;envelopes</span></button></div>
+ <h2>Made in days, a peptide chain leaves the factory in different&nbsp;envelopes</h2>
  <p>Vials sold online typically start life as a necklace. Chemists thread amino acids one at a time onto a plastic bead in a tank, then cut the chain loose, wash it and freeze-dry it;<sup class="ref"><a href="#r107">107</a>,<a href="#r108">108</a></sup> a 15-bead peptide is fifteen turns of the loop. Biology has a second way, the one used for human insulin: hand the gene to a living cell and let it brew.<sup class="ref"><a href="#r107">107</a></sup> A pharmacy pen is usually brewed, then finished by chemistry. Either way the chain is done in days (typical times, marked as estimates in Figure 15). What differs is the envelope: the same kind of molecule can leave the factory as a branded pen, a pharmacist&#8217;s vial or a website&#8217;s &#8220;research only&#8221; vial. Which envelope is the vial in the post?</p>
  <figure class="fig" id="figtime">
   <div class="scroll"><svg viewBox="18 0 847 308" role="img" aria-label="A log time axis from one hour to thirty years with markers: one coupling cycle in hours; a chain in days; a tested vial in weeks; a released GMP batch in months; a medicine in about ten years, with semaglutide's dates above">
