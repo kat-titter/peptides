@@ -29,7 +29,7 @@
   --sans:"Geist",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,monospace;
     --s0:12px; --s1:13px; --s2:15px; --s3:19px; --s4:23px; --s5:46px;
     --text:880px; --fig:796px; --band:880px; --r:14px; --rs:6px; --bleed:24px;
-    --wk:6%; --tk:22%;
+    --wk:6%; --tk:22%; --band-pad:.12em;
     --tx-tint:22%;
   color-scheme:light dark;
 }
@@ -81,7 +81,7 @@ p{margin:0 0 24px; text-wrap:pretty}
 p b,li b{color:var(--ink); font-weight:600}
 mark{background:var(--mark); color:var(--ink); padding:0 .15em; border-radius:var(--rs)}
 :is([data-p],a.pep,#proofgrid thead th[style] span,#hook > p b){position:relative; isolation:isolate; color:var(--ink); font-style:normal;
-  text-decoration:none; white-space:nowrap; padding:0 .12em}
+  text-decoration:none; white-space:nowrap; padding:0 var(--band-pad)}
 :is([data-p],a.pep,#proofgrid thead th[style] span,#hook > p b)::after{content:""; position:absolute; z-index:-1; left:0; right:0; bottom:.14em;
   height:.62em; border-radius:var(--rs); background:color-mix(in srgb,var(--c) 40%,var(--paper)); transition:height .15s}
 :is(a[data-p],a.pep):is(:hover,:focus-visible)::after{height:calc(100% - .14em)}
@@ -155,22 +155,20 @@ details[open] summary{margin-bottom:16px}
   font:500 var(--s1)/20px var(--mono); background:var(--t); color:var(--ink)}
 #proofgrid tr:is([data-t="4"],[data-t="5"]) th b{color:var(--on)}
 #proofgrid tr[data-t="0"] th b{color:var(--muted)}
-#proofgrid td a{display:block; width:max-content; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--hair)}
+#proofgrid td a{display:block; width:max-content; color:var(--ink); text-decoration:none}
 #proofgrid td a + a{margin-top:2px}
-#proofgrid td a:is(:hover,:focus-visible){border-bottom-color:var(--ink)}
-#proofgrid td a:has(mark){border-bottom:0; margin-left:-.15em}
-#proofgrid :is(thead th:last-child,tr:has(~ tr mark) > td:last-child,td:has(mark)){position:relative}
+#proofgrid td mark{padding:0 var(--band-pad)}   #proofgrid :is(thead th:last-child,tr:has(~ tr mark) > td:last-child,td:has(mark)){position:relative}
 #proofgrid :is(thead th:last-child,tr:has(~ tr mark) > td:last-child,td:has(mark))::after{content:""; position:absolute; left:5px; top:0; bottom:0; width:1px; background:var(--ink)}
 #proofgrid thead th:last-child::before{content:""; position:absolute; left:3px; top:-2px; width:5px; height:5px; border-radius:50%; background:var(--ink)}
 #proofgrid td:has(mark)::after{bottom:auto; height:13px}
-#proofgrid td:has(mark)::before{content:""; position:absolute; left:5px; top:13px; width:7px; height:1px; background:var(--ink)}
-#proofgrid > p{margin:10px 0 0; font:400 var(--s0)/1.5 var(--sans); color:var(--muted)}
+#proofgrid td:has(mark)::before{content:""; position:absolute; left:5px; top:13px; width:9px; height:1px; background:var(--ink)}   #proofgrid > p{margin:10px 0 0; font:400 var(--s0)/1.5 var(--sans); color:var(--muted)}
 #proofgrid > p b{font:500 var(--s0)/1 var(--mono); color:var(--muted)}
 @media (max-width:720px){
   #proofgrid tr{display:grid; grid-template-columns:repeat(4,minmax(0,1fr))}
   #proofgrid thead th:first-child{grid-column:1/-1; width:auto; padding-top:16px}
   #proofgrid thead th[style]{padding-top:4px}
   #proofgrid :is(th,td){padding-left:10px}
+  #proofgrid td:has(mark)::before{width:5px}
   #proofgrid tbody th{grid-column:1/-1; padding:6px 0 0; border-bottom:0}
   #proofgrid tbody th::after,#proofgrid tbody tr:first-child th::before{display:none}
   #proofgrid :is(thead th:first-child,tr:has(~ tr mark) > th,tr:has(mark) > th){position:relative}
@@ -453,10 +451,10 @@ requestAnimationFrame(loop);
   <table aria-label="The 19 peptides in chapter 06, by proof in people and by what each acts on in the body">
    <thead><tr><th scope="col"><span>proof in people</span></th><th scope="col" style="--c:var(--glp)"><span>appetite</span></th><th scope="col" style="--c:var(--mots)"><span>energy</span></th><th scope="col" style="--c:var(--smx)"><span>mind</span></th><th scope="col" style="--c:var(--bpc)"><span>repair</span></th></tr></thead>
    <tbody>
-   <tr data-t="5"><th scope="row"><b>5</b>approved</th><td><a href="#glp1">semaglutide</a><a href="#glp1">tirzepatide</a></td><td><a href="#fig6">elamipretide</a></td><td></td><td></td></tr>
-   <tr data-t="4"><th scope="row"><b>4</b>randomised trials</th><td><a href="#figtrials">retatrutide</a></td><td></td><td></td><td></td></tr>
-   <tr data-t="3"><th scope="row"><b>3</b>small human studies</th><td></td><td><a href="#motsc">MOTS-c</a></td><td></td><td></td></tr>
-   <tr data-t="2"><th scope="row"><b>2</b>animals</th><td></td><td></td><td><a href="#figdoors">Semax</a></td><td><a href="#bpc157"><mark>BPC-157</mark></a><a href="#figdoors">Matrixyl</a><a href="#ghkcu">GHK-Cu</a></td></tr>
+   <tr data-t="5"><th scope="row"><b>5</b>approved</th><td><a href="#glp1" data-p style="--c:var(--glp)">semaglutide</a><a href="#glp1" data-p style="--c:var(--tzp)">tirzepatide</a></td><td><a href="#fig6" data-p style="--c:var(--ela)">elamipretide</a></td><td></td><td></td></tr>
+   <tr data-t="4"><th scope="row"><b>4</b>randomised trials</th><td><a href="#figtrials" data-p style="--c:var(--glp)">retatrutide</a></td><td></td><td></td><td></td></tr>
+   <tr data-t="3"><th scope="row"><b>3</b>small human studies</th><td></td><td><a href="#motsc" data-p style="--c:var(--mots)">MOTS-c</a></td><td></td><td></td></tr>
+   <tr data-t="2"><th scope="row"><b>2</b>animals</th><td></td><td></td><td><a href="#figdoors" data-p style="--c:var(--smx)">Semax</a></td><td><a href="#bpc157"><mark>BPC-157</mark></a><a href="#figdoors" data-p style="--c:var(--mtx)">Matrixyl</a><a href="#ghkcu" data-p style="--c:var(--ghk)">GHK-Cu</a></td></tr>
    <tr data-t="1"><th scope="row"><b>1</b>cells</th><td></td><td></td><td></td><td></td></tr>
    <tr data-t="0"><th scope="row"><b>0</b>none</th><td></td><td></td><td></td><td></td></tr>
    </tbody>
@@ -2665,7 +2663,7 @@ L 186.2 78.6
 <path pointer-events='none' d='M 626.5,84.5 L 625.8,84.1 L 625.8,83.3' style='fill:none;stroke:currentColor;stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
 <path pointer-events='none' d='M 639.0,91.8 L 639.7,92.2 L 640.2,91.9' style='fill:none;stroke:currentColor;stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
 <text pointer-events='none' x="10.7" y="97.7" font-size="11" fill="currentColor">H₂N</text><text pointer-events='none' x="49.7" y="113.8" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="63.7" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="63.7" y="76.9" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="91.6" y="105.8" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="77.7" y="146.1" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="42.7" y="146.1" font-size="11" fill="currentColor">HO</text><text pointer-events='none' x="105.6" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="133.5" y="81.6" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="147.5" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="175.4" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="189.4" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="217.4" y="81.6" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="231.3" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="231.3" y="76.9" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="259.3" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="273.2" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="273.2" y="110.4" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="301.2" y="81.6" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="315.1" y="25.1" font-size="11" fill="currentColor">NH₂</text><text pointer-events='none' x="315.1" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="343.1" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="357.0" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="357.0" y="110.4" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="385.0" y="81.6" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="399.0" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="399.0" y="76.9" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="426.9" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="385.0" y="113.8" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="399.0" y="138.0" font-size="11" fill="currentColor">OH</text><text pointer-events='none' x="440.9" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="440.9" y="110.4" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="468.8" y="113.8" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="482.8" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="468.8" y="49.3" font-size="11" fill="currentColor">OH</text><text pointer-events='none' x="482.8" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="482.8" y="102.3" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="510.7" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="524.7" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="524.7" y="110.4" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="552.6" y="81.6" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="566.6" y="89.6" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="566.6" y="76.9" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="594.5" y="73.5" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="608.5" y="97.7" font-size="11" fill="currentColor">N</text><text pointer-events='none' x="608.5" y="110.4" font-size="11" fill="currentColor">H</text><text pointer-events='none' x="636.4" y="113.8" font-size="11" fill="currentColor">O</text><text pointer-events='none' x="650.4" y="89.6" font-size="11" fill="currentColor">OH</text></g><text x="25.1" y="310.6" class="mu" font-size="12">N-terminus</text><path d="M97.1 306.6 H587.7 m-6 -4 l6 4 l-6 4" fill="none" stroke="var(--muted)" stroke-width="1.2"/><text x="661.7" y="310.6" class="mu" font-size="12" text-anchor="end">C-terminus</text><g class="resnotes" font-size="12"><g data-k="rn-bpc157-0" tabindex="0" role="button" aria-label="Pro3, Pro4, Pro5, three prolines" data-tip="&lt;b&gt;Pro3, Pro4, Pro5&lt;/b&gt;&lt;br&gt;Three prolines kink the chain; it resists gastric juice in a dish, yet blood and tissue peptidases still clear it in minutes.&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;measured in vitro, Veljaca 1995&lt;/span&gt;" data-res-list="3,4,5"><rect x="107.9" y="93" width="113.8" height="24" fill="transparent"/><path d="M115.9 95 V100 H213.7 V95" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linejoin="round"/><text x="164.8" y="114" text-anchor="middle" class="mu" paint-order="stroke" stroke="var(--paper)" stroke-width="3" stroke-linejoin="round">three prolines</text></g><g data-k="rn-bpc157-1" tabindex="0" role="button" aria-label="1,420 Da, unmodified, Lys7 free, Lys7 free, no cap" data-tip="&lt;b&gt;1,420 Da, unmodified, Lys7 free&lt;/b&gt;&lt;br&gt;No Aib, no lipid: half-life under 30 minutes in rats and dogs, so any effect is a brief pulse.&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;measured, He 2022&lt;/span&gt;" data-res-list="7"><rect x="228.1" y="93" width="124.8" height="24" fill="transparent"/><path d="M283.5 95 V100 H297.5 V95" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linejoin="round"/><text x="290.5" y="114" text-anchor="middle" class="mu" paint-order="stroke" stroke="var(--paper)" stroke-width="3" stroke-linejoin="round">Lys7 free, no cap</text></g><g data-k="rn-bpc157-2" tabindex="0" role="button" aria-label="Glu2, Asp10, Asp11, net minus 2, polar" data-tip="&lt;b&gt;Glu2, Asp10, Asp11&lt;/b&gt;&lt;br&gt;Its three acidic residues outweigh its one basic residue: net &#8722;2 at pH 7. Polar, so it is unlikely to cross the gut wall or a cell membrane on its own; it must act from outside, on receptors.&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;chemistry&lt;/span&gt;" data-res-list="2,10,11"><rect x="233.6" y="119" width="407.1" height="24" fill="transparent"/><path d="M74.0 121 V126 H88.0 V121 M409.2 121 V126 H465.1 V121" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linejoin="round"/><text x="437.1" y="140" text-anchor="middle" class="mu" paint-order="stroke" stroke="var(--paper)" stroke-width="3" stroke-linejoin="round">net &#8722;2, polar</text></g><g data-k="rn-bpc157-3" tabindex="0" role="button" aria-label="no aromatic ring, no aromatic ring" data-tip="&lt;b&gt;no aromatic ring&lt;/b&gt;&lt;br&gt;Nothing to sit in a deep hydrophobic pocket; consistent with VEGFR2 being up-regulated and internalised rather than bound like a ligand.&lt;br&gt;&lt;span class=&quot;mu&quot;&gt;inference, Hsieh 2017&lt;/span&gt;" data-res-list="all"><rect x="29.1" y="315" width="606.7" height="22" fill="transparent"/><path d="M39.1 326 H625.8" stroke="var(--hair)" stroke-width="6" stroke-linecap="round"/><text x="332.4" y="342" text-anchor="middle" class="mu">no aromatic ring</text></g></g></svg></div></div>
- <div class="scroll"><svg viewBox="-2 0 832 840" role="img" aria-label="Three panels. B: BPC-157 as a bead string above the VEGFR2 kinase domain, AKT1 and the eNOS dimer, each traced from its structure, in an endothelial cell. B: the same peptide above growth hormone on its receptor, JAK2 and focal adhesion kinase, in a tendon fibroblast. D: the one randomised human trial, as two bars and a difference whose 95% interval crosses zero">
+ <div class="scroll"><svg viewBox="-2 0 832 636" role="img" aria-label="Two panels. B: BPC-157 as a bead string above the VEGFR2 kinase domain, AKT1 and the eNOS dimer, each traced from its structure, in an endothelial cell. C: the same peptide above growth hormone on its receptor, JAK2 and focal adhesion kinase, in a tendon fibroblast">
 <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker></defs>
 <g font-size="14">
 <text x="0" y="14" class="ink" font-size="14"><tspan font-weight="600">B</tspan><tspan dx="8">Endothelium: nitric oxide signalling</tspan></text>
@@ -2718,6 +2716,10 @@ L 186.2 78.6
 <text x="545" y="594.4" text-anchor="middle" class="mu">preclinical</text>
 <path d="M300 604.2 H380" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><text x="340" y="598.2" text-anchor="middle" class="mu m">5&#8239;nm</text>
 <text x="300" y="620.2" class="mu">panels B and C</text>
+</g>
+ </svg></div>
+ <div class="scroll"><svg viewBox="-2 636 832 204" role="img" aria-label="D: the one randomised human trial, as two bars and a difference whose 95% interval crosses zero" data-fit="prev">
+<g font-size="14">
 <text x="0" y="648.2" class="ink" font-size="14"><tspan font-weight="600">D</tspan><tspan dx="8">One randomised trial in people</tspan></text>
 <text x="0" y="682.2" class="mu">disease activity index, change at 14 days</text>
 <path d="M0 696.2 H200" stroke="var(--muted)" stroke-width="1"/>
