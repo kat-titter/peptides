@@ -177,7 +177,7 @@ details[open] summary{margin-bottom:16px}
   #proofgrid :is(thead th:first-child,tr:has(~ tr mark) > th,tr:has(mark) > th)::after{content:""; display:block; position:absolute; left:calc(75% + 5px); top:0; bottom:0; width:1px; background:var(--ink)}
   #proofgrid thead th:first-child::before{content:""; position:absolute; left:calc(75% + 3px); top:-2px; width:5px; height:5px; border-radius:50%; background:var(--ink)}
   #proofgrid thead th:last-child::before{display:none}
-}
+  #proofgrid tbody tr:first-child th::after{top:0}   }
 
 .cards{margin:24px 0 48px}
 .cards > div,dl:has(> div:nth-child(10)) > div{display:grid; grid-template-columns:minmax(0,13rem) minmax(0,1fr); column-gap:32px; align-items:baseline; padding:8px 0 14px}
