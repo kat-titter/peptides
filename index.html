@@ -493,6 +493,20 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
   .pgin > :last-child { margin-bottom: 0 !important; }
 
     @media (min-width: 821px) {
+        :root { --marg: 120px; --mgap: 16px; }
+    .pg .pgin { position: relative; padding-right: calc(var(--marg) + var(--mgap)); }
+    .pg .pgin.figslot { padding-right: 0; }
+    .pg .pgin > .fig, .pg .pgin > table, .pg .pgin > .scroll, .pg .pgin > .linked,
+    .pg .pgin > .cards, .pg .pgin > .addrs {
+      margin-right: calc(-1 * (var(--marg) + var(--mgap)));
+    }
+    .snote {
+      position: absolute; right: 0; width: var(--marg);
+      font: 400 11.5px/1.35 'Geist Mono', ui-monospace, monospace;
+      color: var(--mute); text-align: left;
+    }
+    .snote b { color: var(--ink); font-weight: 500; }
+    .snote span { display: block; margin-bottom: 5px; overflow-wrap: anywhere; }
     .pg .pgin { font-size: 16px; }
     .pg p, .pg li, .pg dd, .pg dt, .pg td, .pg th, .pg blockquote {
       font-size: 16px; line-height: 1.55;
@@ -4607,6 +4621,37 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
   printCopy.className = 'srcprint';
   document.body.appendChild(printCopy);
 
+  /* THE MARGIN'S CONTENT: every reference, as the short form a margin note wants — first author and year.
+     Read from the pristine clone, which holds the whole list whatever the cut has done to the pages. */
+  var SOURCE = {};
+  [].forEach.call(printCopy.querySelectorAll('li[id^="r"]'), function (li) {
+    var n = li.id.slice(1);
+    if (!/^\d+$/.test(n)) return;
+    var t = (li.textContent || '').replace(/\s+/g, ' ').trim();
+    var ym = t.match(/\((\d{4})[a-z]?\)/);
+    var year = ym ? ym[1] : '';
+    var who = (ym ? t.slice(0, ym.index) : t.split('.')[0]).trim();
+    /* A person's entry reads "Surname AB, Surname CD"; an organisation's reads "US Food and Drug
+       Administration" or "Eli Lilly and Company", and taking its first word gave margin notes that said
+       "Eli et al." and "University". Initials after a surname are what tells them apart. */
+    var personal = /[A-Z][a-z\u00C0-\u024F'-]+\s+[A-Z]{1,3}\b/.test(who);
+    if (personal) {
+      var first = who.split(/,|;| and /)[0].trim().split(/\s+/)[0];
+      var many = /,|;|\band\b|et al/.test(who);
+      SOURCE[n] = first + (many ? ' et al.' : '') + (year ? ' ' + year : '');
+    } else {
+      /* A long organisation goes to its initials, which is how it is known anyway: "National Center for
+         Biotechnology Information" to NCBI, "US Food and Drug Administration" to USFDA. A short one keeps
+         its words, so "Eli Lilly and Company" does not become ELC. Cutting at a character count instead
+         left margin notes reading "US Food and Drug" and "University of Southern". */
+      var words = who.split(/\s+/).filter(Boolean);
+      var real = words.filter(function (x) { return !/^(and|of|for|the|a|in)$/i.test(x); });
+      SOURCE[n] = (who.length > 30 && real.length >= 3
+        ? real.map(function (x) { return /^[A-Z]{2,}$/.test(x) ? x : x[0].toUpperCase(); }).join('')
+        : words.join(' ')) + (year ? ' ' + year : '');
+    }
+  });
+
   root.classList.add('book-on');
 
   /* ---- the blocks, in reading order ---------------------------------- */
@@ -5114,6 +5159,7 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
                    tag: [].map.call(k.children, function (c) { return c.tagName + '.' + (c.className || '').split(' ')[0]; }).join(' ')});
     });
     window.__forced = forced;
+    if (typeof margins === 'function') margins();
 
     /* term cards on a cut paragraph lost their click handler with the clone */
     document.querySelectorAll('.cont .term').forEach(function (t) {
@@ -5379,6 +5425,62 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
   setTimeout(probe, 6000);
 
   /* the measuring harness asks for the page boxes */
+  /* ---- the margin notes ----------------------------------------------------------------------------
+     One note per source cited on the page, placed beside the block that cites it. The notes are absolute
+     inside `.pgin`, so one longer than its paragraph cannot push the page's own text down; where two would
+     sit on top of each other the later one slides down to clear it, and anything that would fall off the
+     foot of the page is dropped rather than painted over the folio. */
+  function margins() {
+    [].forEach.call(document.querySelectorAll('.snote'), function (n) { n.remove(); });
+    if (window.innerWidth <= PHONE) return 0;
+    var made = 0;
+    [].forEach.call(document.querySelectorAll('.pgin'), function (box) {
+      if (box.classList.contains('figslot')) return;
+      if (box.querySelector('.refs')) return;        /* the reference list is its own margin */
+      var cap = box.parentNode.clientHeight, bottom = 0, seen = {};
+      [].forEach.call(box.children, function (blk) {
+        var lines = [];
+        /* Clayden's margin note proper: the word, and what it means, beside the sentence that uses it */
+        [].forEach.call(blk.querySelectorAll('.term'), function (t) {
+          var card = t.querySelector('.tc');
+          if (!card) return;
+          var word = '';
+          [].forEach.call(t.childNodes, function (k) { if (k.nodeType === 3) word += k.nodeValue; });
+          word = word.trim();
+          var gloss = (card.textContent || '').replace(/\s+/g, ' ').trim();
+          if (!word || !gloss || seen['t' + word]) return;
+          seen['t' + word] = 1;
+          lines.push('<span><b>' + esc(word) + '</b> ' + esc(gloss) + '</span>');
+        });
+        /* and the sources, so a claim shows what it rests on without a card being opened */
+        [].forEach.call(blk.querySelectorAll('sup.ref a[href^="#r"]'), function (a) {
+          var n = (a.getAttribute('href') || '').replace('#r', '');
+          if (!SOURCE[n] || seen['r' + n]) return;
+          seen['r' + n] = 1;
+          lines.push('<span><b>' + n + '</b> ' + esc(SOURCE[n]) + '</span>');
+        });
+        if (!lines.length) return;
+        var note = document.createElement('aside');
+        note.className = 'snote';
+        note.setAttribute('aria-hidden', 'true');   /* the term card and the reference list already say this */
+        note.innerHTML = lines.join('');
+        box.appendChild(note);
+        var top = Math.max(blk.offsetTop, bottom);
+        note.style.top = top + 'px';
+        var h = note.getBoundingClientRect().height;
+        if (top + h > cap) { note.remove(); return; }
+        bottom = top + h + 8;
+        made++;
+      });
+    });
+    window.__snotes = made;
+    return made;
+  }
+
+  function esc(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   /* The hook on the title page plays on scroll-in, and inside a page box it is never scrolled into anything,
      so it could sit at its first frame for good. The atlas exposes __still(), which puts its animations in
      their end state; the book calls it once the pages are cut, and after every re-cut. */
