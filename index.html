@@ -7,13 +7,13 @@
 <meta property="og:title" content="Peptides: postage paid, proof pending">
 <meta property="og:description" content="Nineteen peptides, from semaglutide to BPC-157, ranked by how much proof there is in people: what each one does in a cell, and who keeps the margin.">
 <meta property="og:url" content="https://kat-titter.github.io/peptides/">
-<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=e4011633">
+<meta property="og:image" content="https://kat-titter.github.io/peptides/card.png?v=79f007ee">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The skeletal formula of BPC-157 in peach beside the title “Peptides: postage paid, proof pending”, the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=e4011633">
+<meta name="twitter:image" content="https://kat-titter.github.io/peptides/card.png?v=79f007ee">
 <meta name="twitter:image:alt" content="The skeletal formula of BPC-157 in peach beside the title “Peptides: postage paid, proof pending”, the words “Frontier biotech, first-class mail”, and the line “19 peptides, ranked by proof in people”.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Peptides: postage paid, proof pending</title>
@@ -415,7 +415,7 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 
 <style>
 @media screen {
-  :root { --rail: 38px; --mx: 55px; --my: 34px; --gut: 34px; --edge: 13px; --sheet: 12px; }
+    :root { --rail: 30px; --mx: 32px; --my: 22px; --gut: 24px; --edge: 8px; --sheet: 12px; }
 
   html.book-on, html.book-on body { height: 100%; overflow: hidden; }
   body.book { margin: 0; }
@@ -464,7 +464,7 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
   .spread > .pg:only-child { border-radius: var(--sheet); }
   .spread > .pg + .pg { padding-left: var(--gut); }
   .spread > .pg:first-child { padding-right: var(--gut); }
-  .pg.blank { visibility: hidden; }
+    .pg.blank > * { visibility: hidden; }
 
   .runhead {
     flex: 0 0 auto; display: flex; gap: 10px; align-items: baseline;
@@ -499,7 +499,8 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 
     .pg .fig { display: flex; flex-flow: column nowrap; }
   .pg .fig .scroll { overflow: visible; }
-  .pg .fig svg { width: 100%; height: auto; max-height: var(--figmax, none); }
+    .pg .fig svg { width: 100%; max-width: var(--vbw, none); height: auto; max-height: var(--figmax, none);
+                 display: block; margin-left: auto; margin-right: auto; }
   .spread.figspread { }
   .spread.figspread .pg.figpage { flex: 1 1 100%; padding-left: var(--mx); padding-right: var(--mx); }
   .spread.figspread .pg.figpage .pgbody { display: flex; align-items: center; }
@@ -524,6 +525,9 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
   .pg .btoc .n { font: 400 13px/1.5 'Geist Mono', ui-monospace, monospace; color: var(--muted); }
   .pg .byl { display: flex; flex-wrap: wrap; gap: 8px 21px; margin-top: 13px; }
   .pg .covhead h1 { margin-bottom: 0; }
+    .pg .covhead #hook { margin: 21px 0 0; max-width: 100%; }
+  .pg .covhead #hook svg { width: 100%; height: auto; max-width: var(--vbw, none); }
+  .pg .covhead #hook + p, .pg .covhead #hook p { margin: 8px 0 0; }
 
     .turn {
     position: absolute; top: 0; bottom: 0; width: var(--mx); z-index: 3;
@@ -633,7 +637,39 @@ footer{padding:96px 0 120px; font-size:var(--s2); color:var(--muted)}
 </svg>
 <div id="stage" class="stage" tabindex="-1"><div id="pages" class="pages" role="region" aria-label="The atlas, as a book"></div></div>
 <div class="rail" role="group" aria-label="Jump to a chapter"><div class="railbar"><div id="railfill" class="railfill"></div></div><div class="ticks"><button class="tick" data-ch="intro" aria-label="Chapter 00, Frontier biotech in first-class mail"><span>00</span></button><button class="tick" data-ch="map" aria-label="Chapter 01, Each peptide’s effect begins at its own address in the cell"><span>01</span></button><button class="tick" data-ch="glp1" aria-label="Chapter 02, GLP-1 drugs worked in people, and the money followed"><span>02</span></button><button class="tick" data-ch="motsc" aria-label="Chapter 03, Mitochondria write a hormone, MOTS-c; only a copy reached a human trial"><span>03</span></button><button class="tick" data-ch="bpc157" aria-label="Chapter 04, BPC-157 is a stomach-protein fragment tested almost only in rats"><span>04</span></button><button class="tick" data-ch="doors" aria-label="Chapter 05, On the skin or up the nose, a peptide is read only where it lands"><span>05</span></button><button class="tick" data-ch="matrix" aria-label="Chapter 06, The best-proven peptides all had an owner who paid for trials"><span>06</span></button><button class="tick" data-ch="supply" aria-label="Chapter 07, Made in days, a peptide chain leaves the factory in different envelopes"><span>07</span></button><button class="tick" data-ch="evidence" aria-label="Chapter 08, Most claims here hold in a rat, in one lab, for a molecule, not a vial"><span>08</span></button><button class="tick" data-ch="appendix" aria-label="Chapter , Appendix"><span>—</span></button><button class="tick" data-ch="refs" aria-label="Chapter , References"><span>—</span></button></div><output id="folio" class="folio k" aria-live="polite"></output></div>
-<div id="src" class="src"><div class="cover" data-cover><div class="covhead"><p class="k kick">Peptide atlas</p><h1>Peptides:<br>postage paid, proof&nbsp;pending</h1><p class="k byl" style="justify-content:flex-start;gap:8px 32px"><span>Katherine Titterton, Macrofluidics</span><a href="https://macrofluidic.me">macrofluidic.me</a><span>2026-11-05</span></p></div><nav class="btoc" data-newpage aria-label="Contents"><p class="k kick">Contents</p><ol><li><a href="#intro"><span class="n">00</span>Frontier biotech in first-class mail</a></li><li><a href="#map"><span class="n">01</span>Each peptide’s effect begins at its own address in the cell</a></li><li><a href="#glp1"><span class="n">02</span>GLP-1 drugs worked in people, and the money followed</a></li><li><a href="#motsc"><span class="n">03</span>Mitochondria write a hormone, MOTS-c; only a copy reached a human trial</a></li><li><a href="#bpc157"><span class="n">04</span>BPC-157 is a stomach-protein fragment tested almost only in rats</a></li><li><a href="#doors"><span class="n">05</span>On the skin or up the nose, a peptide is read only where it lands</a></li><li><a href="#matrix"><span class="n">06</span>The best-proven peptides all had an owner who paid for trials</a></li><li><a href="#supply"><span class="n">07</span>Made in days, a peptide chain leaves the factory in different envelopes</a></li><li><a href="#evidence"><span class="n">08</span>Most claims here hold in a rat, in one lab, for a molecule, not a vial</a></li><li><a href="#appendix"><span class="n"></span>Appendix</a></li><li><a href="#refs"><span class="n"></span>References</a></li></ol></nav></div><section class="ch chap" id="intro" data-num="00" data-name="Frontier biotech in first-class mail"><div class="wrap">
+<div id="src" class="src"><div class="cover" data-cover><div class="covhead"><p class="k kick">Peptide atlas</p><h1>Peptides:<br>postage paid, proof&nbsp;pending</h1><p class="k byl" style="justify-content:flex-start;gap:8px 32px"><span>Katherine Titterton, Macrofluidics</span><a href="https://macrofluidic.me">macrofluidic.me</a><span>2026-11-05</span></p><figure id="hook">
+ <a href="#bpc157" aria-label="BPC-157, 15 amino acids: its skeletal formula, turning into a computed 3D shape"><svg viewBox="0 0 532 358" aria-hidden="true" style="--vbw:532px;"><g data-b="0"><path/><path/><path/></g><g data-b="1"><path/><path/><path/></g><g data-b="2"><path/><path/><path/></g><g data-b="3"><path d="M147.6 295.8L161.5 283.2M108.0 265.9L104.1 247.6M125.8 271.7L139.7 259.1M139.7 259.1L157.6 264.9M157.6 264.9L171.5 252.3M171.5 252.3L167.6 234.0M171.5 252.3L189.4 258.1M68.1 257.4L79.1 242.2M75.7 274.5L66.3 290.8M66.3 290.8L78.8 304.7M78.8 304.7L96.0 297.1M96.0 297.1L94.0 278.5M47.6 222.1L66.3 220.1M39.9 239.3L21.7 243.2M21.7 243.2L19.7 261.9M19.7 261.9L36.9 269.4M36.9 269.4L49.4 255.5M60.2 183.2L74.1 195.8M42.4 189.0L27.1 178.1M27.1 178.1L12.0 189.1M12.0 189.1L17.8 207.0M17.8 207.0L36.6 206.9M85.8 140.8L71.8 128.2M125.3 110.8L139.3 123.3M107.5 116.6L93.5 104.1M93.5 104.1L75.7 109.9M75.7 109.9L61.8 97.3M61.8 97.3L43.9 103.1M43.9 103.1L30.0 90.6M162.6 94.2L162.6 112.9M146.3 84.8L144.4 66.2M144.4 66.2L126.0 62.3M126.0 62.3L116.7 78.5M116.7 78.5L129.2 92.5M211.3 84.7L211.3 66.0M195.1 94.1L195.1 112.9M260.1 94.1L260.1 112.9M243.8 84.7L243.8 66.0M243.8 66.0L260.0 56.6M260.0 56.6L276.3 65.9M260.0 56.6L260.0 37.8M308.8 84.7L308.8 65.9M292.6 94.1L292.6 112.8M292.6 112.8L308.8 122.2M308.8 122.2L325.1 112.8M308.8 122.2L308.9 140.9M357.5 94.0L357.6 112.8M341.3 84.6L341.3 65.9M406.3 84.6L406.3 65.8M455.0 93.9L455.0 112.7M438.8 84.6L438.8 65.8M438.8 65.8L455.0 56.4M455.0 56.4L455.0 37.7M455.0 56.4L471.2 65.8M503.7 84.5L520.0 93.9M487.5 93.9L487.5 112.7M487.5 112.7L471.3 122.1M487.5 112.7L503.8 122.0M503.7 84.5L503.7 65.8"/><path d="M169.3 319.9L151.5 314.1M151.5 314.1L147.6 295.8M129.7 290.0L125.8 271.7M125.8 271.7L108.0 265.9M147.6 295.8L129.7 290.0M94.0 278.5L75.7 274.5M75.7 274.5L68.1 257.4M108.0 265.9L94.0 278.5M49.4 255.5L39.9 239.3M39.9 239.3L47.6 222.1M68.1 257.4L49.4 255.5M36.6 206.9L42.4 189.0M42.4 189.0L60.2 183.2M47.6 222.1L36.6 206.9M64.1 164.9L81.9 159.1M81.9 159.1L85.8 140.8M60.2 183.2L64.1 164.9M103.6 135.0L107.5 116.6M107.5 116.6L125.3 110.8M85.8 140.8L103.6 135.0M129.2 92.5L146.3 84.8M146.3 84.8L162.6 94.2M125.3 110.8L129.2 92.5M178.8 84.8L195.1 94.1M195.1 94.1L211.3 84.7M162.6 94.2L178.8 84.8M227.6 94.1L243.8 84.7M243.8 84.7L260.1 94.1M211.3 84.7L227.6 94.1M276.3 84.7L292.6 94.1M292.6 94.1L308.8 84.7M260.1 94.1L276.3 84.7M325.1 94.0L341.3 84.6M341.3 84.6L357.5 94.0M308.8 84.7L325.1 94.0M373.8 84.6L390.0 94.0M390.0 94.0L406.3 84.6M357.5 94.0L373.8 84.6M422.5 94.0L438.8 84.6M438.8 84.6L455.0 93.9M406.3 84.6L422.5 94.0M471.3 84.5L487.5 93.9M487.5 93.9L503.7 84.5M455.0 93.9L471.3 84.5"/><path/></g><path data-d="" d="M152.0 296.8L162.1 287.8M103.8 264.1L100.9 250.9M174.6 249.0L171.8 235.7M72.6 257.5L80.6 246.5M50.6 225.5L64.0 224.1M64.6 182.2L74.7 191.2M86.3 136.2L76.3 127.2M124.8 115.3L134.8 124.4M158.8 96.8L158.9 110.3M215.1 82.1L215.1 68.6M256.3 96.7L256.3 110.2M264.2 54.6L275.9 61.4M312.6 82.0L312.5 68.5M309.2 117.6L320.9 110.9M353.8 96.6L353.8 110.1M402.5 82.0L402.5 68.5M458.8 96.6L458.8 110.1M504.1 89.1L515.9 95.8"/><g data-t=""><text x="169.3" y="324.1">NH&#8322;</text><text x="161.5" y="287.4">O</text><text x="129.7" y="294.2">NH</text><text x="104.1" y="251.8">O</text><text x="167.6" y="238.2">O</text><text x="189.4" y="262.3">OH</text><text x="94.0" y="282.7">N</text><text x="79.1" y="246.4">O</text><text x="49.4" y="259.7">N</text><text x="66.3" y="224.3">O</text><text x="36.6" y="211.1">N</text><text x="74.1" y="200.0">O</text><text x="64.1" y="169.1">NH</text><text x="71.8" y="132.4">O</text><text x="103.6" y="139.2">NH</text><text x="139.3" y="127.5">O</text><text x="30.0" y="94.8">NH&#8322;</text><text x="129.2" y="96.7">N</text><text x="162.6" y="117.1">O</text><text x="178.8" y="89.0">NH</text><text x="211.3" y="70.2">O</text><text x="227.6" y="98.3">NH</text><text x="260.1" y="117.1">O</text><text x="276.3" y="70.1">O</text><text x="260.0" y="42.0">OH</text><text x="276.3" y="88.9">NH</text><text x="308.8" y="70.1">O</text><text x="325.1" y="117.0">O</text><text x="308.9" y="145.1">OH</text><text x="325.1" y="98.2">NH</text><text x="357.6" y="117.0">O</text><text x="373.8" y="88.8">NH</text><text x="406.3" y="70.0">O</text><text x="422.5" y="98.2">NH</text><text x="455.0" y="116.9">O</text><text x="471.3" y="88.7">NH</text><text x="520.0" y="98.1">O</text><text x="503.7" y="70.0">OH</text></g></svg></a>
+ <p><b>BPC-157</b>: 15 amino acids, sold online, tested almost only in rats</p>
+<script>
+(function(){
+var D={"c":[213.9,188.0],"a2":[[169.3,319.9],[151.5,314.1],[147.6,295.8],[161.5,283.2],[129.7,290.0],[125.8,271.7],[108.0,265.9],[104.1,247.6],[139.7,259.1],[157.6,264.9],[171.5,252.3],[167.6,234.0],[189.4,258.1],[94.0,278.5],[75.7,274.5],[68.1,257.4],[79.1,242.2],[66.3,290.8],[78.8,304.7],[96.0,297.1],[49.4,255.5],[39.9,239.3],[47.6,222.1],[66.3,220.1],[21.7,243.2],[19.7,261.9],[36.9,269.4],[36.6,206.9],[42.4,189.0],[60.2,183.2],[74.1,195.8],[27.1,178.1],[12.0,189.1],[17.8,207.0],[64.1,164.9],[81.9,159.1],[85.8,140.8],[71.8,128.2],[103.6,135.0],[107.5,116.6],[125.3,110.8],[139.3,123.3],[93.5,104.1],[75.7,109.9],[61.8,97.3],[43.9,103.1],[30.0,90.6],[129.2,92.5],[146.3,84.8],[162.6,94.2],[162.6,112.9],[144.4,66.2],[126.0,62.3],[116.7,78.5],[178.8,84.8],[195.1,94.1],[211.3,84.7],[211.3,66.0],[195.1,112.9],[227.6,94.1],[243.8,84.7],[260.1,94.1],[260.1,112.9],[243.8,66.0],[260.0,56.6],[276.3,65.9],[260.0,37.8],[276.3,84.7],[292.6,94.1],[308.8,84.7],[308.8,65.9],[292.6,112.8],[308.8,122.2],[325.1,112.8],[308.9,140.9],[325.1,94.0],[341.3,84.6],[357.5,94.0],[357.6,112.8],[341.3,65.9],[373.8,84.6],[390.0,94.0],[406.3,84.6],[406.3,65.8],[422.5,94.0],[438.8,84.6],[455.0,93.9],[455.0,112.7],[438.8,65.8],[455.0,56.4],[455.0,37.7],[471.2,65.8],[471.3,84.5],[487.5,93.9],[503.7,84.5],[520.0,93.9],[487.5,112.7],[471.3,122.1],[503.8,122.0],[503.7,65.8]],"a3":[[-127.1,93.3,-49.0],[-115.9,68.1,-46.5],[-87.2,69.5,-44.6],[-73.7,51.3,-48.6],[-78.3,92.6,-37.7],[-51.8,98.6,-33.9],[-51.4,123.6,-19.0],[-68.1,139.3,-22.5],[-38.2,101.5,-59.2],[-13.5,87.1,-61.3],[-17.0,59.1,-60.8],[-17.8,45.4,-79.2],[-19.4,50.2,-37.3],[-31.9,128.4,-2.6],[-10.4,112.6,4.0],[-9.6,102.8,31.6],[7.2,109.3,46.3],[11.3,130.9,-0.4],[1.1,155.6,10.1],[-27.0,154.3,4.6],[-26.5,84.7,39.1],[-20.9,68.8,61.0],[1.8,51.7,54.6],[13.1,53.4,34.3],[-44.7,53.0,64.6],[-64.8,66.3,49.3],[-50.1,77.6,27.7],[8.9,33.9,71.9],[26.7,13.8,65.2],[13.3,-2.5,45.4],[-5.5,-15.0,50.2],[30.9,-0.6,89.7],[22.2,17.4,110.1],[0.8,31.6,97.7],[22.2,0.6,21.3],[7.2,-5.4,-0.5],[11.2,-32.2,-10.2],[15.9,-50.0,3.5],[7.8,-34.4,-35.8],[8.6,-58.5,-49.1],[5.4,-55.8,-78.0],[18.7,-68.6,-92.1],[-11.7,-76.8,-39.4],[-11.9,-102.4,-52.6],[-31.0,-120.0,-40.4],[-31.3,-145.7,-53.3],[-49.3,-162.4,-41.3],[-15.1,-42.7,-87.6],[-21.2,-16.7,-80.7],[-37.6,-13.4,-57.2],[-34.2,4.3,-42.7],[-34.8,-5.7,-103.8],[-42.5,-28.6,-119.0],[-21.2,-46.7,-113.9],[-57.1,-30.2,-54.5],[-78.5,-23.1,-38.8],[-72.1,-22.0,-10.5],[-79.7,-4.7,2.8],[-100.1,-41.4,-42.7],[-60.3,-42.8,-0.7],[-55.7,-45.0,26.3],[-38.2,-67.5,32.1],[-41.5,-88.4,22.9],[-80.3,-49.0,40.6],[-75.5,-50.1,68.2],[-62.3,-35.8,80.3],[-87.0,-69.7,79.2],[-19.7,-62.4,49.3],[-7.2,-80.7,65.5],[10.8,-99.6,53.1],[16.3,-119.7,63.0],[-25.5,-93.9,83.5],[-28.0,-79.2,107.4],[-11.1,-69.3,119.4],[-51.8,-77.9,116.0],[23.5,-90.9,32.3],[41.8,-107.0,19.5],[60.1,-92.7,2.3],[70.8,-102.6,-15.6],[28.9,-128.1,5.0],[66.3,-68.7,10.0],[83.4,-54.1,-5.3],[89.6,-28.5,6.1],[74.9,-16.3,19.1],[112.8,-19.4,-0.8],[121.4,5.8,6.3],[112.4,24.1,-14.4],[126.5,35.7,-28.3],[150.1,5.7,9.8],[159.6,24.8,29.4],[187.8,21.3,33.5],[154.1,52.0,22.4],[86.7,25.9,-15.9],[73.8,44.5,-31.7],[53.4,57.0,-15.4],[40.7,75.3,-21.1],[62.0,31.9,-55.1],[53.0,51.6,-74.1],[80.1,14.0,-68.5],[49.4,44.6,6.4]],"m":[0,1,1,2,4,5,5,6,2,4,13,14,14,15,6,13,20,21,21,22,15,20,27,28,28,29,22,27,34,35,35,36,29,34,38,39,39,40,36,38,47,48,48,49,40,47,54,55,55,56,49,54,59,60,60,61,56,59,67,68,68,69,61,67,75,76,76,77,69,75,80,81,81,82,77,80,84,85,85,86,82,84,92,93,93,94,86,92],"s":[2,3,6,7,5,8,8,9,9,10,10,11,10,12,15,16,14,17,17,18,18,19,19,13,22,23,21,24,24,25,25,26,26,20,29,30,28,31,31,32,32,33,33,27,36,37,40,41,39,42,42,43,43,44,44,45,45,46,49,50,48,51,51,52,52,53,53,47,56,57,55,58,61,62,60,63,63,64,64,65,64,66,69,70,68,71,71,72,72,73,72,74,77,78,76,79,82,83,86,87,85,88,88,89,89,90,89,91,94,95,93,96,96,97,96,98,94,99],"h":[0,3,4,7,11,12,13,16,20,23,27,30,34,37,38,41,46,47,50,54,57,59,62,65,66,67,70,73,74,75,78,80,83,84,87,92,95,99]}, fig=document.getElementById('hook'), svg=fig.querySelector('svg'), N=4,
+    BS=[].slice.call(svg.querySelectorAll('g[data-b]')), dbl=svg.querySelector('path[data-d]'), txt=svg.querySelector('g[data-t]'),
+    T=13, F=1400, run=true, seen=true, t0=null, het={}; D.h.forEach(function(i){het[i]=1});
+function ease(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x)}
+function seg(A,B){return 'M'+A[0].toFixed(1)+' '+A[1].toFixed(1)+'L'+B[0].toFixed(1)+' '+B[1].toFixed(1)}
+function draw(t){
+  var u=((t%T)+T)%T, k=u<2.5?0:u<4.1?ease((u-2.5)/1.6):u<9.4?1:u<11?1-ease((u-9.4)/1.6):0,
+      e=ease((u-2.5)/8.5), th=2*Math.PI*e, tl=0.3*Math.sin(Math.PI*e), c=Math.cos(th), s=Math.sin(th), q=[], zm=1;
+  for(var i=0;i<D.a2.length;i++){var a=D.a3[i], x=a[0]*c+a[2]*s, z=-a[0]*s+a[2]*c, y=a[1]*Math.cos(tl)-z*Math.sin(tl);
+    z=a[1]*Math.sin(tl)+z*Math.cos(tl); var p=F/(F-z*k); zm=Math.max(zm,Math.abs(z));
+    q.push([D.a2[i][0]+(D.c[0]+x*p-D.a2[i][0])*k, D.a2[i][1]+(D.c[1]+y*p-D.a2[i][1])*k, z]);}
+  function band(z){return k<.02?N-1:Math.max(0,Math.min(N-1,Math.floor((z/zm+1)/2*N)))}
+  var out=[]; for(var n=0;n<N;n++) out.push(['','','']);
+  [[D.s,0],[D.m,1]].forEach(function(L){for(var i=0;i<L[0].length;i+=2){var A=q[L[0][i]], B=q[L[0][i+1]]; out[band((A[2]+B[2])/2)][L[1]]+=seg(A,B);}});
+  for(var i=0;i<q.length;i++){var A=q[i], r=((het[i]?3.4:2.1)*(1+.25*A[2]/zm*k)).toFixed(1);
+    out[band(A[2])][2]+='M'+A[0].toFixed(1)+' '+A[1].toFixed(1)+'m-'+r+' 0a'+r+' '+r+' 0 1 0 '+(2*r)+' 0a'+r+' '+r+' 0 1 0 -'+(2*r)+' 0';}
+  BS.forEach(function(g,n){var p=g.children; p[0].setAttribute('d',out[n][0]); p[1].setAttribute('d',out[n][1]); p[2].setAttribute('d',out[n][2]);
+    g.style.opacity=String(1-k*(1-[.22,.45,.72,1][n])); p[2].style.opacity=String(Math.min(1,2.5*k));});
+  dbl.style.opacity=txt.style.opacity=String(Math.max(0,1-3*k));
+}
+function loop(now){ if(t0===null) t0=now; if(run&&seen) draw((now-t0)/1000); requestAnimationFrame(loop); }
+window.hookAt=function(t){run=false; draw(t)};
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+if('IntersectionObserver' in window) new IntersectionObserver(function(e){seen=e[0].isIntersecting}).observe(fig);
+requestAnimationFrame(loop);
+})();
+</script>
+</figure></div><nav class="btoc" data-newpage aria-label="Contents"><p class="k kick">Contents</p><ol><li><a href="#intro"><span class="n">00</span>Frontier biotech in first-class mail</a></li><li><a href="#map"><span class="n">01</span>Each peptide’s effect begins at its own address in the cell</a></li><li><a href="#glp1"><span class="n">02</span>GLP-1 drugs worked in people, and the money followed</a></li><li><a href="#motsc"><span class="n">03</span>Mitochondria write a hormone, MOTS-c; only a copy reached a human trial</a></li><li><a href="#bpc157"><span class="n">04</span>BPC-157 is a stomach-protein fragment tested almost only in rats</a></li><li><a href="#doors"><span class="n">05</span>On the skin or up the nose, a peptide is read only where it lands</a></li><li><a href="#matrix"><span class="n">06</span>The best-proven peptides all had an owner who paid for trials</a></li><li><a href="#supply"><span class="n">07</span>Made in days, a peptide chain leaves the factory in different envelopes</a></li><li><a href="#evidence"><span class="n">08</span>Most claims here hold in a rat, in one lab, for a molecule, not a vial</a></li><li><a href="#appendix"><span class="n"></span>Appendix</a></li><li><a href="#refs"><span class="n"></span>References</a></li></ol></nav></div><section class="ch chap" id="intro" data-num="00" data-name="Frontier biotech in first-class mail"><div class="wrap">
  <div class="k"><button class="fold" type="button" aria-expanded="true" aria-controls="intro"><b>00</b><span class="vh">Frontier biotech<br>in first&#8209;class mail</span></button></div>
  <h2>Frontier biotech<br>in first&#8209;class mail</h2>
  <p><span data-p style="--c:var(--glp)">Semaglutide</span> was tested in thousands of people before any pharmacy could sell it.<sup class="ref"><a href="#r98">98</a></sup> A vial of copper peptide powder skips that step: it comes in the post for $54 to $74, labelled &#8220;research use only&#8221;.<sup class="ref"><a href="#r78">78</a></sup> Both are peptides, short chains of amino acids, the kind of molecule the body uses to send messages: insulin is one, and so are glucagon-like peptide-1 (<span data-p style="--c:var(--glp)">GLP-1</span>) and oxytocin.<sup class="ref"><a href="#r1">1</a></sup> Each message works like a key. It fits a receptor on a cell, turns it on at nanomolar concentrations, then falls apart into plain amino acids. That last step is the catch. Native <span data-p style="--c:var(--glp)">GLP-1</span> is half gone in about 1.5 minutes,<sup class="ref"><a href="#r95">95</a></sup> and a bare chain is digested in the gut, so chemists hung a fatty tail on <span data-p style="--c:var(--glp)">semaglutide</span> to park it on albumin, the blood&#8217;s own carrier protein; 1.5 minutes became a week, bought with a threefold drop in how tightly the drug grips its receptor.<sup class="ref"><a href="#r18">18</a></sup> Nobody ran trials like that on the vial in the post. So this page asks two questions of every peptide it follows: does it work in people, and how would you know?</p>
@@ -4684,6 +4720,8 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
     spreads.pop(); probe.remove();
 
     var sp = null, slot = 0, bods = [], page = 0, chapPage = {}, cuts = [];
+    var tally = {wideWait: 0, wideNow: 0, wait: 0, under: 0, solo: 0};
+    window.__tally = tally;
 
     function newSpread(full) {
       sp = makeSpread(full); bods = bodies(sp); slot = 0;
@@ -4714,17 +4752,23 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
 
     /* A drawing rarely fills a whole spread top to bottom. What is left under it becomes two columns the chapter
        goes on flowing into, so the figure stays beside the text that cites it and the page has no dead half. */
-    function openUnder(figBox) {
-      var box = figBox.parentNode;                       /* .pgbody */
-      var free = box.clientHeight - figBox.getBoundingClientRect().height - 21;
-      if (free < 170) { figBox.classList.add('solo'); newSpread(false); return; }
+    function openUnder(slotBox) {
+      /* slotBox is the page's own .pgin, not the figure: measuring the figure's PARENT gave a box that wraps
+         the figure tightly, so `free` came out negative and every one of the 29 drawings took a whole spread
+         (`under` fired 0 times). The room is what the .pgbody has left under the drawing. */
+      var box = slotBox.parentNode;                      /* .pgbody */
+      var fig = slotBox.firstElementChild;
+      var tall = fig ? fig.getBoundingClientRect().height : slotBox.scrollHeight;
+      var free = box.clientHeight - tall - 21;
+      if (free < 110) { tally.solo++; slotBox.classList.add('solo'); newSpread(false); return; }
+      tally.under++;
       var under = document.createElement('div');
       under.className = 'undercols' + (window.innerWidth > PHONE ? '' : ' one');
       under.style.height = free + 'px';
       var c1 = document.createElement('div');
       c1.className = 'pgin';
       under.appendChild(c1);
-      bods = [figBox, c1];
+      bods = [slotBox, c1];
       if (window.innerWidth > PHONE) {
         var c2 = document.createElement('div');
         c2.className = 'pgin';
@@ -4754,8 +4798,28 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
         var wide = isFig && !b.classList.contains('cont') && pw < needWidth(b);
         if (b.dataset && b.dataset.newpage !== undefined && body().children.length) advance(false);
         if (wide && tryInline(b, body())) continue;
+        /* A drawing that needs the whole spread used to start one the moment it came up, which cut the page in
+           hand short and left its facing page blank: 33 of 103 pages under 70% full at 1280, 9 of them empty.
+           It waits instead, letting the prose that follows finish the spread, and opens its own on the next
+           turn. It never waits past a heading, so it stays inside the section that cites it, but inside that
+           section it waits as long as there is prose to finish the spread: a plate printed on the next spread
+           is what a book does, and a half-empty page beside a blank one is not. */
+        if (wide && (body().children.length || slot > 0) && (+(b.dataset.bkWait || 0)) < 24) {
+          var j = -1;
+          for (var q = 0; q < queue.length; q++) {
+            var nx = queue[q];
+            if (/^H[23]$/.test(nx.tagName) || (nx.classList && nx.classList.contains('fig'))) break;
+            j = q; break;
+          }
+          if (j >= 0) {
+            tally.wideWait++;
+            b.dataset.bkWait = (+(b.dataset.bkWait || 0)) + 1;
+            queue.splice(j + 1, 0, b);
+            continue;
+          }
+        }
         if (wide) {
-          if (body().children.length || slot > 0) newSpread(true);
+          if (body().children.length || slot > 0) { tally.wideNow++; newSpread(true); }
           else { sp.classList.add('figspread'); while (bods.length > 1) { bods.pop().closest('.pg').remove(); } sp.querySelector('.pg').classList.add('figpage'); bods = bodies(sp); slot = 0; }
         }
         body().appendChild(b);
@@ -4767,7 +4831,7 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
             if (drawing(b)) {
               var tail = shed(b, body());
               if (tail) { queue.unshift(tail); advance(false); continue; }
-              if (wide && fits(body())) { openUnder(b); continue; }
+              if (wide && fits(body())) { openUnder(body()); continue; }
               if (fits(body())) { advance(false); continue; }
               /* nothing left to shed: cut its text like any other block */
             }
@@ -4814,6 +4878,20 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
             }
             if (split) { cuts.push({head: split[0], tail: split[1]}); queue.unshift(split[1]); advance(false); continue; }
           }
+          /* A drawing that wants the whole spread and does not fit waits one place and lets the next block
+             finish the page, the same rule as above. Only for a drawing that needs the spread: tried for every
+             block, it cost 1920 two pages and three points of fill, because a drawing that fits a page is
+             better off starting one than being pushed down the chapter. */
+          if (wide && (+(b.dataset.bkWait || 0)) < 24 && body().children.length > 1 && room(body()) > 120 &&
+              queue.length && !/^H[23]$/.test(queue[0].tagName) &&
+              !(queue[0].classList && queue[0].classList.contains('fig')) &&
+              !(queue[0].dataset && queue[0].dataset.newpage !== undefined)) {
+            body().removeChild(b);
+            tally.wait++;
+            b.dataset.bkWait = (+(b.dataset.bkWait || 0)) + 1;
+            queue.splice(1, 0, b);
+            continue;
+          }
           body().removeChild(b);
           var head = body().lastElementChild;
           var isHead = head && (/^H[1-4]$/.test(head.tagName) ||
@@ -4827,7 +4905,7 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
           queue.unshift(b);
           continue;
         }
-        if (wide) openUnder(b);
+        if (wide) openUnder(body());
       }
     });
 
@@ -4889,6 +4967,62 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
       if (cols[1] && !cols[1].children.length) { u.classList.add('one'); cols[1].remove(); }
       if (cols[0] && !cols[0].children.length) u.remove();
     });
+
+    /* PULL UP. The first pass places each block where it falls, and a drawing that wants a whole spread leaves
+       the page before it short: at 1280 that was 29 of 96 pages under 70% of their height in ink, at 1920 26 of
+       58. So a second pass walks the pages in reading order and asks each one that is still under 88% full for
+       the next page's first block, taking it whole if it fits and cut if it does not. It never moves a drawing
+       (a drawing is on the page whose width its labels need), never pulls across a chapter, and leaves no
+       heading last on a page. */
+    (function pullUp() {
+      var boxes = [].slice.call(document.querySelectorAll('.pgin'));
+      var moved = 0;
+      for (var i = 0; i < boxes.length - 1; i++) {
+        var a = boxes[i];
+        if (a.classList.contains('figslot') || !a.children.length) continue;
+        var pgA = a.closest('.pg');
+        for (var guard = 0; guard < 12; guard++) {
+          if (a.scrollHeight > 0.88 * cap(a)) break;
+          var j = i + 1, nxt = null;
+          while (j < boxes.length && !boxes[j].children.length) j++;
+          if (j >= boxes.length) break;
+          nxt = boxes[j];
+          if (nxt.classList.contains('figslot')) break;
+          var pgB = nxt.closest('.pg');
+          /* a page with no chapter on it is the cover, and the cover is a boundary like any other: without
+             this, chapter 00's kicker was pulled up under the contents */
+          if (!pgA || !pgB || pgA.dataset.ch !== pgB.dataset.ch) break;
+          var blk = nxt.firstElementChild;
+          if (!blk || (blk.classList && blk.classList.contains('fig')) || blk.querySelector('svg')) break;
+          if (blk.dataset && blk.dataset.newpage !== undefined) break;
+          a.appendChild(blk);
+          if (fits(a)) { moved++; continue; }
+          var slack = parseFloat(getComputedStyle(blk).marginBottom) || 0, parts = null;
+          for (var t = 0; t < 3 && !parts; t++) {
+            parts = cut(blk, a, slack);
+            if (parts) {
+              a.replaceChild(parts[0], blk);
+              if (fits(a)) break;
+              slack += (a.scrollHeight - cap(a)) + 4;
+              a.replaceChild(blk, parts[0]);
+              parts = null;
+            }
+          }
+          if (parts) { nxt.insertBefore(parts[1], nxt.firstChild); moved++; break; }
+          a.removeChild(blk);
+          nxt.insertBefore(blk, nxt.firstChild);
+          break;
+        }
+        /* a heading must not be the last thing on a page it was pulled onto */
+        var last = a.lastElementChild;
+        if (last && a.children.length > 1 &&
+            (/^H[1-4]$/.test(last.tagName) || (last.classList && last.classList.contains('k')))) {
+          var after = boxes[i + 1];
+          if (after) { a.removeChild(last); after.insertBefore(last, after.firstChild); }
+        }
+      }
+      window.__pulled = moved;
+    })();
 
     /* a spread opened for content that never arrived (the end of a chapter) is dropped */
     spreads = spreads.filter(function (sp) {
@@ -5231,6 +5365,15 @@ addEventListener('load',band);document.addEventListener('toggle',band,true)})();
   setTimeout(probe, 6000);
 
   /* the measuring harness asks for the page boxes */
+  /* The hook on the title page plays on scroll-in, and inside a page box it is never scrolled into anything,
+     so it could sit at its first frame for good. The atlas exposes __still(), which puts its animations in
+     their end state; the book calls it once the pages are cut, and after every re-cut. */
+  function stillHook() {
+    try { if (typeof window.__still === 'function') window.__still(); } catch (e) {}
+  }
+  setTimeout(stillHook, 120);
+  setTimeout(stillHook, 1200);
+
   window.__pageBoxes = function () {
     return [].map.call(document.querySelectorAll('.pgin'), function (k) {
       var b = k.parentNode;
